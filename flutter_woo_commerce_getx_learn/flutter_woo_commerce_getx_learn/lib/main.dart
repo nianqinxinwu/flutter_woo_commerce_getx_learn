@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_woo_commerce_getx_learn/common/routers/index.dart';
+import 'common/index.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -20,8 +20,9 @@ class MyApp extends StatelessWidget {
       ),
 
       // 路由
-      initialRoute: '/',
-      getPages: RoutePages.list
+      initialRoute: RouteNames.systemSplash,
+      getPages: RoutePages.list,
+      navigatorObservers: [RoutePages.observer],
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }

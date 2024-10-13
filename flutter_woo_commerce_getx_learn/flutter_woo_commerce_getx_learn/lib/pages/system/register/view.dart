@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
-import 'widgets/widgets.dart';
 
 class RegisterPage extends GetView<RegisterController> {
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({super.key});
 
   // 主视图
   Widget _buildView() {
-    return const HelloWidget();
+    return const Center(
+      child: Text("RegisterPage"),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<RegisterController>(
+      init: RegisterController(),
+      id: "register",
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("register")),
