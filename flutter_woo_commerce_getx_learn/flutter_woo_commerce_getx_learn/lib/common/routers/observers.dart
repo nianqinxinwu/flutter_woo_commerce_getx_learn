@@ -47,10 +47,12 @@ class RouteObservers<R extends Route<dynamic>> extends RouteObserver<R> {
     debugPrint(RoutePages.history.toString());
   }
 
+  @override
   void didStartUserGesture(Route<dynamic> route, Route<dynamic>? previousRoute) {
     debugPrint('didStartUserGesture ${route.settings.name}');
   }
 
+  @override
   void didStopUserGesture() {
     debugPrint('didStopUserGesture');
   }
