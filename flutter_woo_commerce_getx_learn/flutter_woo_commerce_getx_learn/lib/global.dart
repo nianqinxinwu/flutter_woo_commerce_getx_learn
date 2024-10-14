@@ -10,6 +10,9 @@ class Global {
 
     // 将Get  压到内存中初始化
     Get.put<ConfigService>(ConfigService());
+
+    // 本地存储初始化(工具类)
+    await Storage().init();
   }
 }
 
