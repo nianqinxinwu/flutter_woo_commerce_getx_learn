@@ -27,7 +27,13 @@ class MyApp extends StatelessWidget {
       initialRoute: RouteNames.systemSplash,
       getPages: RoutePages.list,
       navigatorObservers: [RoutePages.observer],
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+
+      // 多语言
+      translations: Translation(), // 词典
+      localizationsDelegates: Translation.localizationsDelegates, // 代理
+      supportedLocales: Translation.supportedLocales, // 支持语言
+      locale: ConfigService.to.locale,// 当前语言
+      fallbackLocale: Translation.fallbackLocale, // 默认语言
     );
   }
 }
