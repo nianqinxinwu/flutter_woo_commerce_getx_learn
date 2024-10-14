@@ -39,6 +39,7 @@ dependencies:
   # 用于管理状态，路由，依赖注入等
   # 文档地址：https://pub.dev/packages/get
   get: ^4.6.6
+  package_info_plus: ^8.0.3
 
 dev_dependencies:
   flutter_test:
