@@ -5,6 +5,7 @@ import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 class StylesIndexController extends GetxController {
   StylesIndexController();
 
+// 语言切换
 onLanguageSelected() {
   var en = Translation.supportedLocales[0];
   var zh = Translation.supportedLocales[1];
@@ -14,6 +15,12 @@ onLanguageSelected() {
        ? zh
         : en,
   );
+  update(["styles_index"]);
+}
+
+// 主题切换
+onThemeSelected() async {
+  await ConfigService.to.switchThemeModel();
   update(["styles_index"]);
 }
 
