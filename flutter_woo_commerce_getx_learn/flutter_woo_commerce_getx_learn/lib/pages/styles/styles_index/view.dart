@@ -12,6 +12,12 @@ class StylesIndexPage extends GetView<StylesIndexController> {
     return Column(
       children: [
         ListTile(
+          onTap: () => Get.toNamed(RouteNames.stylesText),
+          title: const Text(
+            "Text 文本"
+          ),
+        ),
+        ListTile(
           onTap: controller.onLanguageSelected,
           title: Text(
             "语言: ${ConfigService.to.locale.toLanguageTag()}"
