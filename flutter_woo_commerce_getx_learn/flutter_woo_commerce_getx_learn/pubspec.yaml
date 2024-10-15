@@ -51,6 +51,14 @@ dependencies:
   # 网络请求库
   # 文档地址：https://pub.dev/packages/dio
   dio: ^5.7.0
+
+  # 矢量图加载库
+  # 文档地址：https://pub.dev/packages/flutter_svg
+  flutter_svg: ^2.0.10+1
+
+  # 角标库
+  # 文档地址：https://pub.dev/packages/badges
+  badges: ^3.1.2
   # flutter_launcher_icons: ^0.14.1
 
   # flutter pub add dio_cookie_manager

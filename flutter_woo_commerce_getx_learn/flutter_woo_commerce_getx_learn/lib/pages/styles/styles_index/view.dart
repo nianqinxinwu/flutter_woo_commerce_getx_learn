@@ -11,6 +11,11 @@ class StylesIndexPage extends GetView<StylesIndexController> {
   Widget _buildView() {
     return Column(
       children: [
+
+        ListTile(
+          onTap: () => Get.toNamed(RouteNames.stylesIcon),
+          title: const TextWidget.body1("Icon 图标"),
+        ),
         ListTile(
           onTap: () => Get.toNamed(RouteNames.stylesText),
           title: const Text(
