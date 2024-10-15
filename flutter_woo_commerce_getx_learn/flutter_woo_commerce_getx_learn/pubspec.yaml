@@ -48,6 +48,15 @@ dependencies:
   # 文档地址：https://pub.dev/packages/shared_preferences
   shared_preferences: ^2.3.2
 
+  # 网络请求库
+  # 文档地址：https://pub.dev/packages/dio
+  dio: ^5.7.0
+
+  # flutter pub add dio_cookie_manager
+  # 文档地址：https://pub.dev/packages/dio_cookie_manager
+  # flutter pub add cookie_jar
+  # 文档地址：https://pub.dev/packages/cookie_jar
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
