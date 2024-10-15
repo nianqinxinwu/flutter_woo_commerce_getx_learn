@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'index.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({super.key});
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -23,7 +23,8 @@ class _MainPageState extends State<MainPage>
 }
 
 class _MainViewGetX extends GetView<MainController> {
-  const _MainViewGetX({Key? key}) : super(key: key);
+
+  const _MainViewGetX({super.key});
 
   // 主视图
   Widget _buildView() {

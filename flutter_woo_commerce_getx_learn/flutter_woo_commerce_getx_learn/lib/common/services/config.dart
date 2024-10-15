@@ -14,7 +14,6 @@ class ConfigService extends GetxService {
 
   Locale locale = PlatformDispatcher.instance.locale;
 
-
   @override
   void onReady() {
     super.onReady();
