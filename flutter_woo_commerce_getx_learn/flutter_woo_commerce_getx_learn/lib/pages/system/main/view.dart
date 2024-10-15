@@ -24,7 +24,7 @@ class _MainPageState extends State<MainPage>
 
 class _MainViewGetX extends GetView<MainController> {
 
-  const _MainViewGetX({super.key});
+  const _MainViewGetX();
 
   // 主视图
   Widget _buildView() {

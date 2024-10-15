@@ -125,6 +125,7 @@ class RequestInterceptors extends Interceptor {
     }
   }
 
+// ignore: unused_element
 Future<void> _errorNoAuthLogout() async {
   // await UserService.to.logout();
   Get.offAllNamed(RouteNames.systemLogin);
