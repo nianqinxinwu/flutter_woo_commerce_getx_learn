@@ -11,9 +11,9 @@ class IconPage extends GetView<IconController> {
   Widget _buildView() {
     return ListView(
       children: [
-        ListTile(
+        const ListTile(
           leading: IconWidget.icon(Icons.home),
-          title: const TextWidget.body1("IconWidget.icon"),
+          title: TextWidget.body1("IconWidget.icon"),
         ),
         ListTile(
           leading: IconWidget.image(AssetsImages.defaultPng),

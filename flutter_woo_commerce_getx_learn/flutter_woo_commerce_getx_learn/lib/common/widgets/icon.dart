@@ -60,8 +60,7 @@ class IconWidget extends StatelessWidget {
     this.fit,
   });
 
-  // ignore: prefer_const_constructors_in_immutables
-  IconWidget.icon(
+  const IconWidget.icon(
     this.iconData, {
       super.key,
       this.type = IconWidgetType.icon,

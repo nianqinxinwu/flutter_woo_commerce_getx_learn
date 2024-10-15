@@ -155,7 +155,7 @@ class TextWidget extends StatelessWidget {
           fontSize: 14,
           fontWeight: FontWeight.w500,
           color: color,
-        );
+  );
 
 /// 文字 - 导航
   const TextWidget.navigation({
