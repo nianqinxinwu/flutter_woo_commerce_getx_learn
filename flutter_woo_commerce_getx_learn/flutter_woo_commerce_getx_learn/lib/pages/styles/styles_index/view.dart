@@ -40,7 +40,11 @@ class StylesIndexPage extends GetView<StylesIndexController> {
           ),
         ),
 
-
+        // input 输入框
+        ListTile(
+          onTap: () => Get.toNamed(RouteNames.stylesInputs),
+          title: const TextWidget.body1("Input 输入框"),
+        ),
 
         // ListTile 列表项
         ListTile(
