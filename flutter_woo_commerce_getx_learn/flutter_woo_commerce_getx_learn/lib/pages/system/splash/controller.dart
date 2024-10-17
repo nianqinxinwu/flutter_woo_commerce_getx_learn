@@ -1,3 +1,4 @@
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
@@ -17,6 +18,9 @@ class SplashController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+
+    // 删除设备启动图
+    FlutterNativeSplash.remove();
     _initData();
   }
 

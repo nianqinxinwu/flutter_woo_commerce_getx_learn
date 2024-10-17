@@ -68,6 +68,8 @@ dependencies:
   # 文档地址：https://pub.dev/packages/flutter_screenutil
   # 中文文档: https://github.com/OpenFlutter/flutter_screenutil/blob/master/README_CN.md
   flutter_screenutil: ^5.9.3
+  # 文档地址：https://pub.dev/packages/flutter_native_splash
+  flutter_native_splash: ^2.2.16
   # flutter_launcher_icons: ^0.14.1
 
   # flutter pub add dio_cookie_manager
@@ -75,11 +77,9 @@ dependencies:
   # flutter pub add cookie_jar
   # 文档地址：https://pub.dev/packages/cookie_jar
 
-# fultter_launcher_icons:
-#   android: true
-#   ios: true
-#   image_android_path: "assets/icons/launcher_android.png"
-#   image_ios_path: "assets/icons/launcher_ios.png"
+flutter_native_splash:
+  color: "#ffffff"
+  image: "assets/icons/launcher_android.png"
 
 dev_dependencies:
   flutter_test:
