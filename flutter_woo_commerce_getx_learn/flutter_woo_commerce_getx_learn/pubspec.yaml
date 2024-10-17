@@ -63,6 +63,11 @@ dependencies:
   # 图片加载库  (缓存, 加载进度, 失败重试，gif,缩放, 预览)
   # 文档地址：https://pub.dev/packages/extended_image
   extended_image: ^8.3.1
+
+  # App 适配库
+  # 文档地址：https://pub.dev/packages/flutter_screenutil
+  # 中文文档: https://github.com/OpenFlutter/flutter_screenutil/blob/master/README_CN.md
+  flutter_screenutil: ^5.9.3
   # flutter_launcher_icons: ^0.14.1
 
   # flutter pub add dio_cookie_manager
