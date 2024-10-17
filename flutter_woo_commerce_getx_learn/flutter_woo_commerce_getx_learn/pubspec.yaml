@@ -70,6 +70,10 @@ dependencies:
   flutter_screenutil: ^5.9.3
   # 文档地址：https://pub.dev/packages/flutter_native_splash
   flutter_native_splash: ^2.2.16
+
+  # 轮播图库
+  # 文档地址：https://pub.dev/packages/carousel_slider
+  carousel_slider: ^5.0.0
   # flutter_launcher_icons: ^0.14.1
 
   # flutter pub add dio_cookie_manager
