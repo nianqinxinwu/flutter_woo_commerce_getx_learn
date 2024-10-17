@@ -18,22 +18,45 @@ class WelcomePage extends GetView<WelcomeController> {
       const SizedBox() :
       WelcomeSliderWidget(
         controller.items!,
+        carouselController: controller.carouselController,
         onPageChanged: controller.onPageChanged
       ),
 
     );
   }
 
+  // bar
+  // skip + indicator + next
   Widget _buildBar() {
     return GetBuilder<WelcomeController>(
       id: "bar",
       init: controller,
       builder: (controller) {
-        return <Widget>[
+        return controller.isShowStart
+        ?
+        // 开始
+        ButtonWidget.primary(
+          LocaleKeys.welcomeStart.tr,
+          onTap: controller.onToMain,)
+        :
+         <Widget>[
+          // 跳过按钮
+          ButtonWidget.text(
+            LocaleKeys.welcomeSkip.tr,
+            onTap: controller.onToMain,
+          ),
+
           // 指示器
           SliderIndicatorWidget(
             length: 3,
-            currentIndex: controller.currentIndex),
+            currentIndex: controller.currentIndex
+          ),
+
+          // 下一页
+          ButtonWidget.text(
+            LocaleKeys.welcomeNext.tr,
+            onTap: controller.onNext,
+          ),
         ].toRow(mainAxisAlignment: MainAxisAlignment.spaceAround,);
       }
     );

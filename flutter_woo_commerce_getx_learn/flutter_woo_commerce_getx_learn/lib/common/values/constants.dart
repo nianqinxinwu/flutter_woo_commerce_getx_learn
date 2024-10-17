@@ -11,4 +11,7 @@ class Constants {
 
  // 配色主题 key
   static const storageThemeCode = 'theme_code';
+
+  // 欢迎页首次打开
+  static const storageAlreadOpen = 'already_open';
 }
