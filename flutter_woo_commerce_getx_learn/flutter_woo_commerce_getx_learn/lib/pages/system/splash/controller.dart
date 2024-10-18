@@ -26,7 +26,12 @@ class SplashController extends GetxController {
 
       } else {
         // 欢迎页已展示过
-        Get.offNamed(RouteNames.main);
+        Get.offAllNamed(RouteNames.main);
+
+       // 未登录时展示登录页
+
+
+
         // 封装组件测试入口
         // Get.offNamed(RouteNames.stylesStylesIndex);
       }
