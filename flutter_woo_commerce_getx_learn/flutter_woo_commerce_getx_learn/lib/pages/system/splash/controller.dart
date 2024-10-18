@@ -1,6 +1,5 @@
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
-import 'package:flutter_woo_commerce_getx_learn/common/routers/names.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
@@ -24,9 +23,12 @@ class SplashController extends GetxController {
       // 欢迎页未展示过
       if (ConfigService.to.isAlreadyOpen == false) {
         Get.offNamed(RouteNames.systemWelcome);
+
       } else {
         // 欢迎页已展示过
         Get.offNamed(RouteNames.main);
+        // 封装组件测试入口
+        // Get.offNamed(RouteNames.stylesStylesIndex);
       }
     });
   }

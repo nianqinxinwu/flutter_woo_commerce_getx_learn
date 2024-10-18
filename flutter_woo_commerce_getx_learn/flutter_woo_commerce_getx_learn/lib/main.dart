@@ -28,11 +28,12 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
 
           // 样式
-          theme: ConfigService.to.isDarkModel ? AppTheme.dark : AppTheme.light,
+          theme: ConfigService.to.isDarkModel
+            ? AppTheme.dark : AppTheme.light,
 
           // 路由
           // 测试用路由
-          //initialRoute: RouteNames.stylesStylesIndex,
+          // initialRoute: RouteNames.stylesTextForm,
 
           initialRoute: RouteNames.systemSplash,
           getPages: RoutePages.list,
