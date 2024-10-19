@@ -10,6 +10,7 @@ class Global {
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
     // 本地存储初始化(工具类)
     await Storage().init();
+    Loading();  // Toast 工具类初始化
 
     // 将Get  压到内存中初始化
     Get.put<ConfigService>(ConfigService());

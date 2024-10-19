@@ -82,6 +82,7 @@ dependencies:
   # pin 输入框
   # 文档地址：https://pub.dev/packages/pinput
   pinput: ^5.0.0
+  flutter_easyloading: ^3.0.5
   # flutter_launcher_icons: ^0.14.1
 
   # flutter pub add dio_cookie_manager

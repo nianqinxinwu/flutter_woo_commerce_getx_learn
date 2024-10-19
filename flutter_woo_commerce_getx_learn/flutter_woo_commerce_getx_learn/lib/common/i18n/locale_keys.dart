@@ -51,5 +51,10 @@ class LocaleKeys {
   static const validatorMax = 'validator_max';
   static const validatorPassword = 'validator_password';
 
+    // 注册PIN - register pin
+  static const registerPinTitle = 'register_pin_title';
+  static const registerPinDesc = 'register_pin_desc';
+  static const registerPinFormTip = 'register_pin_form_tip';
+  static const registerPinButton = 'register_pin_button';
 
 }

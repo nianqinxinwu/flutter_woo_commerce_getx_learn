@@ -55,5 +55,12 @@ Map<String, String> localeZh = {
   LocaleKeys.validatorMax: '长度不能大于 @size',
   LocaleKeys.validatorPassword: '密码长度必须 大于 @min 小于 @max',
 
+  // 注册PIN - register pin
+  LocaleKeys.registerPinTitle: '验证',
+  LocaleKeys.registerPinDesc: '我们将向您发送PIN码以继续您的帐户',
+  LocaleKeys.registerPinFormTip: 'Pin',
+  LocaleKeys.registerPinButton: '提交',
+
+
 };
 
