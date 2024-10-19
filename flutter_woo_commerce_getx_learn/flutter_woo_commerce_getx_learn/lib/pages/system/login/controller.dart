@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
+import 'package:flutter_woo_commerce_getx_learn/common/services/user.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
   LoginController();
 
   // 定义输入控制
-  TextEditingController usernameController = TextEditingController(text: "ducafecat5");
-  TextEditingController passwordController = TextEditingController(text: "12345678");
+  TextEditingController usernameController =
+      TextEditingController(text: "ducafecat5");
+  TextEditingController passwordController =
+      TextEditingController(text: "12345678");
 
   // 表单Key
   final GlobalKey formKey = GlobalKey<FormState>();
@@ -18,7 +21,21 @@ class LoginController extends GetxController {
       try {
         Loading.show();
 
+        // API请求
+        UserTokenModel res = await UserApi.login(UserLoginReq(
+            username: usernameController.text,
+            password: passwordController.text,
+        ));
+
+        // 本地保存token
+        await UserService.to.setToken(res.token!);
+
+        // 获取用户资料
+        await UserService.to.getProfile();
+
+        Loading.success();
         Get.back(result: true);
+
       } finally {
         Loading.dismiss();
       }

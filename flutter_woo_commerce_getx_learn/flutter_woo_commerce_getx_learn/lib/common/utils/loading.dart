@@ -52,7 +52,7 @@ class Loading {
   }
 
   // 成功
-  static void success(String? text) {
+  static void success([String? text]) {
     Future.delayed(
       const Duration(milliseconds: _milliseconds),
       () => EasyLoading.showSuccess(text ?? 'Success'),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_woo_commerce_getx_learn/common/services/user.dart';
 import 'package:get/get.dart';
 import 'common/index.dart';
 
@@ -17,5 +18,8 @@ class Global {
 
     // 网络请求初始化
     Get.put<WPHttpService>(WPHttpService());
+
+    // 用户信息相关
+    Get.put<UserService>(UserService());
   }
 }

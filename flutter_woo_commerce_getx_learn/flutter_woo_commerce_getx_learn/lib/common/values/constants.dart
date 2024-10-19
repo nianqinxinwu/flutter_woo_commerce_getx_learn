@@ -14,4 +14,10 @@ class Constants {
 
   // 欢迎页首次打开
   static const storageAlreadOpen = 'already_open';
+
+  // 登录成功后 token
+  static const storageToken = 'token';
+
+  // 用户资料缓存
+  static const storageProfile = 'profile';
 }

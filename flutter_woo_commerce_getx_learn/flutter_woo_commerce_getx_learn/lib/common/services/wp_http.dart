@@ -97,9 +97,11 @@ class RequestInterceptors extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // super.onRequest(options, handler);
-    // if (UserService.to.hasToken) {
-    //   options.headers['Authorization'] = 'Bearer ${UserService.to.token}';
-    // }
+
+    // http header 头加入 Authorization token
+    if (UserService.to.hasToken) {
+      options.headers['Authorization'] = 'Bearer ${UserService.to.token}';
+    }
     return handler.next(options);
     // 如果你想完成请求并返回一些自定义数据，你可以resolve一个Response对象 `handler.resolve(response)`。
     // 这样请求将会被终止，上层then会被调用，then中返回的数据将是你的自定义response.
@@ -125,9 +127,8 @@ class RequestInterceptors extends Interceptor {
     }
   }
 
-// ignore: unused_element
   Future<void> _errorNoAuthLogout() async {
-    // await UserService.to.logout();
+    await UserService.to.logout();
     Get.toNamed(RouteNames.systemLogin);
   }
 
@@ -141,7 +142,9 @@ class RequestInterceptors extends Interceptor {
           final response = err.response;
           final errorMessage = ErrorMessageModel.fromJson(response?.data);
           switch (errorMessage.statusCode) {
+            // 401 未登录
             case 401:
+              // 注销 并跳转到登录页面
               _errorNoAuthLogout();
               break;
             case 404:
