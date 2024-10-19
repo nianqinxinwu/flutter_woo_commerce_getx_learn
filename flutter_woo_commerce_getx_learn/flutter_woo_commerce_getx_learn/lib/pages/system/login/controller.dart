@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
-import 'package:flutter_woo_commerce_getx_learn/common/services/user.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
@@ -21,10 +20,11 @@ class LoginController extends GetxController {
       try {
         Loading.show();
 
+        var password = EncryptUtil().aesEncode(passwordController.text);
         // API请求
         UserTokenModel res = await UserApi.login(UserLoginReq(
             username: usernameController.text,
-            password: passwordController.text,
+            password: password,
         ));
 
         // 本地保存token
