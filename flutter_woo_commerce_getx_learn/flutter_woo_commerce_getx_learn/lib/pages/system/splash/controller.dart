@@ -18,13 +18,13 @@ class SplashController extends GetxController {
 
   _jumpToPage() {
     // 欢迎页
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1)).then((_) {
       // 欢迎页未展示过
-      if (ConfigService.to.isAlreadyOpen == false) {
-        Get.offNamed(RouteNames.systemWelcome);
+      if (!ConfigService.to.isAlreadyOpen) {
+        Get.offAllNamed(RouteNames.main);
       } else {
         // 欢迎页已展示过
-        Get.offAllNamed(RouteNames.main);
+        Get.offAllNamed(RouteNames.systemWelcome);
 
         // 未登录时展示登录页
 
