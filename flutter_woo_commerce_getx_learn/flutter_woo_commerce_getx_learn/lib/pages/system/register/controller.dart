@@ -42,6 +42,7 @@ class RegisterController extends GetxController {
           email: emailController.text,
           firstName: firstNameController.text,
           lastName: lastNameController.text,
+          password: password,
         ),
       );
     }
