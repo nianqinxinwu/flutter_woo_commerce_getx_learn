@@ -9,7 +9,7 @@ class Constants {
   // 本地存储 key
   static const storageLanguageCode = 'language_code';
 
- // 配色主题 key
+  // 配色主题 key
   static const storageThemeCode = 'theme_code';
 
   // 欢迎页首次打开

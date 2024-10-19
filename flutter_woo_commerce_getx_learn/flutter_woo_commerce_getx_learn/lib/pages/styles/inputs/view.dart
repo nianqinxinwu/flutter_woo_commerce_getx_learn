@@ -21,7 +21,7 @@ class InputsPage extends GetView<InputsController> {
         hintText: "文本",
       ).width(300).paddingBottom(AppSpace.listRow),
 
-       /// 文本/边框
+      /// 文本/边框
       const InputWidget.textBorder(
         hintText: "文本/边框",
       ).width(300).paddingBottom(AppSpace.listRow),

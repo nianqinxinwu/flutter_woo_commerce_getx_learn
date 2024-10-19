@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';//hide CarouselController
+import 'package:flutter/material.dart'; //hide CarouselController
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 
@@ -25,11 +25,7 @@ class WelcomeSliderWidget extends StatelessWidget {
     return Builder(builder: (context) {
       return <Widget>[
         // 图片
-        if (item.image != null)
-          Image.asset(
-            item.image!,
-            fit: BoxFit.cover
-          ),
+        if (item.image != null) Image.asset(item.image!, fit: BoxFit.cover),
         // 标题
         if (item.title != null)
           TextWidget.title1(
@@ -47,10 +43,11 @@ class WelcomeSliderWidget extends StatelessWidget {
             softWrap: true,
             textAlign: TextAlign.center,
           ),
-
-      ].toColumn(
-        mainAxisAlignment:MainAxisAlignment.spaceAround,
-      ).width(MediaQuery.of(context).size.width);
+      ]
+          .toColumn(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          )
+          .width(MediaQuery.of(context).size.width);
     });
   }
 
@@ -65,7 +62,6 @@ class WelcomeSliderWidget extends StatelessWidget {
         enableInfiniteScroll: false,
         autoPlay: false,
         onPageChanged: (index, reason) => onPageChanged(index),
-
       ),
       items: <Widget>[
         for (var item in items) sliderItem(item),

@@ -2,7 +2,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 // key-value storage 离线存储
 class Storage {
-
   static final Storage _instance = Storage._internal();
   factory Storage() => _instance;
   late final SharedPreferences _prefs;
@@ -30,7 +29,7 @@ class Storage {
   }
 
   bool getBool(String key) {
-    return  _prefs.getBool(key) ?? false;
+    return _prefs.getBool(key) ?? false;
   }
 
   List<String> getStringList(String key) {

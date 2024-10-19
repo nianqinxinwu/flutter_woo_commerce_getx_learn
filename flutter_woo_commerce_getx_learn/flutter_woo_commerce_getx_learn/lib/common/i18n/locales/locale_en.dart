@@ -1,7 +1,7 @@
 import '../locale_keys.dart';
 
 /// 多语言 - 英文
-Map<String, String>  localeEn = {
+Map<String, String> localeEn = {
   // 通用
   LocaleKeys.commonSearchInput: 'Enter keyword',
   LocaleKeys.commonBottomSave: 'Save',
@@ -18,15 +18,18 @@ Map<String, String>  localeEn = {
   LocaleKeys.stylesTitle: 'Styles && Function',
 
   // welcome 欢迎
-  LocaleKeys.welcomeOneTitle : 'Choose Your Desire Product',
-  LocaleKeys.welcomeOneDesc : 'Contrary to popular belief, Lorem Ipsum is not simply random text',
-  LocaleKeys.welcomeTwoTitle : 'Complete your shopping',
-  LocaleKeys.welcomeTwoDesc : 'Contrary to popular belief, Lorem Ipsum is not simply random text',
-  LocaleKeys.welcomeThreeTitle : 'Get product at your door',
-  LocaleKeys.welcomeThreeDesc : 'Contrary to popular belief, Lorem Ipsum is not simply random text',
-  LocaleKeys.welcomeSkip : 'Skip',
-  LocaleKeys.welcomeNext : 'Next',
-  LocaleKeys.welcomeStart : 'Get Started',
+  LocaleKeys.welcomeOneTitle: 'Choose Your Desire Product',
+  LocaleKeys.welcomeOneDesc:
+      'Contrary to popular belief, Lorem Ipsum is not simply random text',
+  LocaleKeys.welcomeTwoTitle: 'Complete your shopping',
+  LocaleKeys.welcomeTwoDesc:
+      'Contrary to popular belief, Lorem Ipsum is not simply random text',
+  LocaleKeys.welcomeThreeTitle: 'Get product at your door',
+  LocaleKeys.welcomeThreeDesc:
+      'Contrary to popular belief, Lorem Ipsum is not simply random text',
+  LocaleKeys.welcomeSkip: 'Skip',
+  LocaleKeys.welcomeNext: 'Next',
+  LocaleKeys.welcomeStart: 'Get Started',
 
   // 登录、注册 - 通用
   LocaleKeys.loginForgotPassword: 'Forgot Password?',
@@ -58,5 +61,4 @@ Map<String, String>  localeEn = {
   LocaleKeys.registerPinDesc: 'we will send you a Pin to continue your account',
   LocaleKeys.registerPinFormTip: 'Pin',
   LocaleKeys.registerPinButton: 'Submit',
-
 };

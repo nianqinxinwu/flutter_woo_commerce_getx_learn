@@ -17,20 +17,16 @@ class SplashController extends GetxController {
   // }
 
   _jumpToPage() {
-
     // 欢迎页
-    Future.delayed(const Duration(seconds: 1), (){
+    Future.delayed(const Duration(seconds: 1), () {
       // 欢迎页未展示过
       if (ConfigService.to.isAlreadyOpen == false) {
         Get.offNamed(RouteNames.systemWelcome);
-
       } else {
         // 欢迎页已展示过
         Get.offAllNamed(RouteNames.main);
 
-       // 未登录时展示登录页
-
-
+        // 未登录时展示登录页
 
         // 封装组件测试入口
         // Get.offNamed(RouteNames.stylesStylesIndex);

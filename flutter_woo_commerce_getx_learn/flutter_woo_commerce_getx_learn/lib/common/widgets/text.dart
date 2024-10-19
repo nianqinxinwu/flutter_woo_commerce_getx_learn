@@ -45,20 +45,20 @@ class TextWidget extends StatelessWidget {
   /// 文字 - 标题1
   const TextWidget.title1(
     this.text, {
-     super.key,
-     this.color,
-     this.size,
-     this.weight,
-     this.maxLines = 1,
-     this.softWrap = false,
-     this.overflow = TextOverflow.clip,
-     this.textAlign,
-     }) : style = const TextStyle(
-      fontSize: 24,
-      fontWeight: FontWeight.bold,
-      );
+    super.key,
+    this.color,
+    this.size,
+    this.weight,
+    this.maxLines = 1,
+    this.softWrap = false,
+    this.overflow = TextOverflow.clip,
+    this.textAlign,
+  }) : style = const TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        );
 
- /// 文字 - 标题2
+  /// 文字 - 标题2
   const TextWidget.title2(
     this.text, {
     super.key,
@@ -69,12 +69,12 @@ class TextWidget extends StatelessWidget {
     this.size,
     this.weight,
     this.textAlign,
-  })  : style = const TextStyle(
+  }) : style = const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w500,
         );
 
-/// 文字 - 标题3
+  /// 文字 - 标题3
   const TextWidget.title3(
     this.text, {
     super.key,
@@ -85,12 +85,12 @@ class TextWidget extends StatelessWidget {
     this.size,
     this.weight,
     this.textAlign,
-  })  : style = const TextStyle(
+  }) : style = const TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w500,
         );
 
-/// 文字 - 正文1
+  /// 文字 - 正文1
   const TextWidget.body1(
     this.text, {
     super.key,
@@ -101,12 +101,12 @@ class TextWidget extends StatelessWidget {
     this.size,
     this.weight,
     this.textAlign,
-  })  : style = const TextStyle(
+  }) : style = const TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w500,
         );
 
-/// 文字 - 正文2
+  /// 文字 - 正文2
   const TextWidget.body2(
     this.text, {
     super.key,
@@ -117,12 +117,12 @@ class TextWidget extends StatelessWidget {
     this.size,
     this.weight,
     this.textAlign,
-  })  : style = const TextStyle(
+  }) : style = const TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.w400,
         );
 
-/// 文字 - 正文3
+  /// 文字 - 正文3
   const TextWidget.body3(
     this.text, {
     super.key,
@@ -133,14 +133,13 @@ class TextWidget extends StatelessWidget {
     this.size,
     this.weight,
     this.textAlign,
-  })  : style = const TextStyle(
+  }) : style = const TextStyle(
           fontSize: 9,
           fontWeight: FontWeight.w300,
         );
 
- /// 文字 - 按钮
-  TextWidget.button(
-    {
+  /// 文字 - 按钮
+  TextWidget.button({
     super.key,
     required this.text,
     this.maxLines = 1,
@@ -155,9 +154,9 @@ class TextWidget extends StatelessWidget {
           fontSize: 14,
           fontWeight: FontWeight.w500,
           color: color,
-  );
+        );
 
-/// 文字 - 导航
+  /// 文字 - 导航
   const TextWidget.navigation({
     super.key,
     required this.text,
@@ -168,11 +167,10 @@ class TextWidget extends StatelessWidget {
     this.size,
     this.weight,
     this.textAlign,
-  })  : style = const TextStyle(
+  }) : style = const TextStyle(
           fontSize: 24,
           fontWeight: FontWeight.w700,
         );
-
 
   @override
   Widget build(BuildContext context) {
@@ -183,14 +181,15 @@ class TextWidget extends StatelessWidget {
     return Text(
       text,
       style: style?.copyWith(
-        color: color,
-        fontSize: size,
-        fontWeight: weight,
-      ) ?? TextStyle(
-        color: color,
-        fontSize: size,
-        fontWeight: weight,
-      ),
+            color: color,
+            fontSize: size,
+            fontWeight: weight,
+          ) ??
+          TextStyle(
+            color: color,
+            fontSize: size,
+            fontWeight: weight,
+          ),
       maxLines: maxLines,
       softWrap: softWrap,
       overflow: overflow,

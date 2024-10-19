@@ -18,8 +18,11 @@ class TextPage extends GetView<TextController> {
         const ListTile(title: TextWidget.body1("body1")),
         const ListTile(title: TextWidget.body2("body2")),
         const ListTile(title: TextWidget.body3("body3")),
-        const ListTile(title: TextWidget.navigation( text: 'navigation')),
-        ListTile(title: TextWidget.button(text: 'button',)),
+        const ListTile(title: TextWidget.navigation(text: 'navigation')),
+        ListTile(
+            title: TextWidget.button(
+          text: 'button',
+        )),
       ],
     );
   }

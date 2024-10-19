@@ -13,15 +13,11 @@ class WelcomePage extends GetView<WelcomeController> {
     return GetBuilder<WelcomeController>(
       id: "slider",
       init: controller,
-      builder: (controller) =>
-      controller.items == null ?
-      const SizedBox() :
-      WelcomeSliderWidget(
-        controller.items!,
-        carouselController: controller.carouselController,
-        onPageChanged: controller.onPageChanged
-      ),
-
+      builder: (controller) => controller.items == null
+          ? const SizedBox()
+          : WelcomeSliderWidget(controller.items!,
+              carouselController: controller.carouselController,
+              onPageChanged: controller.onPageChanged),
     );
   }
 
@@ -29,37 +25,36 @@ class WelcomePage extends GetView<WelcomeController> {
   // skip + indicator + next
   Widget _buildBar() {
     return GetBuilder<WelcomeController>(
-      id: "bar",
-      init: controller,
-      builder: (controller) {
-        return controller.isShowStart
-        ?
-        // 开始
-        ButtonWidget.primary(
-          LocaleKeys.welcomeStart.tr,
-          onTap: controller.onToMain,)
-        :
-         <Widget>[
-          // 跳过按钮
-          ButtonWidget.text(
-            LocaleKeys.welcomeSkip.tr,
-            onTap: controller.onToMain,
-          ),
+        id: "bar",
+        init: controller,
+        builder: (controller) {
+          return controller.isShowStart
+              ?
+              // 开始
+              ButtonWidget.primary(
+                  LocaleKeys.welcomeStart.tr,
+                  onTap: controller.onToMain,
+                )
+              : <Widget>[
+                  // 跳过按钮
+                  ButtonWidget.text(
+                    LocaleKeys.welcomeSkip.tr,
+                    onTap: controller.onToMain,
+                  ),
 
-          // 指示器
-          SliderIndicatorWidget(
-            length: 3,
-            currentIndex: controller.currentIndex
-          ),
+                  // 指示器
+                  SliderIndicatorWidget(
+                      length: 3, currentIndex: controller.currentIndex),
 
-          // 下一页
-          ButtonWidget.text(
-            LocaleKeys.welcomeNext.tr,
-            onTap: controller.onNext,
-          ),
-        ].toRow(mainAxisAlignment: MainAxisAlignment.spaceAround,);
-      }
-    );
+                  // 下一页
+                  ButtonWidget.text(
+                    LocaleKeys.welcomeNext.tr,
+                    onTap: controller.onNext,
+                  ),
+                ].toRow(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                );
+        });
   }
 
   // 主视图
@@ -69,8 +64,11 @@ class WelcomePage extends GetView<WelcomeController> {
       _buildSlider(),
       // 控制栏
       _buildBar(),
-    ].toColumn(mainAxisAlignment: MainAxisAlignment.spaceAround,)
-    .paddingAll(AppSpace.page);
+    ]
+        .toColumn(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        )
+        .paddingAll(AppSpace.page);
   }
 
   @override

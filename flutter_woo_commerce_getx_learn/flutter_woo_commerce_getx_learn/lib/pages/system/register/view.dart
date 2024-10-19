@@ -46,8 +46,10 @@ class RegisterPage extends GetView<RegisterController> {
           labelText: LocaleKeys.registerFormName.tr,
           validator: Validatorless.multiple([
             Validatorless.required(LocaleKeys.validatorRequired.tr),
-            Validatorless.min(3, LocaleKeys.validatorMin.trParams({"size":"3"})),
-            Validatorless.max(20, LocaleKeys.validatorMax.trParams({"size":"20"}))
+            Validatorless.min(
+                3, LocaleKeys.validatorMin.trParams({"size": "3"})),
+            Validatorless.max(
+                20, LocaleKeys.validatorMax.trParams({"size": "20"}))
           ]),
         ),
 
@@ -69,10 +71,10 @@ class RegisterPage extends GetView<RegisterController> {
           labelText: LocaleKeys.registerFormFirstName.tr,
           validator: Validatorless.multiple([
             Validatorless.required(LocaleKeys.validatorRequired.tr),
-            Validatorless.min(3,
-            LocaleKeys.validatorMin.trParams({"size": "3"})),
-            Validatorless.max(20,
-            LocaleKeys.validatorMax.trParams({"size": "20"})),
+            Validatorless.min(
+                3, LocaleKeys.validatorMin.trParams({"size": "3"})),
+            Validatorless.max(
+                20, LocaleKeys.validatorMax.trParams({"size": "20"})),
           ]),
         ),
 
@@ -83,10 +85,10 @@ class RegisterPage extends GetView<RegisterController> {
           labelText: LocaleKeys.registerFormLastName.tr,
           validator: Validatorless.multiple([
             Validatorless.required(LocaleKeys.validatorRequired.tr),
-            Validatorless.min(3,
-              LocaleKeys.validatorMin.trParams({"size": "3"})),
-            Validatorless.max(20,
-              LocaleKeys.validatorMax.trParams({"size": "20"})),
+            Validatorless.min(
+                3, LocaleKeys.validatorMin.trParams({"size": "3"})),
+            Validatorless.max(
+                20, LocaleKeys.validatorMax.trParams({"size": "20"})),
           ]),
         ),
 
@@ -112,11 +114,9 @@ class RegisterPage extends GetView<RegisterController> {
 
         // 底部提示
         _buildTips(),
-
       ].toColumn(),
     );
   }
-
 
   // 主视图
   Widget _buildView() {
@@ -130,10 +130,9 @@ class RegisterPage extends GetView<RegisterController> {
 
         // 表单页
         _buildForm(),
-      ].toColumn(
-        crossAxisAlignment: CrossAxisAlignment.start
-      )
-      .paddingHorizontal(AppSpace.page),
+      ]
+          .toColumn(crossAxisAlignment: CrossAxisAlignment.start)
+          .paddingHorizontal(AppSpace.page),
     );
   }
 

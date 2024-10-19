@@ -3,7 +3,6 @@ import 'package:pinput/pinput.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 
 class PinPutWidget extends StatelessWidget {
-
   /// 提交事件
   final Function(String)? onSubmit;
 
@@ -23,7 +22,6 @@ class PinPutWidget extends StatelessWidget {
     this.controller,
     this.validator,
   });
-
 
   @override
   Widget build(BuildContext context) {

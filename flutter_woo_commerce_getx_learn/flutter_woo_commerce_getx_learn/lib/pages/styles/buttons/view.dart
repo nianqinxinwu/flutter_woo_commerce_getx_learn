@@ -11,33 +11,32 @@ class ButtonsPage extends GetView<ButtonsController> {
   Widget _buildView() {
     return SingleChildScrollView(
       child: Column(
-        children: [
-          _buildButtons()
-        ],
+        children: [_buildButtons()],
       ).paddingAll(AppSpace.card),
     );
   }
-
 
   Widget _buildButtons() {
     return <Widget>[
       // Primary 主按钮 1
       ButtonWidget.primary(
         "主按钮",
-      onTap: () {
-      const Dialog(
-          child: Text("点击了主按钮"),
-        );
-      },).paddingBottom(AppSpace.listRow),
+        onTap: () {
+          const Dialog(
+            child: Text("点击了主按钮"),
+          );
+        },
+      ).paddingBottom(AppSpace.listRow),
 
       // Secondary 次按钮 2
       ButtonWidget.secondary(
-         "次按钮",
-         onTap: () {
+        "次按钮",
+        onTap: () {
           const Dialog(
             child: Text("点击了次按钮"),
           );
-      },).paddingBottom(AppSpace.listRow),
+        },
+      ).paddingBottom(AppSpace.listRow),
 
       // Text 文字按钮 3
       ButtonWidget.text(
@@ -85,17 +84,16 @@ class ButtonsPage extends GetView<ButtonsController> {
             child: Text("点击了图标+文字按钮"),
           );
         },
-      ).tight(
-        width: 24,
-        height: 24,
-      ).paddingBottom(AppSpace.listRow),
+      )
+          .tight(
+            width: 24,
+            height: 24,
+          )
+          .paddingBottom(AppSpace.listRow),
 
       // IconTextUpDown 图标+文字按钮 7
       ButtonWidget.iconTextUpDown(
-        IconWidget.svg(
-          AssetsSvgs.cHomeSvg,
-          size: 30
-        ),
+        IconWidget.svg(AssetsSvgs.cHomeSvg, size: 30),
         "Home",
         onTap: () {
           const Dialog(
@@ -108,34 +106,33 @@ class ButtonsPage extends GetView<ButtonsController> {
       ButtonWidget.iconTextOutlined(
         IconWidget.svg(AssetsSvgs.cHomeSvg, size: 30),
         "Home",
-        onTap: (){
+        onTap: () {
           const Dialog(
             child: Text("点击了图标+文字按钮"),
           );
         },
-      ).tight(
-        width: 100,
-        height: 50,
       )
-      .paddingBottom(AppSpace.listRow),
+          .tight(
+            width: 100,
+            height: 50,
+          )
+          .paddingBottom(AppSpace.listRow),
 
       // IconTextRoundOutlined 图标+文字按钮 9
       ButtonWidget.iconTextUpDownOutlined(
-        IconWidget.svg(
-          AssetsSvgs.cHomeSvg,
-          size: 30
-          ),
+        IconWidget.svg(AssetsSvgs.cHomeSvg, size: 30),
         "Yes",
-        onTap: (){
+        onTap: () {
           const Dialog(
             child: Text("点击了图标+文字按钮"),
           );
         },
-      ).tight(
-        width: 100,
-        height: 60,
       )
-      .paddingBottom(AppSpace.listRow),
+          .tight(
+            width: 100,
+            height: 60,
+          )
+          .paddingBottom(AppSpace.listRow),
 
       // textIcon, // 文字/图标 按钮 10
       ButtonWidget.textIcon(
@@ -150,7 +147,6 @@ class ButtonsPage extends GetView<ButtonsController> {
           );
         },
       ).paddingBottom(AppSpace.listRow),
-
     ].toColumn();
   }
 

@@ -1,4 +1,3 @@
-
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart' hide Badge;
 import 'package:flutter_svg/svg.dart';
@@ -11,7 +10,6 @@ const _letSize = 24.0;
 
 /// 图标组件
 class IconWidget extends StatelessWidget {
-
   /// 图标类型
   final IconWidgetType type;
 
@@ -60,9 +58,8 @@ class IconWidget extends StatelessWidget {
     this.fit,
   });
 
-  const IconWidget.icon(
-    this.iconData, {
-      super.key,
+  const IconWidget.icon(this.iconData,
+      {super.key,
       this.type = IconWidgetType.icon,
       this.size = _letSize,
       this.width,
@@ -72,14 +69,11 @@ class IconWidget extends StatelessWidget {
       this.badgeString,
       this.assetName,
       this.imageUrl,
-      this.fit
-  });
+      this.fit});
 
   // ignore: prefer_const_constructors_in_immutables
-  IconWidget.image(
-    this.assetName,
-    {
-      super.key,
+  IconWidget.image(this.assetName,
+      {super.key,
       this.type = IconWidgetType.image,
       this.size = _letSize,
       this.width,
@@ -89,15 +83,11 @@ class IconWidget extends StatelessWidget {
       this.badgeString,
       this.iconData,
       this.imageUrl,
-      this.fit
-    }
-  );
+      this.fit});
 
- // ignore: prefer_const_constructors_in_immutables
-  IconWidget.svg(
-    this.assetName,
-    {
-      super.key,
+  // ignore: prefer_const_constructors_in_immutables
+  IconWidget.svg(this.assetName,
+      {super.key,
       this.type = IconWidgetType.svg,
       this.size = _letSize,
       this.width,
@@ -107,15 +97,11 @@ class IconWidget extends StatelessWidget {
       this.badgeString,
       this.iconData,
       this.imageUrl,
-      this.fit
-    }
-  );
+      this.fit});
 
   // ignore: prefer_const_constructors_in_immutables
-  IconWidget.url(
-    this.imageUrl,
-    {
-      super.key,
+  IconWidget.url(this.imageUrl,
+      {super.key,
       this.type = IconWidgetType.url,
       this.size = _letSize,
       this.width,
@@ -125,9 +111,7 @@ class IconWidget extends StatelessWidget {
       this.badgeString,
       this.iconData,
       this.assetName,
-      this.fit
-    }
-  );
+      this.fit});
 
   @override
   Widget build(BuildContext context) {
@@ -172,14 +156,14 @@ class IconWidget extends StatelessWidget {
         );
         break;
       default:
-      return const SizedBox();
+        return const SizedBox();
     }
 
-  // 圆点
+    // 圆点
     if (isDot == true) {
       return Badge(
         position: BadgePosition.bottomEnd(bottom: 0, end: -2),
-        child:icon,
+        child: icon,
       );
     }
 

@@ -6,7 +6,6 @@ import 'index.dart';
 class TextFormPage extends GetView<TextFormController> {
   const TextFormPage({super.key});
 
-
   Widget _buildTextForm() {
     return Form(
       key: controller.formKey, // 设置globalKey, 用于后面获取FormState
@@ -17,7 +16,6 @@ class TextFormPage extends GetView<TextFormController> {
           keyboardType: TextInputType.emailAddress,
           controller: controller.unameController,
           labelText: 'email',
-
         ),
         TextFormWidget(
           controller: controller.pwdController,

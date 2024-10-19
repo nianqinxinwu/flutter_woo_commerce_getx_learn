@@ -1,6 +1,5 @@
 // 定义Key值
 class LocaleKeys {
-
   // 通用
   static const commonBottomSave = 'common_bottom_save';
   static const commonBottomRemove = 'common_bottom_remove';
@@ -44,17 +43,16 @@ class LocaleKeys {
   static const registerFormLastName = 'register_form_last_name';
   static const registerHaveAccount = 'register_have_account';
 
-    // 验证提示
+  // 验证提示
   static const validatorRequired = 'validator_required';
   static const validatorEmail = 'validator_email';
   static const validatorMin = 'validator_min';
   static const validatorMax = 'validator_max';
   static const validatorPassword = 'validator_password';
 
-    // 注册PIN - register pin
+  // 注册PIN - register pin
   static const registerPinTitle = 'register_pin_title';
   static const registerPinDesc = 'register_pin_desc';
   static const registerPinFormTip = 'register_pin_form_tip';
   static const registerPinButton = 'register_pin_button';
-
 }

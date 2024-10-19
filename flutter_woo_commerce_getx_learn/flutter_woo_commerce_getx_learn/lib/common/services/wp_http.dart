@@ -16,7 +16,7 @@ class WPHttpService extends GetxService {
     //初始化 Dio
     var options = BaseOptions(
       baseUrl: Constants.wpApiBaseUrl,
-      connectTimeout: const Duration(seconds: 10),// 10s
+      connectTimeout: const Duration(seconds: 10), // 10s
       receiveTimeout: const Duration(seconds: 5), // 5s
       headers: {},
       contentType: 'application/json; charset=utf-8',
@@ -29,28 +29,30 @@ class WPHttpService extends GetxService {
   }
 
   Future<Response> get(
-    String url,
+    String url,{
     Map<String, dynamic>? params,
     Options? options,
     CancelToken? cancelToken,
+    }
   ) async {
-      Options requestOptions = options?? Options();
-      Response response = await _dio.get(
-        url,
-        queryParameters: params,
-        options: requestOptions,
-        cancelToken: cancelToken,
-      );
-      return response;
+    Options requestOptions = options ?? Options();
+    Response response = await _dio.get(
+      url,
+      queryParameters: params,
+      options: requestOptions,
+      cancelToken: cancelToken,
+    );
+    return response;
   }
 
   Future<Response> post(
-    String url,
-    dynamic data,
-    Options? options,
-    CancelToken? cancelToken,
+    String url,{
+      dynamic data,
+      Options? options,
+      CancelToken? cancelToken,
+    }
   ) async {
-    var requestOptions = options?? Options();
+    var requestOptions = options ?? Options();
     Response response = await _dio.post(
       url,
       data: data ?? {},
@@ -61,12 +63,13 @@ class WPHttpService extends GetxService {
   }
 
   Future<Response> put(
-    String url,
-    dynamic data,
-    Options? options,
-    CancelToken? cancelToken,
+    String url,{
+      dynamic data,
+      Options? options,
+      CancelToken? cancelToken,
+    }
   ) async {
-    var requestOptions = options?? Options();
+    var requestOptions = options ?? Options();
     Response response = await _dio.put(
       url,
       data: data ?? {},
@@ -78,11 +81,13 @@ class WPHttpService extends GetxService {
 
   Future<Response> delete(
     String url,
-    dynamic data,
-    Options? options,
-    CancelToken? cancelToken,
+    {
+      dynamic data,
+      Options? options,
+      CancelToken? cancelToken,
+    }
   ) async {
-    var requestOptions = options?? Options();
+    var requestOptions = options ?? Options();
     Response response = await _dio.delete(
       url,
       data: data ?? {},
@@ -117,7 +122,7 @@ class RequestInterceptors extends Interceptor {
           requestOptions: response.requestOptions,
           response: response,
           type: DioExceptionType.badResponse,
-          ),
+        ),
         true,
       );
     } else {
@@ -126,14 +131,14 @@ class RequestInterceptors extends Interceptor {
   }
 
 // ignore: unused_element
-Future<void> _errorNoAuthLogout() async {
-  // await UserService.to.logout();
-  Get.offAllNamed(RouteNames.systemLogin);
-}
+  Future<void> _errorNoAuthLogout() async {
+    // await UserService.to.logout();
+    Get.offAllNamed(RouteNames.systemLogin);
+  }
 
   @override
   Future<void> onError(
-    DioException err, ErrorInterceptorHandler handler) async {
+      DioException err, ErrorInterceptorHandler handler) async {
     final exception = HttpException(err.message ?? "error message");
     switch (err.type) {
       case DioExceptionType.badResponse: // 服务端自定义错误体处理

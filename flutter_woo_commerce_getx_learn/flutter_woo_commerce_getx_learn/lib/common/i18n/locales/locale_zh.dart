@@ -17,7 +17,7 @@ Map<String, String> localeZh = {
   // 样式
   LocaleKeys.stylesTitle: '样式 && 功能 && 调试',
 
-    // welcome 欢迎
+  // welcome 欢迎
   LocaleKeys.welcomeOneTitle: '选择您喜欢的产品',
   LocaleKeys.welcomeOneDesc:
       'Contrary to popular belief, Lorem Ipsum is not simply random text',
@@ -60,7 +60,4 @@ Map<String, String> localeZh = {
   LocaleKeys.registerPinDesc: '我们将向您发送PIN码以继续您的帐户',
   LocaleKeys.registerPinFormTip: 'Pin',
   LocaleKeys.registerPinButton: '提交',
-
-
 };
-

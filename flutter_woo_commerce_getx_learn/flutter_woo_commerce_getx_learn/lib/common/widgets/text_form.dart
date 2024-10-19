@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 
 class TextFormWidget extends StatefulWidget {
-
   /// 控制器
   final TextEditingController? controller;
 
@@ -40,22 +39,20 @@ class TextFormWidget extends StatefulWidget {
   /// 点击事件
   final Function()? onTap;
 
-  const TextFormWidget({
-    super.key,
-    this.controller,
-    this.decoration,
-    this.validator,
-    this.autofocus = false,
-    this.labelText,
-    this.isMustBeEnter = false,
-    this.isObscure = false,
-    this.readOnly = false,
-    this.keyboardType,
-    this.inputFormatters,
-    this.hintText,
-    this.onTap
-  });
-
+  const TextFormWidget(
+      {super.key,
+      this.controller,
+      this.decoration,
+      this.validator,
+      this.autofocus = false,
+      this.labelText,
+      this.isMustBeEnter = false,
+      this.isObscure = false,
+      this.readOnly = false,
+      this.keyboardType,
+      this.inputFormatters,
+      this.hintText,
+      this.onTap});
 
   @override
   State<TextFormWidget> createState() => _TextFormWidgetState();
@@ -81,38 +78,39 @@ class _TextFormWidgetState extends State<TextFormWidget> {
       controller: widget.controller, // 控制器
       decoration: widget.isObscure == true
           ? InputDecoration(
-            // 输入框
+              // 输入框
               hintText: widget.hintText, // 提示文字
               labelText: widget.isMustBeEnter == true
-              ? "*${widget.labelText}"
-              : widget.labelText,
+                  ? "*${widget.labelText}"
+                  : widget.labelText,
               suffixIcon: IconButton(
                 onPressed: () {
                   setState(() {
                     _isShowObscureIcon = !_isShowObscureIcon;
                   });
                 },
-                icon: Icon( // 眼睛图片
+                icon: Icon(
+                  // 眼睛图片
                   _isShowObscureIcon == true
-                  ? Icons.visibility
-                  : Icons.visibility_off,
+                      ? Icons.visibility
+                      : Icons.visibility_off,
                   size: 15,
                   color: AppColors.surfaceVariant,
                 ),
               ),
-          )
+            )
           : InputDecoration(
               hintText: widget.hintText,
               labelText: widget.isMustBeEnter == true
-              ? "*${widget.labelText}"
-              : widget.labelText,
-          ),
-          // 校验
-          validator: widget.validator,
-          // 是否密码
-          obscureText: _isShowObscureIcon,
-          // 输入格式
-          inputFormatters: widget.inputFormatters,
+                  ? "*${widget.labelText}"
+                  : widget.labelText,
+            ),
+      // 校验
+      validator: widget.validator,
+      // 是否密码
+      obscureText: _isShowObscureIcon,
+      // 输入格式
+      inputFormatters: widget.inputFormatters,
     );
   }
 }

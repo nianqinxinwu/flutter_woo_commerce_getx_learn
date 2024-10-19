@@ -11,24 +11,22 @@ extension ExWidget on Widget {
   /// 对齐
   Widget align(
     AlignmentGeometry alignment, {
-      Key? key,
+    Key? key,
   }) =>
-    Align(
-      key: key,
-      alignment: alignment,
-      child: this
-  );
+      Align(key: key, alignment: alignment, child: this);
 
   /// 对齐 - 中间
   Widget alignCenter() => align(Alignment.center);
 
   /// 对齐 - 左边
   Widget alignLeft() => align(Alignment.centerLeft);
+
   /// 对齐 - 右边
   Widget alignRight() => align(Alignment.centerRight);
 
   /// 对齐 - 上边
   Widget alignTop() => align(Alignment.topCenter);
+
   /// 对齐 - 下边
   Widget alignBottom() => align(Alignment.bottomCenter);
 
@@ -36,33 +34,34 @@ extension ExWidget on Widget {
   Widget aspectRatio({
     Key? key,
     required double aspectRatio,
-  }) => AspectRatio(
-    key: key,
-    aspectRatio: aspectRatio,
-    child: this,
-  );
+  }) =>
+      AspectRatio(
+        key: key,
+        aspectRatio: aspectRatio,
+        child: this,
+      );
 
   /// 背景颜色
   Widget backgroundColor(
-    Color color,{
-      Key? key,
-    }) =>
+    Color color, {
+    Key? key,
+  }) =>
       DecoratedBox(
         key: key,
         decoration: BoxDecoration(color: color),
         child: this,
-  );
+      );
 
   /// 背景图片
   Widget backgroundImage(
     DecorationImage image, {
-      Key? key,
+    Key? key,
   }) =>
       DecoratedBox(
         key: key,
         decoration: BoxDecoration(image: image),
         child: this,
-  );
+      );
 
   /// 边框
   Widget border({
@@ -175,7 +174,7 @@ extension ExWidget on Widget {
           ],
         ),
         child: this,
-  );
+      );
 
   // 居中
   Widget center({

@@ -24,14 +24,14 @@ extension ExListWidget<E> on List<Widget> {
     VerticalDirection verticalDirection = VerticalDirection.down,
     TextBaseline? textBaseline,
   }) =>
-    Wrap(
-      key: key,
-      spacing: spacing,
-      runSpacing: runSpacing,
-      textDirection: textDirection,
-      verticalDirection: verticalDirection,
-      children: this,
-  );
+      Wrap(
+        key: key,
+        spacing: spacing,
+        runSpacing: runSpacing,
+        textDirection: textDirection,
+        verticalDirection: verticalDirection,
+        children: this,
+      );
 
   /// 转 Column
   Widget toColumn({
@@ -55,7 +55,7 @@ extension ExListWidget<E> on List<Widget> {
         children: separator != null && length > 0
             ? (expand((child) => [child, separator]).toList()..removeLast())
             : this,
-  );
+      );
 
   /// 转 Row
   Widget toRow({
@@ -79,7 +79,7 @@ extension ExListWidget<E> on List<Widget> {
         children: separator != null && length > 0
             ? (expand((child) => [child, separator]).toList()..removeLast())
             : this,
-  );
+      );
 
   /// 转 Stack
   Widget toStack({
@@ -96,7 +96,7 @@ extension ExListWidget<E> on List<Widget> {
         fit: fit,
         clipBehavior: clipBehavior,
         children: this,
-  );
+      );
 
   /// 转 ListView
   Widget toListView({
@@ -107,6 +107,5 @@ extension ExListWidget<E> on List<Widget> {
         key: key,
         scrollDirection: scrollDirection,
         children: this,
-  );
-
+      );
 }

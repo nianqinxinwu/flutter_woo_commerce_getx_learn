@@ -14,7 +14,6 @@ enum InputWidgetType {
 
 /// 输入框
 class InputWidget extends StatelessWidget {
-
   /// 输入框类型
   final InputWidgetType type;
 
@@ -76,82 +75,79 @@ class InputWidget extends StatelessWidget {
   /// 内容 padding
   final EdgeInsetsGeometry? contentPadding;
 
-  const InputWidget({
-    super.key,
-    this.type = InputWidgetType.none,
-    this.onSubmitted,
-    this.onTap,
-    this.onChanged,
-    this.controller,
-    this.focusNode,
-    this.hintText,
-    this.keyboardType,
-    this.borderRadius,
-    this.isObscureText = false,
-    this.readOnly = false,
-    this.maxLines,
-    this.minLines,
-    this.fontSize,
-    this.icon,
-    this.suffixIcon,
-    this.textInputAction,
-    this.inputFormatters,
-    this.fillColor,
-    this.borderColor,
-    this.contentPadding
-  });
+  const InputWidget(
+      {super.key,
+      this.type = InputWidgetType.none,
+      this.onSubmitted,
+      this.onTap,
+      this.onChanged,
+      this.controller,
+      this.focusNode,
+      this.hintText,
+      this.keyboardType,
+      this.borderRadius,
+      this.isObscureText = false,
+      this.readOnly = false,
+      this.maxLines,
+      this.minLines,
+      this.fontSize,
+      this.icon,
+      this.suffixIcon,
+      this.textInputAction,
+      this.inputFormatters,
+      this.fillColor,
+      this.borderColor,
+      this.contentPadding});
 
   /// 文本输入
-  const InputWidget.text({
-    super.key,
-    this.type = InputWidgetType.text,
-    this.onSubmitted,
-    this.onTap,
-    this.onChanged,
-    this.controller,
-    this.focusNode,
-    this.hintText,
-    this.keyboardType,
-    this.borderRadius,
-    this.isObscureText = false,
-    this.readOnly = false,
-    this.maxLines = 1,
-    this.minLines = 1,
-    this.fontSize,
-    this.icon,
-    this.suffixIcon,
-    this.textInputAction,
-    this.inputFormatters,
-    this.fillColor,
-    this.borderColor,
-    this.contentPadding
-  });
+  const InputWidget.text(
+      {super.key,
+      this.type = InputWidgetType.text,
+      this.onSubmitted,
+      this.onTap,
+      this.onChanged,
+      this.controller,
+      this.focusNode,
+      this.hintText,
+      this.keyboardType,
+      this.borderRadius,
+      this.isObscureText = false,
+      this.readOnly = false,
+      this.maxLines = 1,
+      this.minLines = 1,
+      this.fontSize,
+      this.icon,
+      this.suffixIcon,
+      this.textInputAction,
+      this.inputFormatters,
+      this.fillColor,
+      this.borderColor,
+      this.contentPadding});
 
   /// 文本输入 - 边框
- const InputWidget.textBorder({
-    super.key,
-    this.type = InputWidgetType.textBorder,
-    this.onSubmitted,
-    this.onTap,
-    this.onChanged,
-    this.controller,
-    this.focusNode,
-    this.hintText,
-    this.keyboardType,
-    this.borderRadius,
-    this.isObscureText = false,
-    this.readOnly = false,
-    this.maxLines = 1,
-    this.minLines = 1,
-    this.fontSize,
-    this.icon,
-    this.suffixIcon,
-    this.textInputAction,
-    this.inputFormatters,
-    this.fillColor,
-    this.borderColor,
-    this.contentPadding
-  });
+  const InputWidget.textBorder(
+      {super.key,
+      this.type = InputWidgetType.textBorder,
+      this.onSubmitted,
+      this.onTap,
+      this.onChanged,
+      this.controller,
+      this.focusNode,
+      this.hintText,
+      this.keyboardType,
+      this.borderRadius,
+      this.isObscureText = false,
+      this.readOnly = false,
+      this.maxLines = 1,
+      this.minLines = 1,
+      this.fontSize,
+      this.icon,
+      this.suffixIcon,
+      this.textInputAction,
+      this.inputFormatters,
+      this.fillColor,
+      this.borderColor,
+      this.contentPadding});
 
   /// 文本输入 - 填充
   InputWidget.textFilled({
@@ -177,8 +173,7 @@ class InputWidget extends StatelessWidget {
     this.borderRadius,
     this.onChanged,
     this.controller,
-  })  : fillColor = fillColor ?? AppColors.surface.withOpacity(0.5);
-
+  }) : fillColor = fillColor ?? AppColors.surface.withOpacity(0.5);
 
   /// 文本输入 - 图标文本填充
   InputWidget.iconTextFilled(
@@ -204,7 +199,7 @@ class InputWidget extends StatelessWidget {
     this.borderRadius,
     this.onChanged,
     this.controller,
-  })  : fillColor = fillColor ?? AppColors.surface.withOpacity(0.5);
+  }) : fillColor = fillColor ?? AppColors.surface.withOpacity(0.5);
 
   /// 文本输入 - 后缀图标文本填充
   InputWidget.suffixTextFilled(
@@ -230,7 +225,7 @@ class InputWidget extends StatelessWidget {
     this.borderRadius,
     this.onChanged,
     this.controller,
-  })  : fillColor = fillColor ?? AppColors.surface.withOpacity(0.5);
+  }) : fillColor = fillColor ?? AppColors.surface.withOpacity(0.5);
 
   /// 搜索
   InputWidget.search({
@@ -262,7 +257,6 @@ class InputWidget extends StatelessWidget {
               color: AppColors.outline,
             ),
         fillColor = fillColor ?? AppColors.surface.withOpacity(0.5);
-
 
   // 边框
   InputBorder? get _border {
@@ -317,7 +311,7 @@ class InputWidget extends StatelessWidget {
       onChanged: onChanged,
       textInputAction: textInputAction,
       style: AppTextStyles.bodyText1?.copyWith(
-        fontSize: fontSize ,
+        fontSize: fontSize,
         fontWeight: FontWeight.w500,
         color: AppColors.secondary,
       ),

@@ -14,9 +14,7 @@ class StylesIndexPage extends GetView<StylesIndexController> {
         // 文本
         ListTile(
           onTap: () => Get.toNamed(RouteNames.stylesText),
-          title: const Text(
-            "Text 文本"
-          ),
+          title: const Text("Text 文本"),
         ),
         // Icon 图标
         ListTile(
@@ -27,17 +25,13 @@ class StylesIndexPage extends GetView<StylesIndexController> {
         // Image 图片
         ListTile(
           onTap: () => Get.toNamed(RouteNames.stylesImage),
-          title: const TextWidget.body1(
-            "Image 图片"
-          ),
+          title: const TextWidget.body1("Image 图片"),
         ),
 
         // Button 按钮
         ListTile(
           onTap: () => Get.toNamed(RouteNames.stylesButtons),
-          title: const Text(
-            "Button 按钮"
-          ),
+          title: const Text("Button 按钮"),
         ),
 
         // input 输入框
@@ -55,17 +49,13 @@ class StylesIndexPage extends GetView<StylesIndexController> {
         // 多语言
         ListTile(
           onTap: controller.onLanguageSelected,
-          title: Text(
-            "语言: ${ConfigService.to.locale.toLanguageTag()}"
-          ),
+          title: Text("语言: ${ConfigService.to.locale.toLanguageTag()}"),
         ),
 
         // 主题
         ListTile(
           onTap: controller.onThemeSelected,
-          title: Text(
-            "主题: ${ConfigService.to.isDarkModel ? "Dark" : "Light"}"
-          ),
+          title: Text("主题: ${ConfigService.to.isDarkModel ? "Dark" : "Light"}"),
         )
       ],
     );

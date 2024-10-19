@@ -6,10 +6,8 @@ class TextFormController extends GetxController {
 
   GlobalKey formKey = GlobalKey<FormState>();
   TextEditingController unameController =
-    TextEditingController(text: "ducafecat");
-  TextEditingController pwdController =
-    TextEditingController(text: "123456");
-
+      TextEditingController(text: "ducafecat");
+  TextEditingController pwdController = TextEditingController(text: "123456");
 
   _initData() {
     update(["text_form"]);

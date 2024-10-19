@@ -9,24 +9,21 @@ class PageTitleWidget extends StatelessWidget {
   /// 说明
   final String? desc;
 
-  const PageTitleWidget({
-    super.key,
-    required this.title,
-    required this.desc
-  });
+  const PageTitleWidget({super.key, required this.title, required this.desc});
 
   @override
   Widget build(BuildContext context) {
     return <Widget>[
       TextWidget.title1(title),
       TextWidget.body2(desc ?? ""),
-    ].toColumn(
-      crossAxisAlignment: CrossAxisAlignment.start,
-    )
-    .padding(
-      left: 10,
-      top: 10,
-      bottom: 30,
-    );
+    ]
+        .toColumn(
+          crossAxisAlignment: CrossAxisAlignment.start,
+        )
+        .padding(
+          left: 10,
+          top: 10,
+          bottom: 30,
+        );
   }
 }

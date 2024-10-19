@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
-import 'package:flutter_woo_commerce_getx_learn/main.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
@@ -16,8 +15,8 @@ class RegisterPinPage extends GetView<RegisterPinController> {
       child: <Widget>[
         // 提示文
         TextWidget.body1(LocaleKeys.registerPinFormTip.tr)
-        .paddingBottom(20.w)
-        .alignLeft(),
+            .paddingBottom(20.w)
+            .alignLeft(),
 
         // pin
         PinPutWidget(
@@ -55,10 +54,9 @@ class RegisterPinPage extends GetView<RegisterPinController> {
 
         // 表单
         _buildForm().card(),
-      ].toColumn(
-        crossAxisAlignment: CrossAxisAlignment.start
-      )
-      .paddingAll(AppSpace.page),
+      ]
+          .toColumn(crossAxisAlignment: CrossAxisAlignment.start)
+          .paddingAll(AppSpace.page),
     );
   }
 

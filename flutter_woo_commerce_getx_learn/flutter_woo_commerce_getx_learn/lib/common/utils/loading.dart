@@ -8,31 +8,31 @@ class Loading {
   loading() {
     EasyLoading.instance
       // 关闭延迟
-     ..displayDuration = const Duration(milliseconds: _dismissMilliseconds)
+      ..displayDuration = const Duration(milliseconds: _dismissMilliseconds)
       // 指示器类型
-     ..indicatorType = EasyLoadingIndicatorType.ring
-     // loading样式 自定义
-     ..loadingStyle = EasyLoadingStyle.custom
-     // 指示器大小
-     ..indicatorSize =  35.0
-     // 进度条宽度
-     ..lineWidth = 2
-     // 圆角
-     ..radius = 10.0
-     // 进度条颜色
-     ..progressColor = Colors.white
-     // 背景颜色
-     ..backgroundColor = Colors.black.withOpacity(0.7)
-     // 指示器颜色
-     ..indicatorColor = Colors.white
-     // 文字颜色
-     ..textColor = Colors.white
-     // 遮罩颜色
-     ..maskColor = Colors.black.withOpacity(0.6)
-     // 用户交互
-     ..userInteractions = true
-     // 点击关闭
-     ..dismissOnTap = false;
+      ..indicatorType = EasyLoadingIndicatorType.ring
+      // loading样式 自定义
+      ..loadingStyle = EasyLoadingStyle.custom
+      // 指示器大小
+      ..indicatorSize = 35.0
+      // 进度条宽度
+      ..lineWidth = 2
+      // 圆角
+      ..radius = 10.0
+      // 进度条颜色
+      ..progressColor = Colors.white
+      // 背景颜色
+      ..backgroundColor = Colors.black.withOpacity(0.7)
+      // 指示器颜色
+      ..indicatorColor = Colors.white
+      // 文字颜色
+      ..textColor = Colors.white
+      // 遮罩颜色
+      ..maskColor = Colors.black.withOpacity(0.6)
+      // 用户交互
+      ..userInteractions = true
+      // 点击关闭
+      ..dismissOnTap = false;
   }
 
   // 显示

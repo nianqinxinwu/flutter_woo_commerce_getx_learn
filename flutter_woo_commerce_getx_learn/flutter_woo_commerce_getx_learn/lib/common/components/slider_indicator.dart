@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 
 class SliderIndicatorWidget extends StatelessWidget {
-
   /// 个数
   final int length;
 
@@ -38,7 +37,7 @@ class SliderIndicatorWidget extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 3),
           // 圆型宽度 6 , 否则当前位置15 , 其他位置 8
           width: !isCircle ? (currentIndex == index ? 15.0 : 8) : 6,
-          height:  !isCircle ? 4 : 6,
+          height: !isCircle ? 4 : 6,
           decoration: BoxDecoration(
             // 圆角 4
             borderRadius: const BorderRadius.all(Radius.circular(4)),

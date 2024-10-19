@@ -5,7 +5,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'index.dart';
 
 class Translation extends Translations {
-
   // 当前系统语言
   static Locale? get locale => Get.deviceLocale;
 
@@ -26,7 +25,7 @@ class Translation extends Translations {
   // 翻译资源
   @override
   Map<String, Map<String, String>> get keys => {
-    'en': localeEn,
-    'zh': localeZh,
-  };
+        'en': localeEn,
+        'zh': localeZh,
+      };
 }

@@ -12,7 +12,8 @@ class ImagePage extends GetView<ImageController> {
     return ListView(
       children: const [
         ListTile(
-          leading: ImageWidget.url("https://ducafecat.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2022/02/90bb74497f090c48e1df1ec1ca31fb11-450x450.jpg"),
+          leading: ImageWidget.url(
+              "https://ducafecat.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2022/02/90bb74497f090c48e1df1ec1ca31fb11-450x450.jpg"),
           title: TextWidget.body1("ImageWidget.url"),
         ),
         ListTile(

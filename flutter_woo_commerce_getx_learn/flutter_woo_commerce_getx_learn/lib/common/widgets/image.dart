@@ -8,7 +8,6 @@ import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 enum ImageWidgetType { asset, network, file }
 
 class ImageWidget extends StatelessWidget {
-
   /// 网址
   final String url;
 
@@ -55,52 +54,50 @@ class ImageWidget extends StatelessWidget {
   });
 
   const ImageWidget.url(
-    this.url,{
-      super.key,
-      this.radius,
-      this.width,
-      this.height,
-      this.fit,
-      this.placeholder,
-      this.backgroundColor,
-      this.builder,
-      this.type = ImageWidgetType.network,
-    }
-  );
+    this.url, {
+    super.key,
+    this.radius,
+    this.width,
+    this.height,
+    this.fit,
+    this.placeholder,
+    this.backgroundColor,
+    this.builder,
+    this.type = ImageWidgetType.network,
+  });
 
   const ImageWidget.asset(
-    this.url,{
-      super.key,
-      this.radius,
-      this.width,
-      this.height,
-      this.fit,
-      this.placeholder,
-      this.backgroundColor,
-      this.builder,
-      this.type = ImageWidgetType.asset,
-    }
-  );
+    this.url, {
+    super.key,
+    this.radius,
+    this.width,
+    this.height,
+    this.fit,
+    this.placeholder,
+    this.backgroundColor,
+    this.builder,
+    this.type = ImageWidgetType.asset,
+  });
 
   const ImageWidget.file(
-      this.url,{
-        super.key,
-        this.radius,
-        this.width,
-        this.height,
-        this.fit,
-        this.placeholder,
-        this.backgroundColor,
-        this.builder,
-        this.type = ImageWidgetType.file,
-    }
-  );
+    this.url, {
+    super.key,
+    this.radius,
+    this.width,
+    this.height,
+    this.fit,
+    this.placeholder,
+    this.backgroundColor,
+    this.builder,
+    this.type = ImageWidgetType.file,
+  });
 
   Widget get _placeholder =>
-    placeholder ??
-    IconWidget.image('assets/images/default.png',
-    size: 36,
-  );
+      placeholder ??
+      IconWidget.image(
+        'assets/images/default.png',
+        size: 36,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -120,10 +117,10 @@ class ImageWidget extends StatelessWidget {
           borderRadius: borderRadius,
           loadStateChanged: (state) => _buildLoadState(context, state),
         );
-      break;
+        break;
 
       case ImageWidgetType.network:
-        if(!url.contains('http')) break;
+        if (!url.contains('http')) break;
         image = ExtendedImage.network(
           url,
           width: width,
@@ -133,7 +130,7 @@ class ImageWidget extends StatelessWidget {
           borderRadius: borderRadius,
           loadStateChanged: (state) => _buildLoadState(context, state),
         );
-      break;
+        break;
 
       case ImageWidgetType.file:
         image = ExtendedImage.file(
@@ -145,7 +142,7 @@ class ImageWidget extends StatelessWidget {
           borderRadius: borderRadius,
           loadStateChanged: (state) => _buildLoadState(context, state),
         );
-      break;
+        break;
     }
 
     return Container(
