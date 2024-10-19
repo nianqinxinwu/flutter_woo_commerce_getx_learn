@@ -26,5 +26,4 @@ class UserApi {
   /// 大陆国家洲省列表
 
   /// 保存用户 first name 、 last name 、 email
-
 }

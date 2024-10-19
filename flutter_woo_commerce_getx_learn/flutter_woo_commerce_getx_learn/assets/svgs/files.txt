@@ -1,4 +1,4 @@
-static const 003SearchSvg = 'assets/svgs/003-search.svg';
+static const googleSvg = 'assets/svgs/google.svg';
 static const cBagSvg = 'assets/svgs/c-bag.svg';
 static const cBikeSvg = 'assets/svgs/c-bike.svg';
 static const cElectricSvg = 'assets/svgs/c-electric.svg';

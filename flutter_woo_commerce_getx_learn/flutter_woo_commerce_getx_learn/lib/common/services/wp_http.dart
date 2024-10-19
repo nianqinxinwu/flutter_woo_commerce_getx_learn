@@ -29,12 +29,11 @@ class WPHttpService extends GetxService {
   }
 
   Future<Response> get(
-    String url,{
+    String url, {
     Map<String, dynamic>? params,
     Options? options,
     CancelToken? cancelToken,
-    }
-  ) async {
+  }) async {
     Options requestOptions = options ?? Options();
     Response response = await _dio.get(
       url,
@@ -46,12 +45,11 @@ class WPHttpService extends GetxService {
   }
 
   Future<Response> post(
-    String url,{
-      dynamic data,
-      Options? options,
-      CancelToken? cancelToken,
-    }
-  ) async {
+    String url, {
+    dynamic data,
+    Options? options,
+    CancelToken? cancelToken,
+  }) async {
     var requestOptions = options ?? Options();
     Response response = await _dio.post(
       url,
@@ -63,12 +61,11 @@ class WPHttpService extends GetxService {
   }
 
   Future<Response> put(
-    String url,{
-      dynamic data,
-      Options? options,
-      CancelToken? cancelToken,
-    }
-  ) async {
+    String url, {
+    dynamic data,
+    Options? options,
+    CancelToken? cancelToken,
+  }) async {
     var requestOptions = options ?? Options();
     Response response = await _dio.put(
       url,
@@ -80,13 +77,11 @@ class WPHttpService extends GetxService {
   }
 
   Future<Response> delete(
-    String url,
-    {
-      dynamic data,
-      Options? options,
-      CancelToken? cancelToken,
-    }
-  ) async {
+    String url, {
+    dynamic data,
+    Options? options,
+    CancelToken? cancelToken,
+  }) async {
     var requestOptions = options ?? Options();
     Response response = await _dio.delete(
       url,
@@ -133,7 +128,7 @@ class RequestInterceptors extends Interceptor {
 // ignore: unused_element
   Future<void> _errorNoAuthLogout() async {
     // await UserService.to.logout();
-    Get.offAllNamed(RouteNames.systemLogin);
+    Get.toNamed(RouteNames.systemLogin);
   }
 
   @override
@@ -143,22 +138,22 @@ class RequestInterceptors extends Interceptor {
     switch (err.type) {
       case DioExceptionType.badResponse: // 服务端自定义错误体处理
         {
-          // final response = err.response;
-          // final errorMessage = ErrorMessageModel.fromJson(response?.data);
-          // switch (errorMessage.statusCode) {
-          //   case 401:
-          //     _errorNoAuthLogout();
-          //     break;
-          //   case 404:
-          //     break;
-          //   case 500:
-          //     break;
-          //   case 502:
-          //     break;
-          //   default:
-          //     break;
-          // }
-          // Loading.error(errorMessage.message);
+          final response = err.response;
+          final errorMessage = ErrorMessageModel.fromJson(response?.data);
+          switch (errorMessage.statusCode) {
+            case 401:
+              _errorNoAuthLogout();
+              break;
+            case 404:
+              break;
+            case 500:
+              break;
+            case 502:
+              break;
+            default:
+              break;
+          }
+          Loading.error(errorMessage.message);
         }
         break;
       case DioExceptionType.unknown:

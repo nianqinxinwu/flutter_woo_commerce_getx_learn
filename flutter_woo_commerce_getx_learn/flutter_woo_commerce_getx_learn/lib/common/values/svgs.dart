@@ -9,6 +9,7 @@ class AssetsSvgs {
   static const cMoreSvg = 'assets/svgs/c-more.svg';
   static const cWomanSvg = 'assets/svgs/c-woman.svg';
   static const facebookSvg = 'assets/svgs/facebook.svg';
+  static const googleSvg = 'assets/svgs/google.svg';
   static const iAddFriendSvg = 'assets/svgs/i-add-friend.svg';
   static const iAddSvg = 'assets/svgs/i-add.svg';
   static const iArrowBackSvg = 'assets/svgs/i-arrow-back.svg';

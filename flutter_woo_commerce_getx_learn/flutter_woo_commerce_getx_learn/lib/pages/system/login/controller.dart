@@ -1,7 +1,33 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
   LoginController();
+
+  // 定义输入控制
+  TextEditingController usernameController = TextEditingController(text: "ducafecat5");
+  TextEditingController passwordController = TextEditingController(text: "12345678");
+
+  // 表单Key
+  final GlobalKey formKey = GlobalKey<FormState>();
+
+  // Sign In
+  Future<void> onSignIn() async {
+    if ((formKey.currentState as FormState).validate()) {
+      try {
+        Loading.show();
+
+        Get.back(result: true);
+      } finally {
+        Loading.dismiss();
+      }
+    }
+  }
+
+  void onSignUp() {
+    Get.offNamed(RouteNames.systemRegister);
+  }
 
   _initData() {
     update(["login"]);
@@ -20,8 +46,11 @@ class LoginController extends GetxController {
     _initData();
   }
 
-  // @override
-  // void onClose() {
-  //   super.onClose();
-  // }
+  // 释放
+  @override
+  void onClose() {
+    super.onClose();
+    usernameController.dispose();
+    passwordController.dispose();
+  }
 }

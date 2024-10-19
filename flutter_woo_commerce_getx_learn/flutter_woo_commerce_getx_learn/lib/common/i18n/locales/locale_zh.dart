@@ -60,4 +60,11 @@ Map<String, String> localeZh = {
   LocaleKeys.registerPinDesc: '我们将向您发送PIN码以继续您的帐户',
   LocaleKeys.registerPinFormTip: 'Pin',
   LocaleKeys.registerPinButton: '提交',
+
+  // 登录 - back login
+  LocaleKeys.loginBackTitle: '欢迎登陆!',
+  LocaleKeys.loginBackDesc: '登陆后继续',
+  LocaleKeys.loginBackFieldEmail: '账号',
+  LocaleKeys.loginBackFieldPassword: '登陆密码',
+
 };

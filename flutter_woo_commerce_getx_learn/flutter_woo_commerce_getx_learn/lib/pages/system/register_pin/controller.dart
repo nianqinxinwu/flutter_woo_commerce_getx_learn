@@ -29,14 +29,12 @@ class RegisterPinController extends GetxController {
 
       // 提示成功
       Loading.success(
-          LocaleKeys.commonMessageSuccess.trParams({"method": "Register"})
-      );
+          LocaleKeys.commonMessageSuccess.trParams({"method": "Register"}));
       Get.back(result: true);
     } finally {
       Loading.dismiss();
     }
   }
-
 
   // pin 触发提交
   void onPinSubmit(String val) {
