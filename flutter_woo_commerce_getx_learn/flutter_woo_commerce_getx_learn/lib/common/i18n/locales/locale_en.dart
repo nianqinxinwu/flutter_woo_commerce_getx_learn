@@ -45,4 +45,13 @@ Map<String, String>  localeEn = {
   LocaleKeys.registerFormLastName: 'Last name',
   LocaleKeys.registerHaveAccount: 'Already have an account?',
 
+  // 验证提示
+  LocaleKeys.validatorRequired: 'The field is obligatory',
+  LocaleKeys.validatorEmail: 'The field must be an email',
+  LocaleKeys.validatorMin: 'Length cannot be less than @size',
+  LocaleKeys.validatorMax: 'Length cannot be greater than @size',
+  LocaleKeys.validatorPassword:
+      'password must have between @min and @max digits',
+
+
 };

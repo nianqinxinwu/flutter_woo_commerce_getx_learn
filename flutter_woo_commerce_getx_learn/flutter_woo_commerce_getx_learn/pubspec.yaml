@@ -74,6 +74,10 @@ dependencies:
   # 轮播图库
   # 文档地址：https://pub.dev/packages/carousel_slider
   carousel_slider: ^5.0.0
+
+  # textField 输入检测
+  # 文档地址：https://pub.dev/packages/validatorless
+  validatorless: ^1.2.3
   # flutter_launcher_icons: ^0.14.1
 
   # flutter pub add dio_cookie_manager
