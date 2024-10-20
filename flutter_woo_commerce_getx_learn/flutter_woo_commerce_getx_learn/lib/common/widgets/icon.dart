@@ -85,8 +85,8 @@ class IconWidget extends StatelessWidget {
       this.imageUrl,
       this.fit});
 
-  // ignore: prefer_const_constructors_in_immutables
-  IconWidget.svg(this.assetName,
+
+      const IconWidget.svg(this.assetName,
       {super.key,
       this.type = IconWidgetType.svg,
       this.size = _letSize,
