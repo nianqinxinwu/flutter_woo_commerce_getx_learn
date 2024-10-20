@@ -177,6 +177,11 @@ class IconWidget extends StatelessWidget {
           ),
         ),
         position: BadgePosition.topEnd(top: -7, end: -8),
+        badgeStyle: BadgeStyle(
+          padding: const EdgeInsets.all(4.0),
+          elevation: 0,
+          badgeColor: AppColors.primary,
+        ),
         child: icon,
       );
     }

@@ -1,7 +1,4 @@
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
-import 'package:flutter_woo_commerce_getx_learn/common/models/request/user_login_req.dart';
-import 'package:flutter_woo_commerce_getx_learn/common/models/user_token_model.dart';
-import 'package:flutter_woo_commerce_getx_learn/common/models/woo/user_profile_model/user_profile_model.dart';
 
 /// 用户 api
 class UserApi {

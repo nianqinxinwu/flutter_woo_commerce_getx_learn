@@ -21,11 +21,10 @@ class SplashController extends GetxController {
     Future.delayed(const Duration(seconds: 1)).then((_) {
       // 欢迎页未展示过
       if (!ConfigService.to.isAlreadyOpen) {
-        Get.offAllNamed(RouteNames.main);
+        Get.offAllNamed(RouteNames.systemWelcome);
       } else {
         // 欢迎页已展示过
-        Get.offAllNamed(RouteNames.systemWelcome);
-
+        Get.offAllNamed(RouteNames.main);
         // 未登录时展示登录页
 
         // 封装组件测试入口

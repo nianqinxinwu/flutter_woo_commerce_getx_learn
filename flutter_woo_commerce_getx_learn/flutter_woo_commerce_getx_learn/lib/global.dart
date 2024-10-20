@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:flutter_woo_commerce_getx_learn/common/services/user.dart';
 import 'package:get/get.dart';
 import 'common/index.dart';
 

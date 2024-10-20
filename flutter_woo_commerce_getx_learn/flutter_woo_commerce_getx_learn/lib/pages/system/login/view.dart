@@ -70,7 +70,7 @@ class LoginPage extends GetView<LoginController> {
             "Facebook",
             borderColor: AppColors.surfaceVariant,
             width: 149.w,
-            height: 149.w,
+            height: 40.w,
           ),
 
           // Button Google
@@ -79,7 +79,7 @@ class LoginPage extends GetView<LoginController> {
             "Google",
             borderColor: AppColors.surfaceVariant,
             width: 149.w,
-            height: 149.w,
+            height: 40.w,
           ),
         ].toRow(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
