@@ -78,6 +78,4 @@ Map<String, String> localeZh = {
   LocaleKeys.gHomeFlashSell: '热卖商品',
   LocaleKeys.gHomeNewProduct: '新上商品',
   LocaleKeys.gHomeMore: '所有',
-
-
 };

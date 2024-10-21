@@ -2,7 +2,6 @@ import 'package:encrypt/encrypt.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 
 class EncryptUtil {
-
   static final EncryptUtil _instance = EncryptUtil._internal();
   factory EncryptUtil() => _instance;
   EncryptUtil._internal() {

@@ -2,7 +2,6 @@ import '../index.dart';
 
 /// 系统 api
 class SystemApi {
-
   /// Bannder Ads
   static Future<List<KeyValueModel>> banners() async {
     List<KeyValueModel> bannerItems = [

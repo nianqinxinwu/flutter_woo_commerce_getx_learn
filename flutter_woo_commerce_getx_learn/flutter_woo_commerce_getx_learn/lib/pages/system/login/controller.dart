@@ -23,8 +23,8 @@ class LoginController extends GetxController {
         var password = EncryptUtil().aesEncode(passwordController.text);
         // API请求
         UserTokenModel res = await UserApi.login(UserLoginReq(
-            username: usernameController.text,
-            password: password,
+          username: usernameController.text,
+          password: password,
         ));
 
         // 本地保存token
@@ -35,7 +35,6 @@ class LoginController extends GetxController {
 
         Loading.success();
         Get.back(result: true);
-
       } finally {
         Loading.dismiss();
       }

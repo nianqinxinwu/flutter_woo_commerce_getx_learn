@@ -17,11 +17,9 @@ class NavigationItemModel {
 
 /// 导航控件
 class BuildNavigation extends StatelessWidget {
-
   final int currentIndex;
   final List<NavigationItemModel> items;
   final Function(int) onTap;
-
 
   const BuildNavigation({
     super.key,
@@ -51,14 +49,13 @@ class BuildNavigation extends StatelessWidget {
           ).paddingBottom(2),
 
           // 文字
-          TextWidget.body1(
-            item.label.tr,
-            color: color),
-        ].toColumn(
-          mainAxisSize: MainAxisSize.min,
-        )
-        .onTap(() => onTap(i))
-        .expanded(),
+          TextWidget.body1(item.label.tr, color: color),
+        ]
+            .toColumn(
+              mainAxisSize: MainAxisSize.min,
+            )
+            .onTap(() => onTap(i))
+            .expanded(),
       );
     }
     return BottomAppBar(

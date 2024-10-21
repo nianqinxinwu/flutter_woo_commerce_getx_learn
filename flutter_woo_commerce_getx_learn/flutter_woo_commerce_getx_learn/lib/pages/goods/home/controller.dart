@@ -1,4 +1,3 @@
-import 'package:flutter_woo_commerce_getx_learn/common/api/system.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:get/get.dart';
 
@@ -19,11 +18,28 @@ class HomeController extends GetxController {
     update(["home_banner"]);
   }
 
-  _initData() async {
+  // 分类导航数据
+  List<CategoryModel> categoryItems = [];
 
+  // 推荐商品列表数据
+  List<ProductModel> flashSellProductList = [];
+
+  // 最新商品列表数据
+  List<ProductModel> newProductProductList = [];
+
+  _initData() async {
     // 首页
     // Banner
     bannerItems = await SystemApi.banners();
+
+    // 分类
+    categoryItems = await ProductApi.categories();
+
+    // 推荐商品
+    flashSellProductList = await ProductApi.products(ProductsReq(featured: true));
+
+    // 最新商品
+    newProductProductList = await ProductApi.products(ProductsReq());
 
     update(["home"]);
   }

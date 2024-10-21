@@ -16,7 +16,7 @@ class HomePage extends GetView<HomeController> {
       // 取消阴影
       elevation: 0,
       // 标题栏左侧间距
-      titleSpacing: AppSpace.listItem,
+      titleSpacing: AppSpace.page,
       // 搜索栏
       title: InputWidget.search(
         // 提示文字，多语言
@@ -34,11 +34,11 @@ class HomePage extends GetView<HomeController> {
           size: 20,
           isDot: true,
         )
-        .unconstrained() // 去掉约束， appBar 会有个约束下来
-        .padding(
-          left: AppSpace.listItem,
-          right: AppSpace.page,
-        ),
+            .unconstrained() // 去掉约束， appBar 会有个约束下来
+            .padding(
+              left: AppSpace.listItem,
+              right: AppSpace.page,
+            ),
       ],
     );
   }
@@ -46,47 +46,46 @@ class HomePage extends GetView<HomeController> {
   // 轮播广告
   Widget _buildBanner() {
     return GetBuilder<HomeController>(
-      init: controller,
-      id: "home_banner",
-      builder: (_) {
-        return CarouselWidget(
-          items: controller.bannerItems,
-          currentIndex: controller.bannerCurrentIndex,
-          onPageChanged: controller.onChangeBanner,
-          height: 190.w,
-          );
-      })
-      .clipRRect(all: AppSpace.button)
-      .sliverToBoxAdapter()
-      .sliverPaddingHorizontal(AppSpace.page);
+            init: controller,
+            id: "home_banner",
+            builder: (_) {
+              return CarouselWidget(
+                items: controller.bannerItems,
+                currentIndex: controller.bannerCurrentIndex,
+                onPageChanged: controller.onChangeBanner,
+                height: 190.w,
+              );
+            })
+        .clipRRect(all: AppSpace.button)
+        .sliverToBoxAdapter()
+        .sliverPaddingHorizontal(AppSpace.page);
   }
 
   // 分类导航
   Widget _buildCategorys() {
     return Container()
-    .sliverToBoxAdapter()
-    .sliverPaddingHorizontal(AppSpace.page);
+        .sliverToBoxAdapter()
+        .sliverPaddingHorizontal(AppSpace.page);
   }
 
   // Flash Sell
   Widget _buildFlashSell() {
     return Container()
-    .sliverToBoxAdapter()
-    .sliverPaddingHorizontal(AppSpace.page);
+        .sliverToBoxAdapter()
+        .sliverPaddingHorizontal(AppSpace.page);
   }
 
   // New Sell
   Widget _buildNewSell() {
     return Container()
-    .sliverToBoxAdapter()
-    .sliverPaddingHorizontal(AppSpace.page);
+        .sliverToBoxAdapter()
+        .sliverPaddingHorizontal(AppSpace.page);
   }
 
   // 主视图
   Widget _buildView() {
     return CustomScrollView(
       slivers: [
-
         // 轮播广告
         _buildBanner(),
 
@@ -96,8 +95,8 @@ class HomePage extends GetView<HomeController> {
         // Flash Sell
         // title
         Text(LocaleKeys.gHomeFlashSell.tr)
-        .sliverToBoxAdapter()
-        .sliverPaddingHorizontal(AppSpace.page),
+            .sliverToBoxAdapter()
+            .sliverPaddingHorizontal(AppSpace.page),
 
         // 商品列表
         _buildFlashSell(),
@@ -105,12 +104,11 @@ class HomePage extends GetView<HomeController> {
         // new product
         // title
         Text(LocaleKeys.gHomeNewProduct.tr)
-        .sliverToBoxAdapter()
-        .sliverPaddingHorizontal(AppSpace.page),
+            .sliverToBoxAdapter()
+            .sliverPaddingHorizontal(AppSpace.page),
 
         // 商品列表
         _buildNewSell(),
-
       ],
     );
   }

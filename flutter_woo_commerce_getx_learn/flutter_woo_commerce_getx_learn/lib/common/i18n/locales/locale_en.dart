@@ -79,6 +79,4 @@ Map<String, String> localeEn = {
   LocaleKeys.gHomeFlashSell: 'Flash Sell',
   LocaleKeys.gHomeNewProduct: 'New Product',
   LocaleKeys.gHomeMore: 'ALL',
-
-
 };

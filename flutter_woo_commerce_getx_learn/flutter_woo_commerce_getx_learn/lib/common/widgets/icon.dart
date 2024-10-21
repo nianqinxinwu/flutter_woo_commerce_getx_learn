@@ -85,8 +85,7 @@ class IconWidget extends StatelessWidget {
       this.imageUrl,
       this.fit});
 
-
-      const IconWidget.svg(this.assetName,
+  const IconWidget.svg(this.assetName,
       {super.key,
       this.type = IconWidgetType.svg,
       this.size = _letSize,

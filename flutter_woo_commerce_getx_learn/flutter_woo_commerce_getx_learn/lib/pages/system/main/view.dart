@@ -4,7 +4,6 @@ import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:flutter_woo_commerce_getx_learn/pages/index.dart';
 import 'package:get/get.dart';
 
-
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -32,7 +31,7 @@ class _MainViewGetX extends GetView<MainController> {
     DateTime? lastPressedAt;
     // ignore: deprecated_member_use
     return WillPopScope(
-        onWillPop:  () async {
+      onWillPop: () async {
         if (lastPressedAt == null ||
             DateTime.now().difference(lastPressedAt!) >
                 const Duration(seconds: 1)) {
@@ -43,63 +42,62 @@ class _MainViewGetX extends GetView<MainController> {
         await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
         return true;
       },
-        child: Scaffold(
-          extendBody: true,
-          resizeToAvoidBottomInset: false,
-          // 导航栏
-          bottomNavigationBar: GetBuilder<MainController>(
-            id: 'navigation',
-            builder: (controller) {
-              return BuildNavigation(
-                currentIndex: controller.currentIndex,
-                items: [
-                  // 首页
-                  NavigationItemModel(
-                    label: LocaleKeys.tabBarHome.tr,
-                    icon: AssetsSvgs.navHomeSvg,
-                  ),
+      child: Scaffold(
+        extendBody: true,
+        resizeToAvoidBottomInset: false,
+        // 导航栏
+        bottomNavigationBar: GetBuilder<MainController>(
+          id: 'navigation',
+          builder: (controller) {
+            return BuildNavigation(
+              currentIndex: controller.currentIndex,
+              items: [
+                // 首页
+                NavigationItemModel(
+                  label: LocaleKeys.tabBarHome.tr,
+                  icon: AssetsSvgs.navHomeSvg,
+                ),
 
-                  // 购物车
-                  NavigationItemModel(
-                    label: LocaleKeys.tabBarCart.tr,
-                    icon: AssetsSvgs.navCartSvg,
-                    count: 3,
-                  ),
+                // 购物车
+                NavigationItemModel(
+                  label: LocaleKeys.tabBarCart.tr,
+                  icon: AssetsSvgs.navCartSvg,
+                  count: 3,
+                ),
 
-                  // 信息
-                  NavigationItemModel(
-                    label: LocaleKeys.tabBarMessage.tr,
-                    icon: AssetsSvgs.navMessageSvg,
-                    count: 9,
-                  ),
+                // 信息
+                NavigationItemModel(
+                  label: LocaleKeys.tabBarMessage.tr,
+                  icon: AssetsSvgs.navMessageSvg,
+                  count: 9,
+                ),
 
-
-                  // 我的
-                  NavigationItemModel(
-                    label: LocaleKeys.tabBarProfile.tr,
-                    icon: AssetsSvgs.navProfileSvg,
-                  ),
-                ],
-                onTap: controller.onJumpToPage, // 切换tab事件
-              );
-            },
-          ),
-
-          // 主体内容
-          body: PageView(
-            physics: const NeverScrollableScrollPhysics(),
-            controller: controller.pageController,
-            onPageChanged: controller.onIndexChanged,
-            children: const [
-              // 加入空页面占位
-              HomePage(),
-              CartIndexPage(),
-              MsgIndexPage(),
-              MyIndexPage(),
-            ],
-          ),
+                // 我的
+                NavigationItemModel(
+                  label: LocaleKeys.tabBarProfile.tr,
+                  icon: AssetsSvgs.navProfileSvg,
+                ),
+              ],
+              onTap: controller.onJumpToPage, // 切换tab事件
+            );
+          },
         ),
-      );
+
+        // 主体内容
+        body: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: controller.pageController,
+          onPageChanged: controller.onIndexChanged,
+          children: const [
+            // 加入空页面占位
+            HomePage(),
+            CartIndexPage(),
+            MsgIndexPage(),
+            MyIndexPage(),
+          ],
+        ),
+      ),
+    );
   }
 
   @override

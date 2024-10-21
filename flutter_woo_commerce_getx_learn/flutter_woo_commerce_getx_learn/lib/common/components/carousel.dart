@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 
-
 /// 滚动视图
 class CarouselWidget extends StatelessWidget {
   const CarouselWidget(
