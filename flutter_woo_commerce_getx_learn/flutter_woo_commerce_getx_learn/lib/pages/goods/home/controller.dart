@@ -34,7 +34,14 @@ class HomeController extends GetxController {
   void onCategoryTap(int categoryId) {}
 
   // ALL 点击事件
-  void onAllTap(bool featured) {}
+  void onAllTap(bool featured) {
+    Get.toNamed(
+      RouteNames.goodsProductList,
+      arguments: {
+        "featured" : featured,
+      }
+    );
+  }
 
   // 刷新控制器
   final RefreshController refreshController = RefreshController(
