@@ -27,6 +27,9 @@ class HomeController extends GetxController {
   // 最新商品列表数据
   List<ProductModel> newProductProductList = [];
 
+    // 分类点击事件
+  void onCategoryTap(int categoryId) {}
+
   _initData() async {
     // 首页
     // Banner

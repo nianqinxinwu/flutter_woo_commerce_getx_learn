@@ -9,8 +9,8 @@ class WPHttpService extends GetxService {
   static WPHttpService get to => Get.find();
 
   late final Dio _dio;
-
-  void init() {
+  @override
+  void onInit() {
     super.onInit();
 
     //初始化 Dio
