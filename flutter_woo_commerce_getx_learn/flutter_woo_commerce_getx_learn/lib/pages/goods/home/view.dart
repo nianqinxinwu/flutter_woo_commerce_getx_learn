@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
+import 'widgets/index.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
@@ -78,11 +79,27 @@ class HomePage extends GetView<HomeController> {
     .sliverPaddingHorizontal(AppSpace.page);
   }
 
-  // Flash Sell
+  // 推荐商品
   Widget _buildFlashSell() {
-    return Container()
-        .sliverToBoxAdapter()
-        .sliverPaddingHorizontal(AppSpace.page);
+    return <Widget>[
+      for (var i = 0; i < controller.flashSellProductList.length; i++)
+        ProductItemWidget(
+          controller.flashSellProductList[i],
+          imgHeight: 117.w,
+          imgWidth: 120.w,
+        )
+        .constrained(
+          width: 120.w,
+          height: 170.w,
+        )
+        .paddingRight(AppSpace.listItem)
+    ].toListView(
+      scrollDirection: Axis.horizontal,
+    )
+    .height(170.w)
+    .paddingBottom(AppSpace.listRow)
+    .sliverToBoxAdapter()
+    .sliverPaddingHorizontal(AppSpace.page);
   }
 
   // New Sell
@@ -103,7 +120,14 @@ class HomePage extends GetView<HomeController> {
         _buildCategorys(),
 
         // Flash Sell
-        // title
+        // 标题栏
+        controller.flashSellProductList.isNotEmpty
+        ? BuildListTile(
+          title: LocaleKeys.gHomeFlashSell.tr,
+          subTitle: "03. 30. 30",
+          onTap: () => controller.onAllTap(true),
+        ).sliverToBoxAdapter().sliverPaddingHorizontal(AppSpace.page)
+        : const SliverToBoxAdapter(),
         Text(LocaleKeys.gHomeFlashSell.tr)
             .sliverToBoxAdapter()
             .sliverPaddingHorizontal(AppSpace.page),
