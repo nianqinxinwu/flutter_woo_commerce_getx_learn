@@ -3,7 +3,7 @@ import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:get/get.dart';
 
 /// 列表标题
-class BuildListTile extends StatelessWidget {
+class BuildListTitle extends StatelessWidget {
 
   /// 标题
   final String title;
@@ -14,7 +14,7 @@ class BuildListTile extends StatelessWidget {
   /// 更多事件
   final Function()? onTap;
 
-  const BuildListTile({
+  const BuildListTitle({
     super.key,
     required this.title,
     this.subTitle,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'widgets/index.dart';
 import 'package:get/get.dart';
 
@@ -104,9 +105,32 @@ class HomePage extends GetView<HomeController> {
 
   // New Sell
   Widget _buildNewSell() {
-    return Container()
-        .sliverToBoxAdapter()
-        .sliverPaddingHorizontal(AppSpace.page);
+    return GetBuilder<HomeController>(
+        id: "home_new_sell",
+        init: controller,
+        builder: (_) {
+          return SliverGrid(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int position) {
+                var product = controller.newProductProductList[position];
+                return ProductItemWidget(
+                  product,
+                  imgHeight: 170.w,
+                );
+              },
+              childCount: controller.newProductProductList.length,
+            ),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: AppSpace.listRow,
+              crossAxisSpacing: AppSpace.listItem,
+              childAspectRatio: 0.8,
+            ),
+          )
+          .sliverPadding(bottom: AppSpace.page)
+          .sliverPaddingHorizontal(AppSpace.page);
+        }
+      );
   }
 
   // 主视图
@@ -122,7 +146,7 @@ class HomePage extends GetView<HomeController> {
         // Flash Sell
         // 标题栏
         controller.flashSellProductList.isNotEmpty
-        ? BuildListTile(
+        ? BuildListTitle(
           title: LocaleKeys.gHomeFlashSell.tr,
           subTitle: "03. 30. 30",
           onTap: () => controller.onAllTap(true),
@@ -135,13 +159,15 @@ class HomePage extends GetView<HomeController> {
         // 商品列表
         _buildFlashSell(),
 
-        // new product
-        // title
-        Text(LocaleKeys.gHomeNewProduct.tr)
-            .sliverToBoxAdapter()
-            .sliverPaddingHorizontal(AppSpace.page),
-
-        // 商品列表
+        // 最新商品
+        // 栏位标题
+        controller.newProductProductList.isNotEmpty
+            ? BuildListTitle(
+                title: LocaleKeys.gHomeNewProduct.tr,
+                onTap: () => controller.onAllTap(false),
+              ).sliverToBoxAdapter().sliverPaddingHorizontal(AppSpace.page)
+            : const SliverToBoxAdapter(),
+        // 列表
         _buildNewSell(),
       ],
     );
@@ -155,7 +181,13 @@ class HomePage extends GetView<HomeController> {
       builder: (_) {
         return Scaffold(
           appBar: _buildAppBar(),
-          body: _buildView(),
+          body: SmartRefresher(
+            controller: controller.refreshController, // 刷新控制器
+            enablePullUp: true, // 启用上拉加载更多
+            onRefresh: controller.onRefresh, // 下拉刷新回调
+            onLoading: controller.onLoading, // 上拉加载更多回调
+            child: _buildView(),
+          ),
         );
       },
     );

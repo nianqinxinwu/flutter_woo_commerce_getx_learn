@@ -89,6 +89,7 @@ dependencies:
   # 加密库
   # 文档地址：https://pub.dev/packages/encrypt
   encrypt: ^5.0.3
+  pull_to_refresh: ^2.0.0
   # flutter_launcher_icons: ^0.14.1
 
   # flutter pub add dio_cookie_manager

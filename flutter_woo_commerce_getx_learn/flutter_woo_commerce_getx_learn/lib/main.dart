@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'common/index.dart';
 import 'package:get/get.dart';
 
@@ -25,37 +26,46 @@ class MyApp extends StatelessWidget {
 
       // 一般返回一个MaterialApp类型的Function()
       builder: (context, child) {
-        return GetMaterialApp(
-          title: 'Flutter Demo',
+        return RefreshConfiguration(
+          headerBuilder: () => const ClassicHeader(), // 自定义刷新头部
+          footerBuilder: () => const ClassicFooter(), // 自定义刷新脚部
+          hideFooterWhenNotFull: true, // 隐藏不满一屏时显示的脚部
+          headerTriggerDistance: 80.0, // 头部触发刷新的距离
+          maxOverScrollExtent: 100.0, // 最大超出边界距离
+          footerTriggerDistance: 150.0, // 脚部触发刷新的距离
 
-          // 样式
-          theme: ConfigService.to.isDarkModel ? AppTheme.dark : AppTheme.light,
+          child: GetMaterialApp(
+            title: 'Flutter Demo',
 
-          // 路由
-          // 测试用路由
-          // initialRoute: RouteNames.stylesTextForm,
+            // 样式
+            theme: ConfigService.to.isDarkModel ? AppTheme.dark : AppTheme.light,
 
-          initialRoute: RouteNames.systemSplash,
-          getPages: RoutePages.list,
-          navigatorObservers: [RoutePages.observer],
+            // 路由
+            // 测试用路由
+            // initialRoute: RouteNames.stylesTextForm,
 
-          // 多语言
-          translations: Translation(), // 词典
-          localizationsDelegates: Translation.localizationsDelegates, // 代理
-          supportedLocales: Translation.supportedLocales, // 支持语言
-          locale: ConfigService.to.locale, // 当前语言
-          fallbackLocale: Translation.fallbackLocale, // 默认语言
+            initialRoute: RouteNames.systemSplash,
+            getPages: RoutePages.list,
+            navigatorObservers: [RoutePages.observer],
 
-          // builder
-          builder: (context, widget) {
-            // EasyLoading 初始化
-            widget = EasyLoading.init()(context, widget);
+            // 多语言
+            translations: Translation(), // 词典
+            localizationsDelegates: Translation.localizationsDelegates, // 代理
+            supportedLocales: Translation.supportedLocales, // 支持语言
+            locale: ConfigService.to.locale, // 当前语言
+            fallbackLocale: Translation.fallbackLocale, // 默认语言
 
-            return MediaQuery(
-                data: MediaQuery.of(context)
-                    .copyWith(textScaler: const TextScaler.linear(1.0)),
-                child: widget);
-          },
+            // builder
+            builder: (context, widget) {
+              // EasyLoading 初始化
+              widget = EasyLoading.init()(context, widget);
+
+              return MediaQuery(
+                  data: MediaQuery.of(context)
+                      .copyWith(textScaler: const TextScaler.linear(1.0)),
+                  child: widget);
+            },
+          ),
         );
       },
     );

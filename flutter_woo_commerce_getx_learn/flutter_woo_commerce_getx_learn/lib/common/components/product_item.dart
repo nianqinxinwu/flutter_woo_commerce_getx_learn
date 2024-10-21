@@ -64,7 +64,7 @@ class ProductItemWidget extends StatelessWidget {
        .padding(all: 5)
        .onTap(() {
         if (onTap != null) {
-
+          onTap?.call();
         } else {
           Get.toNamed(
             RouteNames.goodsProductDetails,
