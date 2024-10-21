@@ -12,10 +12,10 @@ class SmartRefresherFooterWidget extends StatelessWidget {
   final double? iconSize;
 
   const SmartRefresherFooterWidget({
-    Key? key,
+    super.key,
     this.iconSize,
     this.height,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

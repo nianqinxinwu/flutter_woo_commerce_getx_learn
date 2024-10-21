@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 // key-value storage 离线存储
@@ -22,6 +24,10 @@ class Storage {
 
   Future<bool> setList(String key, List<String> value) async {
     return await _prefs.setStringList(key, value);
+  }
+
+  Future<bool> setJson(String key, Object value) async {
+    return await _prefs.setString(key, jsonEncode(value));
   }
 
   String getString(String key) {
