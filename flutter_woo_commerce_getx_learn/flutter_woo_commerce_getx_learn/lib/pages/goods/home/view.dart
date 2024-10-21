@@ -147,7 +147,7 @@ class HomePage extends GetView<HomeController> {
         // 分类导航
         _buildCategorys(),
 
-        // Flash Sell
+        // 热卖商品
         // 标题栏
         controller.flashSellProductList.isNotEmpty
         ? BuildListTitle(
