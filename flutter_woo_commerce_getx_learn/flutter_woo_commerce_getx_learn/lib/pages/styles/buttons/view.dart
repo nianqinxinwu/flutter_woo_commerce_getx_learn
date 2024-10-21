@@ -51,7 +51,7 @@ class ButtonsPage extends GetView<ButtonsController> {
 
       // Icon 图标按钮 4
       ButtonWidget.icon(
-        IconWidget.svg(
+        const IconWidget.svg(
           AssetsSvgs.cHomeSvg,
           size: 30,
         ),
@@ -93,7 +93,7 @@ class ButtonsPage extends GetView<ButtonsController> {
 
       // IconTextUpDown 图标+文字按钮 7
       ButtonWidget.iconTextUpDown(
-        IconWidget.svg(AssetsSvgs.cHomeSvg, size: 30),
+        const IconWidget.svg(AssetsSvgs.cHomeSvg, size: 30),
         "Home",
         onTap: () {
           const Dialog(
@@ -104,7 +104,7 @@ class ButtonsPage extends GetView<ButtonsController> {
 
       // IconTextOutlined 图标+文字按钮 8
       ButtonWidget.iconTextOutlined(
-        IconWidget.svg(AssetsSvgs.cHomeSvg, size: 30),
+        const IconWidget.svg(AssetsSvgs.cHomeSvg, size: 30),
         "Home",
         onTap: () {
           const Dialog(
@@ -120,7 +120,7 @@ class ButtonsPage extends GetView<ButtonsController> {
 
       // IconTextRoundOutlined 图标+文字按钮 9
       ButtonWidget.iconTextUpDownOutlined(
-        IconWidget.svg(AssetsSvgs.cHomeSvg, size: 30),
+        const IconWidget.svg(AssetsSvgs.cHomeSvg, size: 30),
         "Yes",
         onTap: () {
           const Dialog(
@@ -137,7 +137,7 @@ class ButtonsPage extends GetView<ButtonsController> {
       // textIcon, // 文字/图标 按钮 10
       ButtonWidget.textIcon(
         "Home",
-        IconWidget.svg(
+        const IconWidget.svg(
           AssetsSvgs.cHomeSvg,
           size: 30,
         ),

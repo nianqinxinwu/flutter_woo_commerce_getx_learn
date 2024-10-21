@@ -33,7 +33,7 @@ class InputsPage extends GetView<InputsController> {
 
       /// 图标/文本/填充/边框
       InputWidget.iconTextFilled(
-        IconWidget.svg(
+        const IconWidget.svg(
           AssetsSvgs.cHomeSvg,
         ),
         hintText: "图标/文本/填充/边框",
@@ -41,7 +41,7 @@ class InputsPage extends GetView<InputsController> {
 
       /// 后缀图标/文本/填充/边框
       InputWidget.suffixTextFilled(
-        IconWidget.svg(
+        const IconWidget.svg(
           AssetsSvgs.cHomeSvg,
         ),
         hintText: "后缀图标/文本/填充/边框",

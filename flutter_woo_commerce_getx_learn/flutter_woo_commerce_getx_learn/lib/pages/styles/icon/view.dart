@@ -18,9 +18,9 @@ class IconPage extends GetView<IconController> {
         leading: IconWidget.image(AssetsImages.defaultPng),
         title: const TextWidget.body1("IconWidget.image"),
       ),
-      ListTile(
+      const ListTile(
         leading: IconWidget.svg(AssetsSvgs.cHomeSvg),
-        title: const TextWidget.body1("IconWidget.svg"),
+        title: TextWidget.body1("IconWidget.svg"),
       ),
       ListTile(
         leading: IconWidget.url(

@@ -66,7 +66,7 @@ class LoginPage extends GetView<LoginController> {
         <Widget>[
           // Button FaceBook
           ButtonWidget.iconTextOutlined(
-            IconWidget.svg(AssetsSvgs.facebookSvg),
+            const IconWidget.svg(AssetsSvgs.facebookSvg),
             "Facebook",
             borderColor: AppColors.surfaceVariant,
             width: 149.w,
@@ -75,7 +75,7 @@ class LoginPage extends GetView<LoginController> {
 
           // Button Google
           ButtonWidget.iconTextOutlined(
-            IconWidget.svg(AssetsSvgs.googleSvg),
+            const IconWidget.svg(AssetsSvgs.googleSvg),
             "Google",
             borderColor: AppColors.surfaceVariant,
             width: 149.w,
