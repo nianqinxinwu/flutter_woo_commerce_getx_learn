@@ -135,7 +135,11 @@ class HomePage extends GetView<HomeController> {
 
   // 主视图
   Widget _buildView() {
-    return CustomScrollView(
+    return controller.flashSellProductList.isEmpty || controller.newProductProductList.isEmpty
+    ?
+    //占位图
+    const PlaceholdWidget()
+    : CustomScrollView(
       slivers: [
         // 轮播广告
         _buildBanner(),
