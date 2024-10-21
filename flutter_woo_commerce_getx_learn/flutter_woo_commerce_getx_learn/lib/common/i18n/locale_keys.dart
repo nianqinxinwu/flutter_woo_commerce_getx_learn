@@ -68,4 +68,11 @@ class LocaleKeys {
   static const tabBarMessage = 'tab_bar_message';
   static const tabBarProfile = 'tab_bar_profile';
 
+    // 商品 - 首页
+  static const gHomeSearch = 'goods_home_search';
+  static const gHomeFlashSell = 'goods_home_flash_shell';
+  static const gHomeNewProduct = 'goods_home_new_product';
+  static const gHomeMore = 'goods_home_more';
+
+
 }
