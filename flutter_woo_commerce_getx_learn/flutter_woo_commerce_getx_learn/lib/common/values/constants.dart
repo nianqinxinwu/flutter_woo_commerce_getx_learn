@@ -31,4 +31,7 @@ class Constants {
   static const storageHomeFlashSell = 'home_flash_sell';
   static const storageHomeNewSell = 'home_new_sell';
 
+  // 基础数据
+  // 商品分类
+  static const storageProductCategories = 'product_categories';
 }

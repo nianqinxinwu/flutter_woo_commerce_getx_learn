@@ -31,7 +31,14 @@ class HomeController extends GetxController {
   List<ProductModel> newProductProductList = [];
 
     // 分类点击事件
-  void onCategoryTap(int categoryId) {}
+  void onCategoryTap(int categoryId) {
+    Get.toNamed(
+      RouteNames.goodsCategory,
+      arguments: {
+        "id":categoryId,
+      },
+    );
+  }
 
   // ALL 点击事件
   void onAllTap(bool featured) {
@@ -170,6 +177,10 @@ class HomeController extends GetxController {
 
     // 最新商品
     newProductProductList = await ProductApi.products(ProductsReq());
+
+    // 保存离线数据 - 基础数据
+    Storage().setJson(Constants.storageProductCategories, categoryItems);
+
 
     // 保存离线数据 - 首页业务
     Storage().setJson(Constants.storageHomeBanner, bannerItems);
