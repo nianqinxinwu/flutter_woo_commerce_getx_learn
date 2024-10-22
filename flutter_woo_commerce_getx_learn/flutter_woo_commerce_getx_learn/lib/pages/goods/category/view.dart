@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:get/get.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'index.dart';
 
@@ -44,13 +45,57 @@ class CategoryPage extends GetView<CategoryController> {
     );
   }
 
+  // 右侧商品列表
+  Widget _buildRightList() {
+    return GetBuilder<CategoryController>(
+      id: "product_list",
+      builder: (controller) {
+        return SmartRefresher(
+          controller: controller.refreshController,
+          enablePullUp: true, // 开启上拉加载
+          onRefresh: controller.onRefresh, // 下拉刷新
+          onLoading: controller.onLoading, // 上拉加载
+          footer: const SmartRefresherFooterWidget(),
+
+          child: controller.items.isEmpty
+            ?
+            //占位图
+            const PlaceholdWidget()
+              :
+              // 商品列表
+              GridView.builder(
+                itemCount: controller.items.length, // 商品数量
+
+                itemBuilder: (context, index) {
+                  var product = controller.items[index]; // 商品项数
+
+                  // 商品项组件
+                  return ProductItemWidget(
+                    product, // 商品
+                    imgHeight: 117.w, // 图片高度
+                  );
+                },
+
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, // 每行2个
+                  mainAxisSpacing: AppSpace.listRow.w, // 主轴间距
+                  crossAxisSpacing: AppSpace.listItem.w, // 交叉轴间距
+                  childAspectRatio: 0.8, // 宽高比
+                ),
+              ),
+        )
+        // padding 水平间距
+        .paddingHorizontal(AppSpace.listView);
+      },
+    );
+  }
   // 主视图
   Widget _buildView() {
     return <Widget>[
       // 左侧导航栏
       _buildLeftNav(),
       // 右侧商品列表
-
+      _buildRightList().expanded(),
     ].toRow();
   }
 
