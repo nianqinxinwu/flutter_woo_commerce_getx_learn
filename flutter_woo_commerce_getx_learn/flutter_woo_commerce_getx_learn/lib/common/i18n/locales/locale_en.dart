@@ -86,4 +86,13 @@ Map<String, String> localeEn = {
 
   // 商品 - 分类
   LocaleKeys.gCategoryTitle: 'All Category',
+
+  // 商品 - 详情
+  LocaleKeys.gDetailTitle: 'Product Info',
+  LocaleKeys.gDetailTabProduct: 'Product',
+  LocaleKeys.gDetailTabDetails: 'Details',
+  LocaleKeys.gDetailTabReviews: 'Reviews',
+  LocaleKeys.gDetailBtnAddCart: 'Add To Cart',
+  LocaleKeys.gDetailBtnBuy: 'Buy Now',
+
 };

@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 
-class ProductDetailsController extends GetxController {
+/// 商品详情控制器
+class ProductDetailsController extends GetxController
+  with GetSingleTickerProviderStateMixin {
   ProductDetailsController();
 
   _initData() {
