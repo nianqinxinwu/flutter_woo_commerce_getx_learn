@@ -33,14 +33,13 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
   // 1. 定义唯一 tag 值, 唯一即可
   final String uniqueTag;
 
-// 2. 接收传入 tag 值
-
+  // 2. 接收传入 tag 值
   const _ProductDetailsViewGetX(this.uniqueTag);
 
-// 3. 重写 GetView 属性 tag
-@override
-String? get tag => uniqueTag;
-    // 滚动图
+  // 3. 重写 GetView 属性 tag
+  @override
+  String? get tag => uniqueTag;
+  // Banner 滚动图
   Widget _buildBanner() {
     return GetBuilder<ProductDetailsController>(
       id: "product_banner",
@@ -70,7 +69,38 @@ String? get tag => uniqueTag;
 
   // 商品标题
   Widget _buildTitle() {
-    return const Text("滚动图");
+    return <Widget>[
+      // 金额、打分、喜欢
+      <Widget>[
+        // 金额
+        TextWidget.title1(
+          "\$${controller.product?.price ?? 0}",
+        ).expanded(),
+
+        // 打分
+        IconTextWidget(
+          iconData: Icons.star,
+          text: "${controller.product?.averageRating ?? 0}",
+        ).paddingRight(AppSpace.iconTextMedium),
+
+        // 喜欢
+       const IconTextWidget(
+          iconData: Icons.favorite,
+          text: "100+",
+        ),
+      ].toRow(),
+
+      // 次标题
+      TextWidget.body1(
+        controller.product?.shortDescription?.clearHtml ?? "-",
+      )
+    ].toColumn(
+      // 左对齐
+      crossAxisAlignment: CrossAxisAlignment.start,
+      // 垂直间隔
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    )
+    .paddingAll(AppSpace.page);
   }
 
   // Tab 栏位
