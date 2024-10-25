@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:get/get.dart';
 
@@ -34,14 +35,37 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
 
 // 2. 接收传入 tag 值
 
-  const _ProductDetailsViewGetX(this.uniqueTag, {super.key});
+  const _ProductDetailsViewGetX(this.uniqueTag);
 
 // 3. 重写 GetView 属性 tag
 @override
 String? get tag => uniqueTag;
     // 滚动图
   Widget _buildBanner() {
-    return const Text("滚动图");
+    return GetBuilder<ProductDetailsController>(
+      id: "product_banner",
+      tag: tag,
+      builder: (_){
+        return CarouselWidget(
+          // 浏览大图
+          onTap: controller.onGalleryTap,
+          // 图片列表
+          items: controller.bannerItems,
+          // 当前索引
+          currentIndex: controller.bannerCurrentIndex,
+          // 切换回调
+          onPageChanged: controller.onChangeBanner,
+          // 高度
+          height: 190.w,
+          // 指示器圆点
+          indicatorCircle: false,
+          // 指示器位置
+          indicatorAlignment: MainAxisAlignment.start,
+          // 指示器颜色
+          indicatorColor: AppColors.error,
+        );
+      },
+    ).backgroundColor(AppColors.surfaceVariant);
   }
 
   // 商品标题
@@ -61,12 +85,15 @@ String? get tag => uniqueTag;
 
   // 主视图
   Widget _buildView() {
-    return <Widget>[
+    return controller.product == null
+    ? const PlaceholdWidget() // 占位图
+    : <Widget>[
       // 滚动图
       _buildBanner(),
 
       // 商品标题
       _buildTitle(),
+
       // Tab 栏位
       _buildTabBar(),
 
@@ -86,7 +113,8 @@ String? get tag => uniqueTag;
         return Scaffold(
           // 导航栏
           appBar: mainAppBarWidget(
-            titleString: LocaleKeys.gDetailTitle.tr,
+            titleString: controller.product?.name ??
+            LocaleKeys.gDetailTitle.tr,
           ),
 
           // 内容

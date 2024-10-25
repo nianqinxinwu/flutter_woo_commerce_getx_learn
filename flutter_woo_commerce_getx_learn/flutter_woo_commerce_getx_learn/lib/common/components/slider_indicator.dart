@@ -33,10 +33,15 @@ class SliderIndicatorWidget extends StatelessWidget {
 
       // 采用 list.generate 方式生成 item 项
       children: List.generate(length, (index) {
+        debugPrint("{数量: $length}");
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 3),
           // 圆型宽度 6 , 否则当前位置15 , 其他位置 8
-          width: !isCircle ? (currentIndex == index ? 15.0 : 8) : 6,
+          width: !isCircle
+              ? currentIndex == index
+                  ? 15.0
+                  : 8
+              : 6,
           height: !isCircle ? 4 : 6,
           decoration: BoxDecoration(
             // 圆角 4

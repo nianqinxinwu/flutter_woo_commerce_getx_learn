@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:get/get.dart';
 
 /// 应用颜色
@@ -7,27 +8,28 @@ class AppColors {
   /// 自定义 颜色
   /// *******************************************
 
-  static Color info = Get.isDarkMode
-      ? const Color.fromARGB(255, 187, 33, 243)
-      : const Color(0xFF2196F3);
+  // static Color info = Get.isDarkMode
+  //     ? const Color.fromARGB(255, 187, 33, 243)
+  //     : const Color(0xFF2196F3);
   // static Color success = const Color(0xFF4CAF50);
   // static Color warning = const Color(0xFFFFC107);
   // static Color danger = const Color(0xFFF44336);
 
-  // /// 产品
-  // static ExtWooColorTheme get woo => Get.theme.extension<ExtWooColorTheme>()!;
-  // static Color get highlight =>
-  //     Get.theme.extension<ExtWooColorTheme>()!.highlight!;
+  /// 产品
+  static ExtWooColorTheme get woo => Get.theme.extension<ExtWooColorTheme>()!;
+  static Color? get highlight =>
+      Get.theme.extension<ExtWooColorTheme>()!.highlight;
+      // Get.theme.extension<ExtWooColorTheme>()!.highlight!;
 
-  // /// 基础色
-  // static ExtBaseColorTheme get base =>
-  //     Get.theme.extension<ExtBaseColorTheme>()!;
-  // static Color get info => Get.theme.extension<ExtBaseColorTheme>()!.info!;
-  // static Color get success =>
-  //     Get.theme.extension<ExtBaseColorTheme>()!.success!;
-  // static Color get warning =>
-  //     Get.theme.extension<ExtBaseColorTheme>()!.warning!;
-  // static Color get danger => Get.theme.extension<ExtBaseColorTheme>()!.danger!;
+  /// 基础色
+  static ExtBaseColorTheme get base =>
+      Get.theme.extension<ExtBaseColorTheme>()!;
+  static Color get info => Get.theme.extension<ExtBaseColorTheme>()!.info!;
+  static Color get success =>
+      Get.theme.extension<ExtBaseColorTheme>()!.success!;
+  static Color get warning =>
+      Get.theme.extension<ExtBaseColorTheme>()!.warning!;
+  static Color get danger => Get.theme.extension<ExtBaseColorTheme>()!.danger!;
 
   /// *******************************************
   /// Material System

@@ -79,6 +79,7 @@ class CarouselWidget extends StatelessWidget {
       ),
 
       // 指示器
+      items.length > 1 ?
       SliderIndicatorWidget(
         // 个数
         length: items.length,
@@ -94,6 +95,10 @@ class CarouselWidget extends StatelessWidget {
         left: indicatorLeft ?? 20,
         right: indicatorRight ?? 20,
         bottom: indicatorBottom ?? 10,
+      ) : Container(
+        color: Colors.transparent,
+        alignment: Alignment.center,
+        height: 5,
       ),
     ];
 
