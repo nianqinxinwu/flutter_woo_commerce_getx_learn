@@ -96,5 +96,6 @@ Map<String, String> localeEn = {
   LocaleKeys.gDetailBtnBuy: 'Buy Now',
   LocaleKeys.gDetailTitleColor: 'Color',
   LocaleKeys.gDetailTitleSize: 'Size',
+  LocaleKeys.gDetailTitleShoppingCharge: 'Shopping Charge',
   LocaleKeys.gDetailPrice: 'Price',
 };

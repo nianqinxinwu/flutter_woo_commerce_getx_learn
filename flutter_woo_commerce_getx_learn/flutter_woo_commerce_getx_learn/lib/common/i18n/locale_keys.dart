@@ -90,5 +90,6 @@ class LocaleKeys {
   static const gDetailBtnBuy = "goods_detail_btn_buy";
   static const gDetailTitleColor = "goods_detail_title_color";
   static const gDetailTitleSize = "goods_detail_title_size";
+  static const gDetailTitleShoppingCharge = "goods_detail_title_shopping_charge";
   static const gDetailPrice = "goods_detail_price";
 }
