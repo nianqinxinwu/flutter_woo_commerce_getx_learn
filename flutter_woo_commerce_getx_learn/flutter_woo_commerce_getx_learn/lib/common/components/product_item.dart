@@ -3,7 +3,6 @@ import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:get/get.dart';
 
 class ProductItemWidget extends StatelessWidget {
-
   /// 点击事件
   final Function()? onTap;
 
@@ -27,12 +26,10 @@ class ProductItemWidget extends StatelessWidget {
   Widget _buildView(BoxConstraints constraints) {
     var ws = <Widget>[
       // 图片
-      IconWidget.url(
-        product.images?.first.src ?? '',
-        fit: BoxFit.cover,
-        width: imgWidth ?? constraints.minWidth,
-        height: imgHeight
-      ),
+      IconWidget.url(product.images?.first.src ?? '',
+          fit: BoxFit.cover,
+          width: imgWidth ?? constraints.minWidth,
+          height: imgHeight),
 
       // 描述
       <Widget>[
@@ -45,40 +42,37 @@ class ProductItemWidget extends StatelessWidget {
             product.price ?? '',
             weight: FontWeight.bold,
           ),
-      ].toColumn(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
-      )
-      .paddingHorizontal(5)
-      .expanded(),
+      ]
+          .toColumn(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+          )
+          .paddingHorizontal(5)
+          .expanded(),
     ];
 
     return ws
-       .toColumn(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-       )
-       .card(
-        blurRadius: 5,
-       )
-       .padding(all: 5)
-       .onTap(() {
-        if (onTap != null) {
-          onTap?.call();
-        } else {
-          Get.toNamed(
-            RouteNames.goodsProductDetails,
-            arguments: {
-              "id": product.id,
-            }
-          );
-        }
-       });
+        .toColumn(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+        )
+        .card(
+          blurRadius: 5,
+        )
+        .padding(all: 5)
+        .onTap(() {
+      if (onTap != null) {
+        onTap?.call();
+      } else {
+        Get.toNamed(RouteNames.goodsProductDetails, arguments: {
+          "id": product.id,
+        });
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         return _buildView(constraints);

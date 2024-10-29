@@ -81,7 +81,7 @@ Map<String, String> localeZh = {
 
   // 商品 - 列表
   LocaleKeys.gFlashSellTitle: '热卖商品列表',
-  LocaleKeys.gNewsTitle : '新商品列表',
+  LocaleKeys.gNewsTitle: '新商品列表',
 
   // 商品 - 分类
   LocaleKeys.gCategoryTitle: '所有分类',
@@ -93,5 +93,4 @@ Map<String, String> localeZh = {
   LocaleKeys.gDetailTabReviews: '评论',
   LocaleKeys.gDetailBtnAddCart: '加入购物车',
   LocaleKeys.gDetailBtnBuy: '立刻购买',
-
 };

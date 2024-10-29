@@ -79,27 +79,28 @@ class CarouselWidget extends StatelessWidget {
       ),
 
       // 指示器
-      items.length > 1 ?
-      SliderIndicatorWidget(
-        // 个数
-        length: items.length,
-        // 当前索引
-        currentIndex: currentIndex ?? 0,
-        // 颜色
-        color: indicatorColor ?? AppColors.background,
-        // 是否圆形
-        isCircle: indicatorCircle ?? true,
-        // 对齐方式
-        alignment: indicatorAlignment ?? MainAxisAlignment.center,
-      ).positioned(
-        left: indicatorLeft ?? 20,
-        right: indicatorRight ?? 20,
-        bottom: indicatorBottom ?? 10,
-      ) : Container(
-        color: Colors.transparent,
-        alignment: Alignment.center,
-        height: 5,
-      ),
+      items.length > 1
+          ? SliderIndicatorWidget(
+              // 个数
+              length: items.length,
+              // 当前索引
+              currentIndex: currentIndex ?? 0,
+              // 颜色
+              color: indicatorColor ?? AppColors.background,
+              // 是否圆形
+              isCircle: indicatorCircle ?? true,
+              // 对齐方式
+              alignment: indicatorAlignment ?? MainAxisAlignment.center,
+            ).positioned(
+              left: indicatorLeft ?? 20,
+              right: indicatorRight ?? 20,
+              bottom: indicatorBottom ?? 10,
+            )
+          : Container(
+              color: Colors.transparent,
+              alignment: Alignment.center,
+              height: 5,
+            ),
     ];
 
     return ws.toStack();

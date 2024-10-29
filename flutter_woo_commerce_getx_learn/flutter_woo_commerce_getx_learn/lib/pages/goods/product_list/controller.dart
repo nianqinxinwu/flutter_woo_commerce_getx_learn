@@ -23,7 +23,6 @@ class ProductListController extends GetxController {
 
   // isRefresh 是否刷新
   Future<bool> _loadSearch(bool isRefresh) async {
-
     // 拉取数据
     var result = await ProductApi.products(ProductsReq(
       // 刷新，重置页数1

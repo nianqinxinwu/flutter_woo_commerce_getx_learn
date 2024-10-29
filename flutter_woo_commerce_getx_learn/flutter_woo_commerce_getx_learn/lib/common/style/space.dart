@@ -34,8 +34,10 @@ class AppSpace {
 
   /// 图标文字 - 15
   static double get iconTextSmail => 5;
+
   /// 图标文字 - 10
   static double get iconTextMedium => 10;
+
   /// 图标文字 - 15
   static double get iconTextLarge => 15;
 }

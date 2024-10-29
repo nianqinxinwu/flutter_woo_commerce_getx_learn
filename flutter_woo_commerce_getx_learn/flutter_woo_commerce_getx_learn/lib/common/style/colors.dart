@@ -19,7 +19,7 @@ class AppColors {
   static ExtWooColorTheme get woo => Get.theme.extension<ExtWooColorTheme>()!;
   static Color? get highlight =>
       Get.theme.extension<ExtWooColorTheme>()!.highlight;
-      // Get.theme.extension<ExtWooColorTheme>()!.highlight!;
+  // Get.theme.extension<ExtWooColorTheme>()!.highlight!;
 
   /// 基础色
   static ExtBaseColorTheme get base =>

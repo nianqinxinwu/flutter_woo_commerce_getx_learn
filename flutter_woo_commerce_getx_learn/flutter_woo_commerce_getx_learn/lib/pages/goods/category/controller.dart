@@ -15,13 +15,14 @@ class CategoryController extends GetxController {
 
   // 初始化数据
   _initData() async {
-
     // 读缓存
-    var stringCategories = Storage().getString(Constants.storageProductCategories);
-    categoryItems = stringCategories!= ""
-      ? jsonDecode(stringCategories).map<CategoryModel> ((item) {
-          return CategoryModel.fromJson(item);
-      }).toList(): [];
+    var stringCategories =
+        Storage().getString(Constants.storageProductCategories);
+    categoryItems = stringCategories != ""
+        ? jsonDecode(stringCategories).map<CategoryModel>((item) {
+            return CategoryModel.fromJson(item);
+          }).toList()
+        : [];
 
     // 缓存为空，从网络获取
     if (categoryItems.isEmpty) {
@@ -88,10 +89,10 @@ class CategoryController extends GetxController {
         var isEmpty = await _loadSearch(false);
 
         if (isEmpty) {
-        // 设置无数据
+          // 设置无数据
           refreshController.loadNoData();
         } else {
-        // 刷新完成
+          // 刷新完成
           refreshController.loadComplete();
         }
       } catch (e) {

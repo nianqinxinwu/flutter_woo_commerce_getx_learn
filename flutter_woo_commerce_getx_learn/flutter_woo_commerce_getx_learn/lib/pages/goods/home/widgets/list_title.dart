@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 /// 列表标题
 class BuildListTitle extends StatelessWidget {
-
   /// 标题
   final String title;
 
@@ -25,9 +24,7 @@ class BuildListTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return <Widget>[
       // 标题
-      TextWidget.title1(
-        title
-      ),
+      TextWidget.title1(title),
 
       // 副标题
       TextWidget.title2(
@@ -41,10 +38,11 @@ class BuildListTitle extends StatelessWidget {
           LocaleKeys.gHomeMore.tr,
         ),
         const IconWidget.icon(Icons.chevron_right),
-      ].toRow(
-        mainAxisSize: MainAxisSize.min,
-      )
-      .onTap(onTap),
+      ]
+          .toRow(
+            mainAxisSize: MainAxisSize.min,
+          )
+          .onTap(onTap),
     ].toRow();
   }
 }

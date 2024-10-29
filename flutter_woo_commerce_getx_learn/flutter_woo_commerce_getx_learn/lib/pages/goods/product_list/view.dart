@@ -12,23 +12,21 @@ class ProductListPage extends GetView<ProductListController> {
   // 主视图
   Widget _buildView() {
     return GridView.builder(
-      itemCount: controller.items.length, // 商品数量
+        itemCount: controller.items.length, // 商品数量
 
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3, // 每行3个
-        mainAxisSpacing: AppSpace.listRow, // 主轴间距
-        crossAxisSpacing: AppSpace.listItem, // 交叉轴间距
-        childAspectRatio: 0.7, // 宽高比
-      ),
-
-      itemBuilder: (context, index) {
-        var product = controller.items[index];
-        return ProductItemWidget(
-          product, // 商品
-          imgHeight: 117.w,
-        );
-      }
-    );
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3, // 每行3个
+          mainAxisSpacing: AppSpace.listRow, // 主轴间距
+          crossAxisSpacing: AppSpace.listItem, // 交叉轴间距
+          childAspectRatio: 0.7, // 宽高比
+        ),
+        itemBuilder: (context, index) {
+          var product = controller.items[index];
+          return ProductItemWidget(
+            product, // 商品
+            imgHeight: 117.w,
+          );
+        });
   }
 
   @override
@@ -40,8 +38,8 @@ class ProductListPage extends GetView<ProductListController> {
         return Scaffold(
           appBar: mainAppBarWidget(
             titleString: controller.featured == true
-            ? LocaleKeys.gFlashSellTitle.tr
-            : LocaleKeys.gNewsTitle.tr,
+                ? LocaleKeys.gFlashSellTitle.tr
+                : LocaleKeys.gNewsTitle.tr,
           ),
           body: SmartRefresher(
             controller: controller.refreshController,

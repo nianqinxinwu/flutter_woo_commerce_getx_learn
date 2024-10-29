@@ -3,7 +3,6 @@ import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 
 /// 图片文字组件
 class IconTextWidget extends StatelessWidget {
-
   // 图标
   final Widget? icon;
 
@@ -25,41 +24,39 @@ class IconTextWidget extends StatelessWidget {
   // 间距
   final double? iconPadding;
 
-
-
-  const IconTextWidget({
-    super.key,
-    this.icon,
-    this.text,
-    this.iconData,
-    this.iconSize,
-    this.fontSize,
-    this.color,
-    this.iconPadding
-  });
+  const IconTextWidget(
+      {super.key,
+      this.icon,
+      this.text,
+      this.iconData,
+      this.iconSize,
+      this.fontSize,
+      this.color,
+      this.iconPadding});
 
   @override
   Widget build(BuildContext context) {
     return <Widget>[
       // 图标
       icon?.paddingRight(iconPadding ?? AppSpace.iconTextSmail) ??
-      IconWidget.icon(
-        iconData ?? Icons.star,
-        size: iconSize ?? 12,
-        color: color ?? AppColors.primary,
-      ).paddingRight(iconPadding ?? AppSpace.iconTextSmail),
+          IconWidget.icon(
+            iconData ?? Icons.star,
+            size: iconSize ?? 12,
+            color: color ?? AppColors.primary,
+          ).paddingRight(iconPadding ?? AppSpace.iconTextSmail),
 
       // 文字
       TextWidget.body2(
         text ?? '',
         size: fontSize ?? 12,
       ),
-    ].toRow(
-      mainAxisSize: MainAxisSize.min,
-    )
-    .fittedBox(
-      fit: BoxFit.none,
-      clipBehavior: Clip.hardEdge,
-    );
+    ]
+        .toRow(
+          mainAxisSize: MainAxisSize.min,
+        )
+        .fittedBox(
+          fit: BoxFit.none,
+          clipBehavior: Clip.hardEdge,
+        );
   }
 }

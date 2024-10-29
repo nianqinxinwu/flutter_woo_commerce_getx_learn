@@ -1,12 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 
 /// 分类导航项
 class CategoryListItemWidget extends StatelessWidget {
-
-
   /// 分类数据
   final CategoryModel category;
 
@@ -16,12 +13,8 @@ class CategoryListItemWidget extends StatelessWidget {
   /// tap 事件
   final Function(int categoryId)? onTap;
 
-  const CategoryListItemWidget({
-    super.key,
-    required this.category,
-    this.selectId,
-    this.onTap
-  });
+  const CategoryListItemWidget(
+      {super.key, required this.category, this.selectId, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -38,17 +31,15 @@ class CategoryListItemWidget extends StatelessWidget {
         size: 18.sp,
         color: selectId == category.id ? AppColors.onSecondary : null, // 选中颜色
       ),
-    ].toColumn(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    )
-    .paddingVertical(AppSpace.button)
-
-    .backgroundColor(
-      selectId == category.id
-      ? AppColors.onSurfaceVariant
-      : Colors.transparent
-    )
-    .onTap(() => onTap?.call(category.id!));
+    ]
+        .toColumn(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        )
+        .paddingVertical(AppSpace.button)
+        .backgroundColor(selectId == category.id
+            ? AppColors.onSurfaceVariant
+            : Colors.transparent)
+        .onTap(() => onTap?.call(category.id!));
   }
 }

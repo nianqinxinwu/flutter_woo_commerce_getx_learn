@@ -88,5 +88,4 @@ class LocaleKeys {
   static const gDetailTabReviews = "goods_detail_tab_reviews";
   static const gDetailBtnAddCart = "goods_detail_btn_add_cart";
   static const gDetailBtnBuy = "goods_detail_btn_buy";
-
 }

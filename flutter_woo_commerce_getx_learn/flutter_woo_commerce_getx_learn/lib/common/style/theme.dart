@@ -29,7 +29,6 @@ class AppTheme {
     ),
   );
 
-
   // 暗色主题
   static ThemeData dark = ThemeData(
     colorScheme: darkColorScheme,

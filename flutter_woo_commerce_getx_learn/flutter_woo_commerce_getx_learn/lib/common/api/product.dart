@@ -2,12 +2,9 @@ import '../index.dart';
 
 /// 商品 api
 class ProductApi {
-
   /// 分类列表
   static Future<List<CategoryModel>> categories() async {
-    var res = await WPHttpService.to.get(
-      '/products/categories'
-    );
+    var res = await WPHttpService.to.get('/products/categories');
 
     List<CategoryModel> categories = [];
 
@@ -39,5 +36,19 @@ class ProductApi {
       '/products/$id',
     );
     return ProductModel.fromJson(res.data);
+  }
+
+  /// 属性列表
+  /// id 1 颜色 2 尺寸
+  static Future<List<AttributeModel>> attributes(int id) async {
+    var res = await WPHttpService.to.get(
+      '/products/attributes/$id/terms'
+    );
+
+    List<AttributeModel> attributes = [];
+    for (var item in res.data) {
+      attributes.add(AttributeModel.fromJson(item));
+    }
+    return attributes;
   }
 }

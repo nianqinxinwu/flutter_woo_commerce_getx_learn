@@ -1,3 +1,4 @@
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
@@ -5,7 +6,7 @@ import 'package:get/get.dart';
 
 /// 商品详情控制器
 class ProductDetailsController extends GetxController
-  with GetSingleTickerProviderStateMixin {
+    with GetSingleTickerProviderStateMixin {
   ProductDetailsController();
 
   // tab 控制器
@@ -25,18 +26,43 @@ class ProductDetailsController extends GetxController
   // Banner 当前位置
   int bannerCurrentIndex = 0;
 
+  // 颜色列表
+  List<KeyValueModel<AttributeModel>> colors = [];
+  // 选中的颜色列表
+  List<String> colorKeys = [];
+
+  // 读取缓存
+  _loadCache() async {
+    // 颜色列表
+    var stringColors = Storage().getString(Constants.storageProductsAttributesColors);
+
+    colors = stringColors != ""
+      ? jsonDecode(stringColors).map<KeyValueModel<AttributeModel>>((item) {
+        var arrt = AttributeModel.fromJson(item);
+        return KeyValueModel(key: "${arrt.name}", value: arrt);
+      }).toList()
+      : [];
+  }
+
+  // 颜色选中
+  void onColorTap(List<String> keys) {
+    colorKeys = keys;
+    update(["product_colors"]); // 手动刷新
+  }
+
   // 拉取商品详情数据
   _loadProduct() async {
     // 商品详情
     product = await ProductApi.productDetail(productId!);
 
     // Banner 数据
-    if (product?.images!= null) {
+    if (product?.images != null) {
       bannerItems = product!.images!
-      .map<KeyValueModel>((e) => KeyValueModel(
-        key: "${e.id}",
-        value: e.src ?? "",
-      )).toList();
+          .map<KeyValueModel>((e) => KeyValueModel(
+                key: "${e.id}",
+                value: e.src ?? "",
+              ))
+          .toList();
     }
   }
 
@@ -50,12 +76,12 @@ class ProductDetailsController extends GetxController
   void onGalleryTap(int index, KeyValueModel item) {
     Get.to(GalleryWidget(
       initialIndex: index,
-      items:bannerItems.map<String>((e) => e.value!).toList(),
+      items: bannerItems.map<String>((e) => e.value!).toList(),
     ));
   }
 
   _initData() async {
-
+    await _loadCache();
     await _loadProduct();
     // 初始化 tab 控制器
     tabController = TabController(length: 3, vsync: this);

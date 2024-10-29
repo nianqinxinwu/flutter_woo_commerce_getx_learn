@@ -17,4 +17,3 @@ class TabReviewsView extends GetView<ProductDetailsController> {
     return const Text("评论");
   }
 }
-

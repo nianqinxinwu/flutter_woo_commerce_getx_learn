@@ -30,24 +30,21 @@ class HomeController extends GetxController {
   // 最新商品列表数据
   List<ProductModel> newProductProductList = [];
 
-    // 分类点击事件
+  // 分类点击事件
   void onCategoryTap(int categoryId) {
     Get.toNamed(
       RouteNames.goodsCategory,
       arguments: {
-        "id":categoryId,
+        "id": categoryId,
       },
     );
   }
 
   // ALL 点击事件
   void onAllTap(bool featured) {
-    Get.toNamed(
-      RouteNames.goodsProductList,
-      arguments: {
-        "featured" : featured,
-      }
-    );
+    Get.toNamed(RouteNames.goodsProductList, arguments: {
+      "featured": featured,
+    });
   }
 
   // 刷新控制器
@@ -78,7 +75,7 @@ class HomeController extends GetxController {
     // 有数据
     if (result.isNotEmpty) {
       // 页数+1
-      _page ++;
+      _page++;
 
       // 添加数据
       newProductProductList.addAll(result);
@@ -103,13 +100,12 @@ class HomeController extends GetxController {
           refreshController.loadComplete();
         }
       } catch (e) {
-
-          /// 加载失败
-          refreshController.loadFailed();
-        }
-      } else {
-        // 设置无数据
-        refreshController.loadNoData();
+        /// 加载失败
+        refreshController.loadFailed();
+      }
+    } else {
+      // 设置无数据
+      refreshController.loadNoData();
     }
     update(["home_new_sell"]);
   }
@@ -134,27 +130,27 @@ class HomeController extends GetxController {
     var stringNewSell = Storage().getString(Constants.storageHomeNewSell);
 
     bannerItems = stringBanner != ""
-    ? jsonDecode(stringBanner).map<KeyValueModel>((item) {
-      return KeyValueModel.fromJson(item);
-    }).toList()
-    : [];
+        ? jsonDecode(stringBanner).map<KeyValueModel>((item) {
+            return KeyValueModel.fromJson(item);
+          }).toList()
+        : [];
     categoryItems = stringCategories != ""
-    ? jsonDecode(stringCategories).map<CategoryModel>((item) {
-      return CategoryModel.fromJson(item);
-    }).toList()
-    : [];
+        ? jsonDecode(stringCategories).map<CategoryModel>((item) {
+            return CategoryModel.fromJson(item);
+          }).toList()
+        : [];
 
     flashSellProductList = stringFlashSell != ""
-    ? jsonDecode(stringFlashSell).map<ProductModel>((item) {
-      return ProductModel.fromJson(item);
-    }).toList()
-    : [];
+        ? jsonDecode(stringFlashSell).map<ProductModel>((item) {
+            return ProductModel.fromJson(item);
+          }).toList()
+        : [];
 
     newProductProductList = stringNewSell != ""
-    ? jsonDecode(stringNewSell).map<ProductModel>((item) {
-      return ProductModel.fromJson(item);
-    }).toList()
-    : [];
+        ? jsonDecode(stringNewSell).map<ProductModel>((item) {
+            return ProductModel.fromJson(item);
+          }).toList()
+        : [];
 
     if (bannerItems.isNotEmpty ||
         categoryItems.isNotEmpty ||
@@ -173,14 +169,18 @@ class HomeController extends GetxController {
     categoryItems = await ProductApi.categories();
 
     // 推荐商品
-    flashSellProductList = await ProductApi.products(ProductsReq(featured: true));
+    flashSellProductList =
+        await ProductApi.products(ProductsReq(featured: true));
 
     // 最新商品
     newProductProductList = await ProductApi.products(ProductsReq());
 
+    // 颜色
+    var attributeColors = await ProductApi.attributes(1);
+
     // 保存离线数据 - 基础数据
     Storage().setJson(Constants.storageProductCategories, categoryItems);
-
+    Storage().setJson(Constants.storageProductsAttributesColors, attributeColors);
 
     // 保存离线数据 - 首页业务
     Storage().setJson(Constants.storageHomeBanner, bannerItems);
@@ -211,6 +211,7 @@ class HomeController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+
     /// 刷新控制器释放
     refreshController.dispose();
   }

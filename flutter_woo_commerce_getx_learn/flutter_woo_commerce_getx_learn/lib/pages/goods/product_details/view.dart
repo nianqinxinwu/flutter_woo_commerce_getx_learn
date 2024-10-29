@@ -30,7 +30,6 @@ class _ProductDetailsPageState extends State<ProductDetailsPage>
 }
 
 class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
-
   // 1. 定义唯一 tag 值, 唯一即可
   final String uniqueTag;
 
@@ -45,7 +44,7 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
     return GetBuilder<ProductDetailsController>(
       id: "product_banner",
       tag: tag,
-      builder: (_){
+      builder: (_) {
         return CarouselWidget(
           // 浏览大图
           onTap: controller.onGalleryTap,
@@ -85,7 +84,7 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
         ).paddingRight(AppSpace.iconTextMedium),
 
         // 喜欢
-       const IconTextWidget(
+        const IconTextWidget(
           iconData: Icons.favorite,
           text: "100+",
         ),
@@ -95,25 +94,27 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
       TextWidget.body1(
         controller.product?.shortDescription?.clearHtml ?? "-",
       )
-    ].toColumn(
-      // 左对齐
-      crossAxisAlignment: CrossAxisAlignment.start,
-      // 垂直间隔
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    )
-    .paddingAll(AppSpace.page);
+    ]
+        .toColumn(
+          // 左对齐
+          crossAxisAlignment: CrossAxisAlignment.start,
+          // 垂直间隔
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        )
+        .paddingAll(AppSpace.page);
   }
 
   // Tab 栏位按钮
   Widget _buildTabBarItem(String textString, int index) {
     return ButtonWidget.textFilled(
       textString,
-      onTap:() => controller.onTabBarTap(index),
+      onTap: () => controller.onTabBarTap(index),
       borderRadius: 17,
       textColor: controller.tabIndex == index
-      ? AppColors.onPrimary
-      : AppColors.secondary,
-      bgColor: controller.tabIndex == index ? AppColors.primary : Colors.transparent,
+          ? AppColors.onPrimary
+          : AppColors.secondary,
+      bgColor:
+          controller.tabIndex == index ? AppColors.primary : Colors.transparent,
     ).tight(
       width: 100.w,
       height: 35.h,
@@ -123,25 +124,23 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
   // Tab 栏位
   Widget _buildTabBar() {
     return GetBuilder<ProductDetailsController>(
-      tag: tag,
-      id: "product_tab",
-      builder: (_) {
-        return <Widget>[
-          _buildTabBarItem(LocaleKeys.gDetailTabProduct.tr, 0),
-          _buildTabBarItem(LocaleKeys.gDetailTabDetails.tr, 1),
-          _buildTabBarItem(LocaleKeys.gDetailTabReviews.tr, 2),
-        ].toRow(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-        );
-      }
-    );
+        tag: tag,
+        id: "product_tab",
+        builder: (_) {
+          return <Widget>[
+            _buildTabBarItem(LocaleKeys.gDetailTabProduct.tr, 0),
+            _buildTabBarItem(LocaleKeys.gDetailTabDetails.tr, 1),
+            _buildTabBarItem(LocaleKeys.gDetailTabReviews.tr, 2),
+          ].toRow(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+          );
+        });
   }
 
   // TabView 视图
   Widget _buildTabView() {
     return Expanded(
-
       child: Expanded(
         child: Padding(
           padding: EdgeInsets.fromLTRB(20.w, 0.w, 20.w, 0.w),
@@ -164,20 +163,20 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
   // 主视图
   Widget _buildView() {
     return controller.product == null
-    ? const PlaceholdWidget() // 占位图
-    : <Widget>[
-      // 滚动图
-      _buildBanner(),
+        ? const PlaceholdWidget() // 占位图
+        : <Widget>[
+            // 滚动图
+            _buildBanner(),
 
-      // 商品标题
-      _buildTitle(),
+            // 商品标题
+            _buildTitle(),
 
-      // Tab 栏位
-      _buildTabBar(),
+            // Tab 栏位
+            _buildTabBar(),
 
-      // TabView 视图
-      _buildTabView(),
-    ].toColumn();
+            // TabView 视图
+            _buildTabView(),
+          ].toColumn();
   }
 
   @override
@@ -191,8 +190,7 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
         return Scaffold(
           // 导航栏
           appBar: mainAppBarWidget(
-            titleString: controller.product?.name ??
-            LocaleKeys.gDetailTitle.tr,
+            titleString: controller.product?.name ?? LocaleKeys.gDetailTitle.tr,
           ),
 
           // 内容
