@@ -96,5 +96,12 @@ Map<String, String> localeZh = {
   LocaleKeys.gDetailTitleColor: '颜色',
   LocaleKeys.gDetailTitleSize: '尺寸',
   LocaleKeys.gDetailTitleShoppingCharge: '运费说明',
-  LocaleKeys.gDetailPrice: '价格',
+
+  // 商品 - 详情 - 产品详情模块
+  LocaleKeys.gDetailProductDesc: '商品描述',
+  LocaleKeys.gDetailProductSKU: '商品编码',
+  LocaleKeys.gDetailMarketPrice: '市场价',
+  LocaleKeys.gDetailWeight: '重量',
+  LocaleKeys.gDetailDimensions: '尺寸',
+  LocaleKeys.gDetailProductPrice: '价格',
 };

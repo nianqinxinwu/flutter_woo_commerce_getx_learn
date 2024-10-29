@@ -150,9 +150,9 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
               // 规格
               TabProductView(uniqueTag: uniqueTag),
               // 详情
-              TabProductView(uniqueTag: uniqueTag),
+              TabDetailView(uniqueTag: uniqueTag),
               // 评论
-              TabProductView(uniqueTag: uniqueTag),
+              TabReviewsView(uniqueTag: uniqueTag),
             ],
           ),
         ),

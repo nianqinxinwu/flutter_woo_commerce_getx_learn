@@ -37,7 +37,6 @@ class Constants {
 
   // 颜色定义
   static const storageProductsAttributesColors = 'products_attributes_colors';
-    // 尺寸定义
+  // 尺寸定义
   static const storageProductsAttributesSizes = 'products_attributes_sizes';
-
 }

@@ -90,6 +90,14 @@ class LocaleKeys {
   static const gDetailBtnBuy = "goods_detail_btn_buy";
   static const gDetailTitleColor = "goods_detail_title_color";
   static const gDetailTitleSize = "goods_detail_title_size";
-  static const gDetailTitleShoppingCharge = "goods_detail_title_shopping_charge";
-  static const gDetailPrice = "goods_detail_price";
+  static const gDetailTitleShoppingCharge =
+      "goods_detail_title_shopping_charge";
+
+  // 商品 - 详情 - 产品详情模块
+  static const gDetailProductDesc = "goods_detail_product_desc";
+  static const gDetailProductSKU = "goods_detail_product_sku";
+  static const gDetailProductPrice = "goods_detail_product_price";
+  static const gDetailMarketPrice = "goods_detail_market_price";
+  static const gDetailWeight = "goods_detail_weight";
+  static const gDetailDimensions = "goods_detail_dimensions";
 }

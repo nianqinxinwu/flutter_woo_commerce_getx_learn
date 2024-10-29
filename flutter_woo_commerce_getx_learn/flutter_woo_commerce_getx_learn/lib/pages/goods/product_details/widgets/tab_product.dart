@@ -12,11 +12,10 @@ class TabProductView extends GetView<ProductDetailsController> {
   @override
   String? get tag => uniqueTag;
 
-    // 标题
+  // 标题
   _buildTitle(String title) {
     return TextWidget.body1(title).paddingBottom(AppSpace.listRow);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +63,10 @@ class TabProductView extends GetView<ProductDetailsController> {
           "by paperfly shipment",
         ),
       ].toRow(),
-    ].toColumn(
-      crossAxisAlignment: CrossAxisAlignment.start,
-    )
-    .paddingVertical(AppSpace.page);
+    ]
+        .toColumn(
+          crossAxisAlignment: CrossAxisAlignment.start,
+        )
+        .paddingVertical(AppSpace.page);
   }
 }

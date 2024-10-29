@@ -3,7 +3,6 @@ import '../index.dart';
 
 /// 标签列表组件
 class TagsListWidget extends StatelessWidget {
-
   // 点击事件
   final Function(List<String> keys)? onTap;
 
@@ -78,7 +77,7 @@ class TagsListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  <Widget>[
+    return <Widget>[
       for (var item in itemList)
         SizedBox(
           width: size ?? width,

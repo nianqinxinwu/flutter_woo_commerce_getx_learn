@@ -183,7 +183,8 @@ class HomeController extends GetxController {
     // 保存离线数据 - 基础数据
     Storage().setJson(Constants.storageProductCategories, categoryItems);
     // 颜色
-    Storage().setJson(Constants.storageProductsAttributesColors, attributeColors);
+    Storage()
+        .setJson(Constants.storageProductsAttributesColors, attributeColors);
     // 尺寸
     Storage().setJson(Constants.storageProductsAttributesSizes, attributeSizes);
 

@@ -41,14 +41,25 @@ class ProductApi {
   /// 属性列表
   /// id 1 颜色 2 尺寸
   static Future<List<AttributeModel>> attributes(int id) async {
-    var res = await WPHttpService.to.get(
-      '/products/attributes/$id/terms'
-    );
+    var res = await WPHttpService.to.get('/products/attributes/$id/terms');
 
     List<AttributeModel> attributes = [];
     for (var item in res.data) {
       attributes.add(AttributeModel.fromJson(item));
     }
     return attributes;
+  }
+
+  static Future<List<ReviewModel>> reviews(ReviewsReq? req) async {
+    var res = await WPHttpService.to.get(
+      '/products/reviews',
+      params: req?.toJson(),
+    );
+
+    List<ReviewModel> reviews = [];
+    for (var item in res.data) {
+      reviews.add(ReviewModel.fromJson(item));
+    }
+    return reviews;
   }
 }

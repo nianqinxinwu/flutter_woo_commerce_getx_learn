@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 
 class ColorsListWidget extends StatelessWidget {
-
   // 点击事件
   final Function(List<String> keys)? onTap;
 
@@ -24,16 +23,15 @@ class ColorsListWidget extends StatelessWidget {
   // 行间距
   final double? runSpacing;
 
-  const ColorsListWidget({
-    super.key,
-    this.onTap,
-    required this.itemList,
-    required this.keys,
-    this.size,
-    this.borderSelectedColor,
-    this.spacing,
-    this.runSpacing
-  });
+  const ColorsListWidget(
+      {super.key,
+      this.onTap,
+      required this.itemList,
+      required this.keys,
+      this.size,
+      this.borderSelectedColor,
+      this.spacing,
+      this.runSpacing});
 
   @override
   Widget build(BuildContext context) {
@@ -43,24 +41,24 @@ class ColorsListWidget extends StatelessWidget {
           width: size ?? 24,
           height: size ?? 24,
         )
-        // 装饰器
-        .decorated(
-          // 背景
-          color: item.value.slug?.toColor,
-          // 边框
-          border: keys.hasValue(item.key) == true
-            ? Border.all(
-                color: borderSelectedColor ?? AppColors.error,
-                width: 2,
+            // 装饰器
+            .decorated(
+              // 背景
+              color: item.value.slug?.toColor,
+              // 边框
+              border: keys.hasValue(item.key) == true
+                  ? Border.all(
+                      color: borderSelectedColor ?? AppColors.error,
+                      width: 2,
+                    )
+                  : null,
+              // 圆角
+              borderRadius: BorderRadius.circular(size ?? 22),
             )
-            : null,
-          // 圆角
-          borderRadius: BorderRadius.circular(size ?? 22),
-        )
-        // 紧约束
-          .tight(width: size, height: size)
-        // 点击事件
-        .onTap(() {
+            // 紧约束
+            .tight(width: size, height: size)
+            // 点击事件
+            .onTap(() {
           if (keys.hasValue(item.key)) {
             keys.remove(item.key);
           } else {
