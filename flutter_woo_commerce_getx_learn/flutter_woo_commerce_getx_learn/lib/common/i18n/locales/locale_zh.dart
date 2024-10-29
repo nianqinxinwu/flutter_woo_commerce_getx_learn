@@ -93,4 +93,7 @@ Map<String, String> localeZh = {
   LocaleKeys.gDetailTabReviews: '评论',
   LocaleKeys.gDetailBtnAddCart: '加入购物车',
   LocaleKeys.gDetailBtnBuy: '立刻购买',
+  LocaleKeys.gDetailTitleColor: '颜色',
+  LocaleKeys.gDetailTitleSize: '尺寸',
+  LocaleKeys.gDetailPrice: '价格',
 };

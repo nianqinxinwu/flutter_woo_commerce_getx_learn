@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
-import 'package:flutter_woo_commerce_getx_learn/main.dart';
 import 'package:get/get.dart';
 import '../index.dart';
 
@@ -23,7 +22,7 @@ class TabProductView extends GetView<ProductDetailsController> {
   Widget build(BuildContext context) {
     return <Widget>[
       // 颜色
-      _buildTitle("Color"),
+      _buildTitle(LocaleKeys.gDetailTitleColor.tr),
       GetBuilder<ProductDetailsController>(
         id: "product_colors",
         tag: uniqueTag,
@@ -38,7 +37,7 @@ class TabProductView extends GetView<ProductDetailsController> {
       ),
 
       // 尺寸
-      _buildTitle("Size"),
+      _buildTitle(LocaleKeys.gDetailTitleSize.tr),
 
     ].toColumn(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -94,4 +94,7 @@ Map<String, String> localeEn = {
   LocaleKeys.gDetailTabReviews: 'Reviews',
   LocaleKeys.gDetailBtnAddCart: 'Add To Cart',
   LocaleKeys.gDetailBtnBuy: 'Buy Now',
+  LocaleKeys.gDetailTitleColor: 'Color',
+  LocaleKeys.gDetailTitleSize: 'Size',
+  LocaleKeys.gDetailPrice: 'Price',
 };
