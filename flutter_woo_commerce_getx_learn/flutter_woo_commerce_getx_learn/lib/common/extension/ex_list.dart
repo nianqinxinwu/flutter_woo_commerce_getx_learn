@@ -81,6 +81,39 @@ extension ExListWidget<E> on List<Widget> {
             : this,
       );
 
+  Widget toContainer({
+    Key? key,
+    AlignmentGeometry alignment = Alignment.center,
+    EdgeInsetsGeometry padding = const EdgeInsets.all(0),
+    Color? color = Colors.white,
+    Decoration? decoration,
+    Decoration? foregroundDecoration,
+    double? width,
+    double? height,
+    BoxConstraints? constraints,
+    EdgeInsetsGeometry? margin,
+    Matrix4? transform,
+    AlignmentGeometry? transformAlignment,
+    Clip clipBehavior = Clip.none,
+    Widget? separator,
+  }) => Container(
+    key: key,
+    alignment: alignment,
+    padding: padding,
+    color: color,
+    decoration: decoration,
+    foregroundDecoration: foregroundDecoration,
+    width: width,
+    height: height,
+    constraints: constraints,
+    margin: margin,
+    transform: transform,
+    transformAlignment: transformAlignment,
+    clipBehavior: clipBehavior,
+    child: separator,
+  );
+
+
   /// 转 Stack
   Widget toStack({
     Key? key,
