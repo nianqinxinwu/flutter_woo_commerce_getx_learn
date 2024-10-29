@@ -32,16 +32,27 @@ class TabProductView extends GetView<ProductDetailsController> {
             keys: controller.colorKeys,
             size: 33.w,
             onTap: controller.onColorTap,
-          ).paddingBottom(AppSpace.listItem * 2);
+          ).paddingBottom(AppSpace.listRow * 2);
         },
       ),
 
       // 尺寸
       _buildTitle(LocaleKeys.gDetailTitleSize.tr),
+      GetBuilder<ProductDetailsController>(
+        id: "product_sizes",
+        tag: uniqueTag,
+        builder: (_) {
+          return TagsListWidget(
+            itemList: controller.sizes,
+            keys: controller.sizeKeys,
+            onTap: controller.onSizeTap,
+          ).paddingBottom(AppSpace.listRow * 2);
+        },
+      ),
 
     ].toColumn(
       crossAxisAlignment: CrossAxisAlignment.start,
     )
-     .padding(horizontal: AppSpace.page);
+    .paddingVertical(AppSpace.page);
   }
 }
