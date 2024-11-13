@@ -1,8 +1,21 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:get/get.dart';
 
 class SearchFilterController extends GetxController {
   SearchFilterController();
+
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  // 筛选 打开
+  void onFilterOpenTap() {
+    scaffoldKey.currentState?.openEndDrawer();
+  }
+
+  // 筛选 关闭
+  void onFilterCloseTap() {
+    Get.back();
+  }
 
   // 排序列表
   List<KeyValueModel> orderList = [

@@ -4,6 +4,7 @@ import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
+import 'widgets/index.dart';
 
 class SearchFilterPage extends GetView<SearchFilterController> {
   const SearchFilterPage({super.key});
@@ -14,7 +15,9 @@ class SearchFilterPage extends GetView<SearchFilterController> {
 
       // 排序 Best Match
       DropdownWidget(
-
+        items: controller.orderList,
+        hintText: controller.orderSelected.value,
+        onChanged: controller.onOrderTap,
       )
       .decorated(
         border: Border.all(
@@ -33,7 +36,7 @@ class SearchFilterPage extends GetView<SearchFilterController> {
           color: AppColors.primary,
         ),
 
-        // onTap: controller.onFilterOpenTap,
+        onTap: controller.onFilterOpenTap,
         textSize: 15,
         textColor: AppColors.secondary,
         textWeight: FontWeight.w400,
@@ -65,6 +68,10 @@ class SearchFilterPage extends GetView<SearchFilterController> {
       id: "search_filter",
       builder: (_) {
         return Scaffold(
+
+          // Keys
+          key: controller.scaffoldKey,
+
           // 导航
           appBar: mainAppBarWidget(
             // 返回按钮
@@ -83,6 +90,10 @@ class SearchFilterPage extends GetView<SearchFilterController> {
           ),
           // 内容
           body: _buildView(),
+          // 右侧弹出 Drawer
+          endDrawer: const Drawer(
+            child: SafeArea(child: FilterView()),
+          ),
         );
       },
     );
