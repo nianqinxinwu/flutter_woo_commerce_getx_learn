@@ -16,7 +16,7 @@ class MsgIndexPage extends GetView<MsgIndexController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MsgIndexController>(
-      init: MsgIndexController(),
+      init: Get.find<MsgIndexController>(),
       id: "msg_index",
       builder: (_) {
         return Scaffold(

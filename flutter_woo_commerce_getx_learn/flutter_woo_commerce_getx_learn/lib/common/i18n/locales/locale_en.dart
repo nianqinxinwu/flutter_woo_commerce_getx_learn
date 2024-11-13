@@ -118,4 +118,23 @@ Map<String, String> localeEn = {
   LocaleKeys.searchFilterGender: 'Gender',
   LocaleKeys.searchFilterCondition: 'Condition',
 
+  // 我的页面
+  LocaleKeys.myTabWishlist: 'Wishlist',
+  LocaleKeys.myTabFollowing: 'Following',
+  LocaleKeys.myTabVoucher: 'Voucher',
+  LocaleKeys.myBtnMyOrder: 'My Order',
+  LocaleKeys.myBtnMyWallet: 'My Wallet',
+  LocaleKeys.myBtnEditProfile: 'Edit Profile',
+  LocaleKeys.myBtnAddress: 'Address',
+  LocaleKeys.myBtnNotification: 'Notification',
+  LocaleKeys.myBtnLanguage: 'Language',
+  LocaleKeys.myBtnTheme: 'Theme',
+  LocaleKeys.myBtnWinGift: 'Win Gift',
+  LocaleKeys.myBtnLogout: 'Logout',
+  LocaleKeys.myBtnStyles: 'Styles',
+  LocaleKeys.myBtnBillingAddress: 'Billing address',
+  LocaleKeys.myBtnShippingAddress: 'Shipping address',
+
+  //
+
 };
