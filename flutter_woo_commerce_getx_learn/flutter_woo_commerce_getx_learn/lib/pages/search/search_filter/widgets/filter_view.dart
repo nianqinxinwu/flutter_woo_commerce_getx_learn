@@ -196,6 +196,18 @@ class FilterView extends GetView<SearchFilterController> {
       // 新旧
       _buildTitle(LocaleKeys.searchFilterCondition.tr),
       _buildConditions(),
+
+      const Divider(),
+
+      // 应用按钮
+      ButtonWidget.primary(
+        LocaleKeys.commonBottomApply.tr,
+        onTap: controller.onFilterApplyTap,
+      ).tight(
+        width: 75,
+        height: 25,
+      ),
+      // end
     ].toColumn(
       crossAxisAlignment: CrossAxisAlignment.start,
     )
