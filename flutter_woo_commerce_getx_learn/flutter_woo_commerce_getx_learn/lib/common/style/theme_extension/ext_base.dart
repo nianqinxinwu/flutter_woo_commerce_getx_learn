@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// 基础功能色
 @immutable
 class ExtBaseColorTheme extends ThemeExtension<ExtBaseColorTheme> {
-  /// 亮色
+  /// 亮
   static const light = ExtBaseColorTheme(
     info: Color(0xFF2196F3),
     success: Color(0xFF4CAF50),

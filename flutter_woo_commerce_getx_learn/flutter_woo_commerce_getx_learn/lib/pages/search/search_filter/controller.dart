@@ -7,6 +7,20 @@ class SearchFilterController extends GetxController {
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
+  // 价格范围 0~1000
+  final List<double> priceRange = [100, 1000];
+
+  // 价格区间拖动
+  onPriceRangeDragging(
+    int handlerIndex,
+    dynamic lowerValue,
+    dynamic upperValue,
+  ) {
+    priceRange[0] = lowerValue;
+    priceRange[1] = upperValue;
+    update(["filter_price_range"]);
+  }
+
   // 筛选 打开
   void onFilterOpenTap() {
     scaffoldKey.currentState?.openEndDrawer();

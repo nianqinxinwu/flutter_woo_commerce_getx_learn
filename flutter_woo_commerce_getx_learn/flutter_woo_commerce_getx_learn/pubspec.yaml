@@ -102,6 +102,10 @@ dependencies:
   # 下拉复选框
   # 文档地址：https://pub.dev/packages/dropdown_button2
   dropdown_button2: ^2.3.9
+
+  # 价格选择器组件
+  # 文档地址：https://pub.dev/packages/price_range_slider
+  another_xlider: ^3.0.2
   # flutter_launcher_icons: ^0.14.1
 
   # flutter pub add dio_cookie_manager

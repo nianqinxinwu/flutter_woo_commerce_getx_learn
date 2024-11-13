@@ -3,8 +3,29 @@ import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:flutter_woo_commerce_getx_learn/pages/index.dart';
 import 'package:get/get.dart';
 
+
 class FilterView extends GetView<SearchFilterController> {
   const FilterView({super.key});
+
+  // 标题栏
+  Widget _buildTitle(String title) {
+    return TextWidget.body2(title).paddingBottom(AppSpace.listRow);
+  }
+
+    // 价格选择区间
+  Widget _buildPriceRange() {
+    return GetBuilder<SearchFilterController>(
+      id: "filter_price_range",
+      builder: (_) {
+        return PriceRangeWidget(
+          max: 5000,
+          min: 0,
+          values: controller.priceRange,
+          onDragging: controller.onPriceRangeDragging,
+        ).paddingBottom(AppSpace.listRow * 2);
+      },
+    );
+  }
 
     // 顶部 关闭
   Widget _buildTopBar() {
@@ -33,6 +54,9 @@ class FilterView extends GetView<SearchFilterController> {
       // 顶部
       _buildTopBar(),
 
+      // 价格区间
+      _buildTitle(LocaleKeys.searchFilterPrice.tr),
+      _buildPriceRange(),
     ].toColumn(
       crossAxisAlignment: CrossAxisAlignment.start,
     )
