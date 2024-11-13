@@ -102,12 +102,12 @@ class TagsListWidget extends StatelessWidget {
               )
               // 点击
               .onTap(() {
-            if (keys.hasValue(item.key)) {
-              keys.remove(item.key);
-            } else {
-              keys.add(item.key);
-            }
-            onTap?.call(keys);
+                if (keys.hasValue(item.key)) {
+                  keys.remove(item.key);
+                } else {
+                  keys.add(item.key);
+                }
+                onTap?.call(keys);
           }),
         )
     ].toWrap(
