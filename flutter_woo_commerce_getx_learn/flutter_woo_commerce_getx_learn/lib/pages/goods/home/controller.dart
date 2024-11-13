@@ -8,7 +8,9 @@ class HomeController extends GetxController {
   HomeController();
 
   // 导航点击事件
-  void onAppBarTap() {}
+  void onAppBarTap() {
+    Get.toNamed(RouteNames.searchSearchIndex);
+  }
 
   // Banner 当前索引
   int bannerCurrentIndex = 0;

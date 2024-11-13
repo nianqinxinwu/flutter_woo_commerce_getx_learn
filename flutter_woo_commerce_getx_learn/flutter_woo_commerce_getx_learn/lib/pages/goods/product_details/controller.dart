@@ -127,7 +127,7 @@ class ProductDetailsController extends GetxController
       product: productId,
     ));
 
-     // 评论图片，测试用
+    // 评论图片，测试用
     reviewImages.addAll([
       "https://ducafecat.oss-cn-beijing.aliyuncs.com/bag/718Y%2BhJkMgL._AC_UY695_.jpg",
       "https://ducafecat.oss-cn-beijing.aliyuncs.com/bag/71n8Tg2ClZL._AC_UY695_.jpg",
@@ -179,7 +179,7 @@ class ProductDetailsController extends GetxController
     update(["product_reviews"]);
   }
 
-    // 评论 上拉载入新商品
+  // 评论 上拉载入新商品
   void onReviewsLoading() async {
     if (reviews.isNotEmpty) {
       try {

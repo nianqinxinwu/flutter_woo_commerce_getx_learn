@@ -42,7 +42,7 @@ class ReviewModel {
         verified: json['verified'] as bool?,
         reviewerAvatarUrls: json['reviewer_avatar_urls'] == null
             ? null
-            :  json['reviewer_avatar_urls'] as Map,
+            : json['reviewer_avatar_urls'] as Map,
         links: json['_links'] == null
             ? null
             : Links.fromJson(json['_links'] as Map<String, dynamic>),

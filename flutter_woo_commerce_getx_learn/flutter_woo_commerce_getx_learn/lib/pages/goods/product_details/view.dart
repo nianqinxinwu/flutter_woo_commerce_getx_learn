@@ -181,29 +181,31 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
 
   Widget _buildButtons() {
     return controller.product == null
-       ? const SizedBox.shrink() // 占位图
+        ? const SizedBox.shrink() // 占位图
         : Container(
-          padding: EdgeInsets.fromLTRB(0, AppSpace.listRow, 0, AppSpace.listRow),
-          color: Colors.white,
-          child: <Widget>[
-          // 加入购物车
-          ButtonWidget.secondary(
-            LocaleKeys.gDetailBtnAddCart.tr,
-          ).expanded(),
-          // 间距
-          SizedBox(
-            width: AppSpace.iconTextLarge,
-          ),
-          // 立即购买
-          ButtonWidget.primary(
-            LocaleKeys.gDetailBtnBuy.tr,
-          ).expanded(),
-        ].toRow(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-        )
-        .paddingHorizontal(AppSpace.page),
-      );
+            padding:
+                EdgeInsets.fromLTRB(0, AppSpace.listRow, 0, AppSpace.listRow),
+            color: Colors.white,
+            child: <Widget>[
+              // 加入购物车
+              ButtonWidget.secondary(
+                LocaleKeys.gDetailBtnAddCart.tr,
+              ).expanded(),
+              // 间距
+              SizedBox(
+                width: AppSpace.iconTextLarge,
+              ),
+              // 立即购买
+              ButtonWidget.primary(
+                LocaleKeys.gDetailBtnBuy.tr,
+              ).expanded(),
+            ]
+                .toRow(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                )
+                .paddingHorizontal(AppSpace.page),
+          );
   }
 
   @override

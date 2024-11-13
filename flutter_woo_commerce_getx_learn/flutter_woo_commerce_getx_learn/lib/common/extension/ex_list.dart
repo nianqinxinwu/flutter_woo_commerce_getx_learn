@@ -96,23 +96,23 @@ extension ExListWidget<E> on List<Widget> {
     AlignmentGeometry? transformAlignment,
     Clip clipBehavior = Clip.none,
     Widget? separator,
-  }) => Container(
-    key: key,
-    alignment: alignment,
-    padding: padding,
-    color: color,
-    decoration: decoration,
-    foregroundDecoration: foregroundDecoration,
-    width: width,
-    height: height,
-    constraints: constraints,
-    margin: margin,
-    transform: transform,
-    transformAlignment: transformAlignment,
-    clipBehavior: clipBehavior,
-    child: separator,
-  );
-
+  }) =>
+      Container(
+        key: key,
+        alignment: alignment,
+        padding: padding,
+        color: color,
+        decoration: decoration,
+        foregroundDecoration: foregroundDecoration,
+        width: width,
+        height: height,
+        constraints: constraints,
+        margin: margin,
+        transform: transform,
+        transformAlignment: transformAlignment,
+        clipBehavior: clipBehavior,
+        child: separator,
+      );
 
   /// 转 Stack
   Widget toStack({
