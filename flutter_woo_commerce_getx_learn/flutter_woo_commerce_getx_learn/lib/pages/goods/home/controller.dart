@@ -181,6 +181,12 @@ class HomeController extends GetxController {
     var attributeColors = await ProductApi.attributes(1);
     // 尺寸
     var attributeSizes = await ProductApi.attributes(2);
+    // 品牌
+    var attributeBrand = await ProductApi.attributes(3);
+    // 性别
+    var attributeGender = await ProductApi.attributes(4);
+    // 新旧
+    var attributeCondition = await ProductApi.attributes(5);
 
     // 保存离线数据 - 基础数据
     Storage().setJson(Constants.storageProductCategories, categoryItems);
@@ -189,7 +195,16 @@ class HomeController extends GetxController {
         .setJson(Constants.storageProductsAttributesColors, attributeColors);
     // 尺寸
     Storage().setJson(Constants.storageProductsAttributesSizes, attributeSizes);
+    // 品牌
+    Storage().setString(
+        Constants.storageProductsAttributesBrand, jsonEncode(attributeBrand));
 
+    // 性别
+    Storage().setString(
+        Constants.storageProductsAttributesGender, jsonEncode(attributeGender));
+    // 新旧
+    Storage().setString(Constants.storageProductsAttributesCondition,
+        jsonEncode(attributeCondition));
     // 保存离线数据 - 首页业务
     Storage().setJson(Constants.storageHomeBanner, bannerItems);
     Storage().setJson(Constants.storageHomeCategories, categoryItems);

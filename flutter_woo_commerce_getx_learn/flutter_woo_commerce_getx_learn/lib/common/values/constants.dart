@@ -39,4 +39,11 @@ class Constants {
   static const storageProductsAttributesColors = 'products_attributes_colors';
   // 尺寸定义
   static const storageProductsAttributesSizes = 'products_attributes_sizes';
+  // 品牌
+  static const storageProductsAttributesBrand = 'products_attributes_brand';
+  // 性别
+  static const storageProductsAttributesGender = 'products_attributes_gender';
+  // 新旧
+  static const storageProductsAttributesCondition =
+      'products_attributes_condition';
 }

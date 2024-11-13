@@ -71,6 +71,43 @@ class FilterView extends GetView<SearchFilterController> {
     );
   }
 
+  // 颜色选择
+  Widget _buildColors() {
+    return GetBuilder<SearchFilterController>(
+      id: "filter_colors",
+      builder: (_) {
+        return ColorsListWidget(
+          onTap: controller.onColorTap,
+          itemList: controller.colors,
+          keys: controller.colorKeys,
+          size: 24,
+        ).paddingBottom(AppSpace.listRow * 2);
+      },
+    );
+  }
+
+
+  // 星级选择
+   // 评级选择
+  Widget _buildStars() {
+    return GetBuilder<SearchFilterController>(
+      id: "filter_stars",
+      builder: (_) {
+        return StarsListWidget(
+          value: controller.starValue,
+          onTap: controller.onStarTap,
+          selectedColor: AppColors.highlight,
+          size: 18,
+        ).paddingBottom(AppSpace.listRow * 2);
+      },
+    );
+  }
+  // 品牌选择
+
+  // 性别选择
+
+
+
   Widget _buildView() {
     return <Widget>[
       // 顶部
@@ -81,7 +118,16 @@ class FilterView extends GetView<SearchFilterController> {
       _buildPriceRange(),
 
       // 尺寸
+      _buildTitle(LocaleKeys.searchFilterSize.tr),
       _buildSizes(),
+
+      // // 颜色
+      _buildTitle(LocaleKeys.searchFilterColor.tr),
+      _buildColors(),
+
+      // // 星级
+      _buildTitle(LocaleKeys.searchFilterReview.tr),
+      _buildStars(),
     ].toColumn(
       crossAxisAlignment: CrossAxisAlignment.start,
     )
