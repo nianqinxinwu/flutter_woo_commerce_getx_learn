@@ -66,7 +66,15 @@ class SearchIndexController extends GetxController {
   }
 
     // 列表项点击事件
-  void onListItemTap(TagsModel model) {}
+  void onListItemTap(TagsModel model) {
+    // 跳转到详情页
+    Get.toNamed(
+      RouteNames.searchSearchFilter,
+      arguments: {
+        "tagId" : model.id,
+      },
+    );
+  }
 
   _initData() {
     update(["search_index"]);

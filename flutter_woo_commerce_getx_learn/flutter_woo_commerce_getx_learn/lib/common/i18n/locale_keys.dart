@@ -100,4 +100,16 @@ class LocaleKeys {
   static const gDetailMarketPrice = "goods_detail_market_price";
   static const gDetailWeight = "goods_detail_weight";
   static const gDetailDimensions = "goods_detail_dimensions";
+
+  // 搜索
+  static const searchPlaceholder = "search_placeholder";
+  static const searchOrder = "search_order";
+  static const searchFilter = "search_filter";
+  static const searchFilterPrice = "search_filter_price";
+  static const searchFilterSize = "search_filter_size";
+  static const searchFilterColor = "search_filter_color";
+  static const searchFilterReview = "search_filter_review";
+  static const searchFilterBrand = "search_filter_brand";
+  static const searchFilterGender = "search_filter_gender";
+  static const searchFilterCondition = "search_filter_condition";
 }

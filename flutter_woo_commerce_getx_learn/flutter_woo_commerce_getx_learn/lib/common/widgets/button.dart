@@ -13,6 +13,7 @@ enum ButtonWidgetType {
   iconTextOutlined, // 图标+文本描边按钮
   iconTextUpDownOutlined, // 图标+文本上下排列描边按钮
   textIcon, // 文本+图标按钮
+  dropdown, // 下拉按钮
 }
 
 class ButtonWidget extends StatelessWidget {
@@ -276,6 +277,36 @@ class ButtonWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
         );
 
+   /// 文字 / 图标 / dropdown
+  ButtonWidget.dropdown(
+    this.text,
+    this.icon, {
+    super.key,
+    Color? textColor,
+    double? textSize,
+    FontWeight? textWeight,
+    this.type = ButtonWidgetType.dropdown,
+    this.onTap,
+    this.borderRadius = 0,
+    this.backgroundColor,
+    this.borderColor,
+    this.width,
+    this.height,
+  })  : child = <Widget>[
+          TextWidget.button(
+            text: text!,
+            size: textSize,
+            color: textColor ?? AppColors.onPrimaryContainer,
+            weight: textWeight,
+          ).expanded(),
+          icon!,
+        ]
+            .toRow(
+              mainAxisSize: MainAxisSize.min,
+            )
+            .paddingHorizontal(AppSpace.button);
+
+
   // 背景色
   WidgetStateProperty<Color?>? get _backgroundColor {
     switch (type) {
@@ -304,6 +335,7 @@ class ButtonWidget extends StatelessWidget {
 
       case ButtonWidgetType.iconTextOutlined:
       case ButtonWidgetType.iconTextUpDownOutlined:
+      case ButtonWidgetType.dropdown:
         return WidgetStateProperty.all(
           BorderSide(
             color: borderColor ?? AppColors.outline,
@@ -350,7 +382,7 @@ class ButtonWidget extends StatelessWidget {
           ),
         );
       // break;
-
+      case ButtonWidgetType.dropdown:
       case ButtonWidgetType.textRoundFilled:
         return WidgetStateProperty.all(
           RoundedRectangleBorder(

@@ -89,9 +89,19 @@ dependencies:
   # 加密库
   # 文档地址：https://pub.dev/packages/encrypt
   encrypt: ^5.0.3
+
+  # 下拉刷新上拉加载库
+  # 文档地址：https://pub.dev/packages/crypto
   pull_to_refresh: ^2.0.0
+
+  # 图片浏览器
+  # 文档地址：https://pub.dev/packages/photo_view
   photo_view: ^0.15.0
   intl: ^0.19.0
+
+  # 下拉复选框
+  # 文档地址：https://pub.dev/packages/dropdown_button2
+  dropdown_button2: ^2.3.9
   # flutter_launcher_icons: ^0.14.1
 
   # flutter pub add dio_cookie_manager
