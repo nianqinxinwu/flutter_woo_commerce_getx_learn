@@ -277,7 +277,7 @@ class ButtonWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
         );
 
-   /// 文字 / 图标 / dropdown
+  /// 文字 / 图标 / dropdown
   ButtonWidget.dropdown(
     this.text,
     this.icon, {
@@ -292,7 +292,7 @@ class ButtonWidget extends StatelessWidget {
     this.borderColor,
     this.width,
     this.height,
-  })  : child = <Widget>[
+  }) : child = <Widget>[
           TextWidget.button(
             text: text!,
             size: textSize,
@@ -305,7 +305,6 @@ class ButtonWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
             )
             .paddingHorizontal(AppSpace.button);
-
 
   // 背景色
   WidgetStateProperty<Color?>? get _backgroundColor {

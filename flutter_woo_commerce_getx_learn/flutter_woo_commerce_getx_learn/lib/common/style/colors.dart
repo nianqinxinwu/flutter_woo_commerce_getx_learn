@@ -18,7 +18,7 @@ class AppColors {
   /// 产品
   static ExtWooColorTheme get woo => Get.theme.extension<ExtWooColorTheme>()!;
   static Color get highlight =>
-      Get.isDarkMode ?  const  Color(0xFFFFB4A9) :  const Color(0xFFF77866);
+      Get.isDarkMode ? const Color(0xFFFFB4A9) : const Color(0xFFF77866);
 
   /// 基础色
   static ExtBaseColorTheme get base =>

@@ -4,16 +4,10 @@ import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 
 /// 功能栏项
 class BarItemWidget extends StatelessWidget {
-
   final String title;
   final String svgPath;
 
-
-  const BarItemWidget({
-    super.key,
-    required this.title,
-    required this.svgPath
-  });
+  const BarItemWidget({super.key, required this.title, required this.svgPath});
 
   @override
   Widget build(BuildContext context) {

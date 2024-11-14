@@ -50,7 +50,6 @@ class SearchFilterController extends GetxController {
   // 选中尺寸列表
   List<String> sizeKeys = [];
 
-
   // 尺寸选中
   void onSizeTap(List<String> keys) {
     sizeKeys = keys;
@@ -116,7 +115,8 @@ class SearchFilterController extends GetxController {
 
     // 颜色列表
     {
-      String result = Storage().getString(Constants.storageProductsAttributesColors);
+      String result =
+          Storage().getString(Constants.storageProductsAttributesColors);
       colors = jsonDecode(result).map<KeyValueModel<AttributeModel>>((item) {
         var arrt = AttributeModel.fromJson(item);
         return KeyValueModel(key: "${arrt.name}", value: arrt);
@@ -128,19 +128,19 @@ class SearchFilterController extends GetxController {
 
     // 品牌列表
     {
-      String result = Storage().getString(Constants.storageProductsAttributesBrand);
-      brands =
-          jsonDecode(result).map<KeyValueModel<AttributeModel>>((item) {
-            var arrt = AttributeModel.fromJson(item);
+      String result =
+          Storage().getString(Constants.storageProductsAttributesBrand);
+      brands = jsonDecode(result).map<KeyValueModel<AttributeModel>>((item) {
+        var arrt = AttributeModel.fromJson(item);
         return KeyValueModel(key: "${arrt.name}", value: arrt);
       }).toList();
     }
 
     // 性别列表
     {
-      String result = Storage().getString(Constants.storageProductsAttributesGender);
-      genders =
-          jsonDecode(result).map<KeyValueModel<AttributeModel>>((item) {
+      String result =
+          Storage().getString(Constants.storageProductsAttributesGender);
+      genders = jsonDecode(result).map<KeyValueModel<AttributeModel>>((item) {
         var arrt = AttributeModel.fromJson(item);
         return KeyValueModel(key: "${arrt.name}", value: arrt);
       }).toList();
@@ -189,11 +189,9 @@ class SearchFilterController extends GetxController {
   }
 
   // 列表项点击事件
-  void onListItemTap (TagsModel model) {
+  void onListItemTap(TagsModel model) {}
 
-  }
-
-    // 拉取数据
+  // 拉取数据
   // isRefresh 是否是刷新
   Future<bool> _loadSearch(bool isRefresh) async {
     // 拉取数据
@@ -233,7 +231,7 @@ class SearchFilterController extends GetxController {
     return result.isEmpty;
   }
 
-    // 上拉载入新商品
+  // 上拉载入新商品
   void onLoading() async {
     if (items.isNotEmpty) {
       try {
@@ -258,7 +256,7 @@ class SearchFilterController extends GetxController {
     update(["filter_products"]);
   }
 
-    // 下拉刷新
+  // 下拉刷新
   void onRefresh() async {
     try {
       await _loadSearch(true);
@@ -270,6 +268,7 @@ class SearchFilterController extends GetxController {
     }
     update(["filter_products"]);
   }
+
   // 保存筛选条件
   void onFilterApplyTap() {
     refreshController.requestRefresh();

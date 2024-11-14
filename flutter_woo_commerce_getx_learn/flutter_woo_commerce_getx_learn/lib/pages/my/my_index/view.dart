@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import 'index.dart';
 import 'widgets/index.dart';
+
 class MyIndexPage extends GetView<MyIndexController> {
   const MyIndexPage({super.key});
 
@@ -25,7 +26,6 @@ class MyIndexPage extends GetView<MyIndexController> {
       expandedHeight: 280.h,
       // 此小组件堆叠在工具栏和选项卡栏后面。其高度将与应用栏的整体高度相同。
       flexibleSpace: FlexibleSpaceBar(
-
         background: <Widget>[
           // 背景图
           <Widget>[
@@ -44,7 +44,7 @@ class MyIndexPage extends GetView<MyIndexController> {
 
           // 内容
           <Widget>[
-             // 用户信息
+            // 用户信息
             <Widget>[
               // 头像
               ImageWidget.url(
@@ -99,7 +99,7 @@ class MyIndexPage extends GetView<MyIndexController> {
     );
   }
 
-    // My Order
+  // My Order
   Widget _buildMyOrder() {
     return ButtonItemWidget(
       title: LocaleKeys.myBtnMyOrder.tr,
@@ -147,7 +147,9 @@ class MyIndexPage extends GetView<MyIndexController> {
         title: LocaleKeys.myBtnTheme.tr,
         svgPath: AssetsSvgs.pThemeSvg,
         color: "F89C52".toColor,
-        onTap: () => ConfigService.to.switchThemeModel(),
+        onTap: () {
+          ConfigService.to.switchThemeModel();
+        },
       ),
 
       // 调试工具
@@ -161,7 +163,6 @@ class MyIndexPage extends GetView<MyIndexController> {
       // end
     ].toColumn().card().paddingBottom(30.h);
   }
-
 
   // 主视图
   Widget _buildView() {
@@ -180,12 +181,12 @@ class MyIndexPage extends GetView<MyIndexController> {
           height: 60,
           onTap: () => controller.onLogout(),
         )
-        .padding(
-          left: AppSpace.page,
-          right: AppSpace.page,
-          bottom: AppSpace.listRow * 2,
-        )
-        .sliverBox,
+            .padding(
+              left: AppSpace.page,
+              right: AppSpace.page,
+              bottom: AppSpace.listRow * 2,
+            )
+            .sliverBox,
 
         // 版权
         const TextWidget.body2(

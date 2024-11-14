@@ -19,17 +19,17 @@ class ButtonItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var color = this.color?? AppColors.primary;
+    var color = this.color ?? AppColors.primary;
     return ListTitleWidget(
       // 头部图标
       leading: <Widget>[
         // 底部圆形
         Container().tightSize(30.w).decorated(
-          // 按主色 0.2 的透明度
-          color: color.withOpacity(0.2),
-          // 圆形边框
-          borderRadius: BorderRadius.circular(30.w/2),
-        ),
+              // 按主色 0.2 的透明度
+              color: color.withOpacity(0.2),
+              // 圆形边框
+              borderRadius: BorderRadius.circular(30.w / 2),
+            ),
 
         // 叠加图标
         IconWidget.svg(

@@ -4,7 +4,6 @@ import '../index.dart';
 
 /// 下拉菜单
 class DropdownWidget extends StatelessWidget {
-
   /// 点击菜单
   final Function(KeyValueModel? val)? onChanged;
 
@@ -22,7 +21,6 @@ class DropdownWidget extends StatelessWidget {
 
   /// 按钮 padding
   final EdgeInsetsGeometry? buttonPadding;
-
 
   const DropdownWidget({
     super.key,
@@ -48,18 +46,18 @@ class DropdownWidget extends StatelessWidget {
           ],
         ),
         // 下拉项列表
-        items: items?.map(
-          (item) => DropdownMenuItem<KeyValueModel>(
-            value: item,
-            child: TextWidget.body1(item.value),
-          )
-        ).toList(),
+        items: items
+            ?.map((item) => DropdownMenuItem<KeyValueModel>(
+                  value: item,
+                  child: TextWidget.body1(item.value),
+                ))
+            .toList(),
         // 选中项
         value: selectedValue,
         // 改变事件
         onChanged: onChanged,
         // 图标
-        iconStyleData:IconStyleData(
+        iconStyleData: IconStyleData(
           icon: IconWidget.icon(
             Icons.expand_more,
             color: iconColor ?? AppColors.primary,
@@ -68,12 +66,11 @@ class DropdownWidget extends StatelessWidget {
         // 按钮 padding
         buttonStyleData: ButtonStyleData(
           padding: buttonPadding ??
-            EdgeInsets.symmetric(horizontal: AppSpace.iconTextSmail),
+              EdgeInsets.symmetric(horizontal: AppSpace.iconTextSmail),
         ),
       ),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {

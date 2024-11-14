@@ -134,4 +134,17 @@ Map<String, String> localeZh = {
   LocaleKeys.myBtnBillingAddress: '发票地址',
   LocaleKeys.myBtnShippingAddress: '配送地址',
 
+  // 订单配送地址
+  LocaleKeys.addressViewTitle: '@type 地址',
+  LocaleKeys.addressFirstName: '姓',
+  LocaleKeys.addressLastName: '名',
+  LocaleKeys.addressCountry: '国家',
+  LocaleKeys.addressState: '洲省',
+  LocaleKeys.addressPostCode: '邮编',
+  LocaleKeys.addressCity: '城市',
+  LocaleKeys.addressAddress1: '地址 1',
+  LocaleKeys.addressAddress2: '地址 2',
+  LocaleKeys.addressCompany: '国家',
+  LocaleKeys.addressPhoneNumber: '电话号码',
+  LocaleKeys.addressEmail: '电子邮件',
 };

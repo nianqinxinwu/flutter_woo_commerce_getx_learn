@@ -37,7 +37,6 @@ class SearchIndexPage extends GetView<SearchIndexController> {
   // 列表
   Widget _buildList() {
     return ListView.separated(
-
       itemBuilder: (context, index) {
         TagsModel item = controller.tagsList[index];
         return _buildListItem(item);

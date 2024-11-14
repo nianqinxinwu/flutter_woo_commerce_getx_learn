@@ -13,21 +13,20 @@ class SearchFilterPage extends GetView<SearchFilterController> {
   // 搜索过滤栏
   Widget _buildFilterBar() {
     return <Widget>[
-
       // 排序 Best Match
       DropdownWidget(
         items: controller.orderList,
         hintText: controller.orderSelected.value,
         onChanged: controller.onOrderTap,
       )
-      .decorated(
-        border: Border.all(
-          color: AppColors.surfaceVariant,
-          width: 1,
-        ),
-      )
-      .height(40.h)
-      .expanded(),
+          .decorated(
+            border: Border.all(
+              color: AppColors.surfaceVariant,
+              width: 1,
+            ),
+          )
+          .height(40.h)
+          .expanded(),
 
       // 筛选 Filter
       ButtonWidget.dropdown(
@@ -36,7 +35,6 @@ class SearchFilterPage extends GetView<SearchFilterController> {
           Icons.expand_more,
           color: AppColors.primary,
         ),
-
         onTap: controller.onFilterOpenTap,
         textSize: 15,
         textColor: AppColors.secondary,
@@ -91,8 +89,7 @@ class SearchFilterPage extends GetView<SearchFilterController> {
         child: CustomScrollView(
           slivers: [
             // 数据列表
-            _buildListView()
-            .sliverPaddingHorizontal(AppSpace.button),
+            _buildListView().sliverPaddingHorizontal(AppSpace.button),
           ],
         ),
       ).expanded(),
@@ -106,7 +103,6 @@ class SearchFilterPage extends GetView<SearchFilterController> {
       id: "search_filter",
       builder: (_) {
         return Scaffold(
-
           // Keys
           key: controller.scaffoldKey,
 
@@ -116,7 +112,7 @@ class SearchFilterPage extends GetView<SearchFilterController> {
             leading: ButtonWidget.icon(
               IconWidget.icon(
                 Icons.arrow_back,
-                color:AppColors.primary,
+                color: AppColors.primary,
               ),
               onTap: () => Get.back(),
             ),

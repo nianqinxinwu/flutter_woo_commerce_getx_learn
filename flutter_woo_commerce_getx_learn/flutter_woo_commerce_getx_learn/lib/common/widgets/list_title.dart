@@ -3,7 +3,6 @@ import '../index.dart';
 
 /// 列表行 ListTitle 代替版本
 class ListTitleWidget extends StatelessWidget {
-
   /// 标题
   final Widget? title;
 
@@ -52,38 +51,38 @@ class ListTitleWidget extends StatelessWidget {
     List<Widget> ws = [];
 
     // 头部图标
-    if (leading!= null) {
+    if (leading != null) {
       ws.add(
         leading!.paddingRight(
-          leadingSpace?? AppSpace.iconTextSmail,
+          leadingSpace ?? AppSpace.iconTextSmail,
         ),
       );
     }
 
     // 标题/ 子标题/ 描述
     List<Widget> titles = [
-      if (title!= null) title!,
-      if (subtitle!= null) subtitle!,
-      if (description!= null) description!,
+      if (title != null) title!,
+      if (subtitle != null) subtitle!,
+      if (description != null) description!,
     ];
 
     MainAxisAlignment titleMainAxisAlignment = titles.length == 1
-      ? MainAxisAlignment.center
-      : MainAxisAlignment.spaceBetween;
+        ? MainAxisAlignment.center
+        : MainAxisAlignment.spaceBetween;
     ws.add(
       titles
-        .toColumn(
-          mainAxisAlignment: titleMainAxisAlignment,
-          crossAxisAlignment: crossAxisAlignment?? CrossAxisAlignment.start,
-        )
-        .expanded(),
+          .toColumn(
+            mainAxisAlignment: titleMainAxisAlignment,
+            crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.start,
+          )
+          .expanded(),
     );
 
     // 右侧图标
-    if (trailing!= null) {
+    if (trailing != null) {
       MainAxisAlignment trailingMainAxisAlignment = trailing!.length == 1
-       ? MainAxisAlignment.center
-        : MainAxisAlignment.spaceBetween;
+          ? MainAxisAlignment.center
+          : MainAxisAlignment.spaceBetween;
       ws.add(
         trailing!.toColumn(
           mainAxisAlignment: trailingMainAxisAlignment,
@@ -92,13 +91,13 @@ class ListTitleWidget extends StatelessWidget {
     }
 
     return ws
-            .toRow(
-              crossAxisAlignment: crossAxisAlignment?? CrossAxisAlignment.center,
-            )
-            .backgroundColor(Colors.transparent)
-            .padding(value: padding)
-            .onTap(onTap)
-            .onLongPress(onLongPress);
+        .toRow(
+          crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
+        )
+        .backgroundColor(Colors.transparent)
+        .padding(value: padding)
+        .onTap(onTap)
+        .onLongPress(onLongPress);
   }
 
   @override

@@ -3,7 +3,6 @@ import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:flutter_woo_commerce_getx_learn/pages/index.dart';
 import 'package:get/get.dart';
 
-
 class FilterView extends GetView<SearchFilterController> {
   const FilterView({super.key});
 
@@ -11,8 +10,6 @@ class FilterView extends GetView<SearchFilterController> {
   Widget _buildTitle(String title) {
     return TextWidget.body2(title).paddingBottom(AppSpace.listRow);
   }
-
-
 
   // 顶部 关闭
   Widget _buildTopBar() {
@@ -86,7 +83,6 @@ class FilterView extends GetView<SearchFilterController> {
     );
   }
 
-
   // 星级选择
   Widget _buildStars() {
     return GetBuilder<SearchFilterController>(
@@ -122,6 +118,7 @@ class FilterView extends GetView<SearchFilterController> {
       },
     );
   }
+
   // 性别选择
   Widget _buildGenders() {
     return GetBuilder<SearchFilterController>(
@@ -147,7 +144,7 @@ class FilterView extends GetView<SearchFilterController> {
   Widget _buildConditions() {
     return GetBuilder<SearchFilterController>(
       id: "filter_conditions",
-      builder: ( _) {
+      builder: (_) {
         return TagsListWidget(
           onTap: controller.onConditionTap,
           itemList: controller.conditions,
@@ -185,7 +182,7 @@ class FilterView extends GetView<SearchFilterController> {
       _buildTitle(LocaleKeys.searchFilterReview.tr),
       _buildStars(),
 
-       // 品牌
+      // 品牌
       _buildTitle(LocaleKeys.searchFilterBrand.tr),
       _buildBrands(),
 
@@ -208,10 +205,11 @@ class FilterView extends GetView<SearchFilterController> {
         height: 25,
       ),
       // end
-    ].toColumn(
-      crossAxisAlignment: CrossAxisAlignment.start,
-    )
-    .paddingHorizontal(AppSpace.page);
+    ]
+        .toColumn(
+          crossAxisAlignment: CrossAxisAlignment.start,
+        )
+        .paddingHorizontal(AppSpace.page);
   }
 
   @override

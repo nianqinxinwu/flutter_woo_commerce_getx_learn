@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:another_xlider/another_xlider.dart';
 import '../index.dart';
 
-
 /// 价格区间组件
 class PriceRangeWidget extends StatelessWidget {
   /// 当前值
@@ -27,8 +26,6 @@ class PriceRangeWidget extends StatelessWidget {
     this.max,
     this.min,
   });
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -94,26 +91,25 @@ class PriceRangeWidget extends StatelessWidget {
         ),
 
         // 右侧滑块
-          rightHandler: FlutterSliderHandler(
-            child: Container(
-              width: 6,
-              height: 6,
-              decoration: BoxDecoration(
+        rightHandler: FlutterSliderHandler(
+          child: Container(
+            width: 6,
+            height: 6,
+            decoration: BoxDecoration(
+              color: AppColors.highlight,
+              borderRadius: const BorderRadius.all(
+                Radius.circular(3),
+              ),
+              border: Border.all(
                 color: AppColors.highlight,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(3),
-                ),
-                border: Border.all(
-                  color: AppColors.highlight,
-                  width: 1,
-                ),
+                width: 1,
               ),
             ),
           ),
+        ),
         // 滑块拖动
         onDragging: onDragging,
       ),
-
     ].toColumn();
   }
 }
