@@ -7,7 +7,7 @@ import '../index.dart';
 
 /// 底部弹出对话框
 class ActionBottomSheet {
-   // 头部
+  // 头部
   static Widget _buildHeader({
     /// 标题
     String? title,
@@ -112,7 +112,7 @@ class ActionBottomSheet {
     );
   }
 
-   // Bar 对话框
+  // Bar 对话框
   static Future<void> barModel(
     Widget child, {
     BuildContext? context,
@@ -165,4 +165,3 @@ class ActionBottomSheet {
     );
   }
 }
-

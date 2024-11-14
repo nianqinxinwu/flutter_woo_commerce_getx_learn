@@ -31,7 +31,7 @@ class UserApi {
     return UserProfileModel.fromJson(res.data);
   }
 
-    /// 保存用户 billing address
+  /// 保存用户 billing address
   static Future<UserProfileModel> saveBillingAddress(Billing? req) async {
     var res = await WPHttpService.to.put(
       '/users/me',
@@ -53,8 +53,17 @@ class UserApi {
     return UserProfileModel.fromJson(res.data);
   }
 
-
   /// 大陆国家洲省列表
+  static Future<List<ContinentsModel>> continents() async {
+    var res = await WPHttpService.to.get(
+      '/users/continents',
+    );
 
+    List<ContinentsModel> continents = [];
+    for (var continent in res.data) {
+      continents.add(ContinentsModel.fromJson(continent));
+    }
+    return continents;
+  }
   /// 保存用户 first name 、 last name 、 email
 }

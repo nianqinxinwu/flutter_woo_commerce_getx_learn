@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_picker/flutter_picker.dart';
 import 'package:flutter_woo_commerce_getx_learn/common/index.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +24,6 @@ class MyAddressController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController countryController = TextEditingController();
   TextEditingController statesController = TextEditingController();
-
 
   Future<void> _initData() async {
     // 用户数据
@@ -51,10 +51,86 @@ class MyAddressController extends GetxController {
       countryController.text = profile.shipping?.country ?? "";
       statesController.text = profile.shipping?.state ?? "";
     }
+
+    // 拉取 大陆国家数据
+    await _fetchContinents();
+
+    // 国家代码
+    String countryCode = countryController.text;
+
+    // 国家选择器 - 选中 index
+    for(var i = 0; i < countriesList.length; i++) {
+      // 大陆
+      var continent = continents[i];
+      // 检查是否有选中国家
+      int iCountryIndex = continent.countries?.indexWhere((el) => el.code == countryCode) ?? 0;
+      if (iCountryIndex > 0) {
+        countrySels = [
+          i,
+          iCountryIndex,
+        ];
+        break;
+      }
+    }
+
+     // 洲省代码
+    String statesCode = statesController.text;
+    // 洲选择器数据
+    _filterStates(countryCode);
+    // 洲省选择器 - 选中 index
+    statesSels = [statesList.indexWhere((el) => el.key == statesCode)];
+
     update(["my_address"]);
   }
 
-    // 保存
+    // 国家选择
+  void onCountryPicker() async {
+    ActionBottomSheet.data(
+      title: 'Country',
+      context: Get.context!,
+      // 数据
+      adapter: PickerDataAdapter<KeyValueModel<String>>(
+        pickerData: countriesList,
+      ),
+      // 默认选中 [index, index]
+      selecteds: countrySels,
+      // 确认回调
+      onConfirm: (value) {
+        if (value.isEmpty) return;
+        if (value.length == 2) {
+          countryController.text = '${value[1].key}';
+          _filterStates(value[1].key); // 刷新洲数据
+        }
+      },
+    );
+  }
+
+  // 洲省数据
+  List<KeyValueModel> statesList = [];
+  // 洲省市选择
+  List<int> statesSels = [];
+
+    // 取洲省数据
+  void _filterStates(String countryCode) {
+    for (var i = 0; i < continents.length; i++) {
+      var continent = continents[i];
+      var country =
+          continent.countries!.firstWhereOrNull((el) => el.code == countryCode);
+      if (country != null) {
+        statesList = List.generate(country.states?.length ?? 0, (index) {
+          var state = country.states?.elementAt(index);
+          return KeyValueModel<String>(
+            key: state?.code ?? "-",
+            value: state?.name ?? "-",
+          );
+        });
+        break;
+      }
+    }
+  }
+
+
+  // 保存
   Future<void> onSave() async {
     if ((formKey.currentState as FormState).validate()) {
       UserProfileModel? profile;
@@ -96,6 +172,54 @@ class MyAddressController extends GetxController {
     }
   }
 
+
+  // 大陆国家洲省
+  List<ContinentsModel> continents = [];
+  // 大陆国家数据
+  List<Map<KeyValueModel, List<KeyValueModel>>> countriesList = [];
+
+    // 国家选择
+  List<int> countrySels = [];
+
+  // 拉取大陆国家洲省数据
+  Future<void> _fetchContinents() async {
+    continents = await UserApi.continents();
+    countriesList = List.generate(continents.length, (index) {
+      var entity = continents[index];
+      List<KeyValueModel> countryList = [];
+      for (Country country in entity.countries ?? []) {
+        countryList.add(KeyValueModel<String>(
+          key: country.code ?? "-",
+          value: country.name ?? "-",
+        ));
+      }
+      return {
+        KeyValueModel<String>(
+          key: entity.code ?? "-",
+          value: entity.name ?? "-",
+        ): countryList,
+      };
+    });
+  }
+
+  // 洲市选择
+  void onStatesPicker() async {
+    ActionBottomSheet.data(
+      title: 'States',
+      context: Get.context!,
+      // 数据
+      adapter: PickerDataAdapter<KeyValueModel>(
+        pickerData: statesList,
+      ),
+      // 默认选中 [index]
+      selecteds: statesSels,
+      // 确认回调
+      onConfirm: (value) {
+        if (value.isEmpty) return;
+        statesController.text = '${value[0].key}';
+      },
+    );
+  }
 
   void onTap() {}
 
