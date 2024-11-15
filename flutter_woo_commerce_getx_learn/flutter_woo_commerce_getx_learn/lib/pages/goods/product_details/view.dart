@@ -179,6 +179,7 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
           ].toColumn();
   }
 
+  // 底部按钮
   Widget _buildButtons() {
     return controller.product == null
         ? const SizedBox.shrink() // 占位图
@@ -190,6 +191,7 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
               // 加入购物车
               ButtonWidget.secondary(
                 LocaleKeys.gDetailBtnAddCart.tr,
+                onTap: controller.onAddCartTap,
               ).expanded(),
               // 间距
               SizedBox(

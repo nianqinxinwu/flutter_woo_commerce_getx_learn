@@ -24,6 +24,9 @@ class Global {
 
     // 用户信息相关
     Get.put<UserService>(UserService());
+
+    // 注入购物车信息相关服务
+    Get.put<CartService>(CartService());
   }
 
   // 系统样式

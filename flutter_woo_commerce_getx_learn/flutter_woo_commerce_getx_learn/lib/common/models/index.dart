@@ -16,6 +16,7 @@ export './woo/attribute_model/attribute_model.dart';
 export './woo/review_model/review_model.dart';
 export './woo/tags_model/tags_model.dart';
 export './woo/order_model/order_model.dart';
+export './woo/order_model/line_item.dart';
 export './woo/order_model/billing.dart';
 export './woo/order_model/shipping.dart';
 export './woo/continents_model/continents_model.dart';

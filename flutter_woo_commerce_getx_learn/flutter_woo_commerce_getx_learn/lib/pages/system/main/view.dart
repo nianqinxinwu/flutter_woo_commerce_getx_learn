@@ -49,7 +49,7 @@ class _MainViewGetX extends GetView<MainController> {
         bottomNavigationBar: GetBuilder<MainController>(
           id: 'navigation',
           builder: (controller) {
-            return BuildNavigation(
+            return Obx(() => BuildNavigation(
               currentIndex: controller.currentIndex,
               items: [
                 // 首页
@@ -62,7 +62,7 @@ class _MainViewGetX extends GetView<MainController> {
                 NavigationItemModel(
                   label: LocaleKeys.tabBarCart.tr,
                   icon: AssetsSvgs.navCartSvg,
-                  count: 3,
+                  count: CartService.to.lineItemsCount,
                 ),
 
                 // 信息
@@ -79,6 +79,7 @@ class _MainViewGetX extends GetView<MainController> {
                 ),
               ],
               onTap: controller.onJumpToPage, // 切换tab事件
+            )
             );
           },
         ),
