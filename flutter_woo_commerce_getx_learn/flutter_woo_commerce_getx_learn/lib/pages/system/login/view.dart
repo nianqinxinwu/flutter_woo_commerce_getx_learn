@@ -44,12 +44,20 @@ class LoginPage extends GetView<LoginController> {
               ),
             ),
           ]),
-        ),
+        )
+        .paddingBottom(AppSpace.listRow),
 
         // 忘记密码
         TextWidget.body1(LocaleKeys.loginForgotPassword.tr)
-            .alignRight()
-            .paddingBottom(50.w),
+        .alignRight()
+        .paddingBottom(AppSpace.listRow),
+
+        // 注册
+        ButtonWidget.text(
+          LocaleKeys.loginSignUp.tr,
+          onTap: controller.onSignUp,
+        ).alignRight()
+        .paddingBottom(AppSpace.listRow),
 
         // 登录按钮
         ButtonWidget.primary(
