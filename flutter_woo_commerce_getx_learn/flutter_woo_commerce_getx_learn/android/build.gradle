@@ -1,12 +1,13 @@
 buildscript {
-    ext.kotlin_version = '1.7.0'
+    ext.kotlin_version = '1.8.10'
     repositories {
         google()
+        jcenter()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.3'
+        classpath 'com.android.tools.build:gradle:8.1.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -14,14 +15,39 @@ buildscript {
 allprojects {
     repositories {
         google()
+        jcenter()
         mavenCentral()
     }
 }
 
 rootProject.buildDir = "../build"
+//subprojects {
+//    project.buildDir = "${rootProject.buildDir}/${project.name}"
+//}
 subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    afterEvaluate { project ->
+        if (project.plugins.hasPlugin('com.android.library') || project.plugins.hasPlugin('com.android.application')) {
+            println "project: ${project.name} Namespace get: ${project.android.namespace}"
+            def packageName = project.android.namespace ?: project.android.defaultConfig.applicationId ?: project.android.sourceSets.main.manifest.srcFile.text.find(/package="([^"]*)"/) ?: project.group
+            project.android.namespace = packageName
+            println "Namespace set to: ${packageName} for project: ${project.name}"
+            def manifestFile = project.android.sourceSets.main.manifest.srcFile
+            if (manifestFile.exists()) {
+                def manifestText = manifestFile.text
+                if (manifestText.contains('package=')) {
+                    manifestText = manifestText.replaceAll(/package="[^"]*"/, "")
+                    manifestFile.text = manifestText
+                    println "Package attribute removed in AndroidManifest.xml for project: ${project.name}"
+                } else {
+                    println "No package attribute found in AndroidManifest.xml for project: ${project.name}"
+                }
+            } else {
+                println "AndroidManifest.xml not found for project: ${project.name}"
+            }
+        }
+    }
 }
+
 subprojects {
     project.evaluationDependsOn(":app")
 }

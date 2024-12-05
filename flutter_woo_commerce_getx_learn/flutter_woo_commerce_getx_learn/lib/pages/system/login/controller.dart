@@ -16,7 +16,7 @@ class LoginController extends GetxController {
 
   // Sign In
   Future<void> onSignIn() async {
-    if ((formKey.currentState as FormState).validate()) {
+    // if ((formKey.currentState as FormState).validate()) {
       try {
         Loading.show();
 
@@ -38,7 +38,7 @@ class LoginController extends GetxController {
       } finally {
         Loading.dismiss();
       }
-    }
+    // }
   }
 
   void onSignUp() {
